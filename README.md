@@ -3,7 +3,7 @@
 ## 2026-01-28
 
 ### Session Summary
-Extensive edits to `admeas202601.qmd` Quarto revealjs presentation for MGTA 451 Marketing course.
+Extensive edits to `admeas.qmd` Quarto revealjs presentation for MGTA 451 Marketing course.
 
 ### Key Changes Made
 
@@ -61,8 +61,8 @@ Fixed PDF export to use landscape orientation.
 
 ### Files Modified
 - `custom.css`: Added print media query with landscape page size
-- `admeas202601.html`: Re-rendered
-- `admeas202601-slides.pdf`: Regenerated in landscape orientation
+- `admeas.html`: Re-rendered
+- `admeas-slides.pdf`: Regenerated in landscape orientation
 
 ## 2026-02-04
 
@@ -162,6 +162,6 @@ Extensive text edits across 24 slides to improve clarity, precision, and accurac
 - No overflow issues detected
 
 ### Files Modified
-- `admeas202601.qmd`: 24 slides edited
-- `admeas202601.html`: Re-rendered
+- `admeas.qmd`: 24 slides edited
+- `admeas.html`: Re-rendered
 - `CLAUDE.md`: Added slide numbering convention

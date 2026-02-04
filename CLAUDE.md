@@ -8,8 +8,8 @@ This project contains the "Advertising Measurement" lecture slides for UCSD MGTA
 
 | File | Description |
 |------|-------------|
-| `admeas202601.qmd` | Main slide deck (active development) |
-| `admeas202601.html` | Rendered HTML slides |
+| `admeas.qmd` | Main slide deck (active development) |
+| `admeas.html` | Rendered HTML slides |
 | `custom.css` | CSS overrides (flexbox layout, source-url positioning) |
 | `images/` | Active images used in the presentation |
 | `archive/` | Test files and unused images |
@@ -161,7 +161,7 @@ The shell script `AMimages/generate-grading-homework.sh` serves as a reference i
 
 ## Workflow Requirements
 
-- **Always re-render after edits:** After any change to `admeas202601.qmd`, re-render both HTML (`quarto render`) and PDF (Chromium headless), then visually verify the affected slides using `pdftoppm` screenshots
+- **Always re-render after edits:** After any change to `admeas.qmd`, re-render both HTML (`quarto render`) and PDF (Chromium headless), then visually verify the affected slides using `pdftoppm` screenshots
 - **Verify before reporting completion:** Do not report a task as done until visual verification confirms the change rendered correctly
 
 ## Style Preferences
@@ -268,7 +268,7 @@ All source links use the `.source-url` class for consistent footer positioning:
 - **Verification:** Screenshots confirmed proper rendering of all modified slides
 - **Files modified:**
   - `custom.css`: Flexbox layout changes
-  - `admeas202601.qmd`: Slide content updates
+  - `admeas.qmd`: Slide content updates
   - `images/stlfed-big4adrevbyyear-cropped.png`: Cropped
   - `images/stlfed-big4profitpct-cropped.png`: Cropped
 
@@ -294,17 +294,17 @@ All source links use the `.source-url` class for consistent footer positioning:
   9. **Text edits across multiple slides:** Various wording refinements per user requests
 - **Verification:** Generated PDF and verified all slides render correctly with proper bullet hierarchy and formatting
 - **Files modified:**
-  - `admeas202601.qmd`: Extensive slide content updates
+  - `admeas.qmd`: Extensive slide content updates
   - `gtag.html`: New file for Google Analytics
   - `custom.css`: Minor refinements
   - `images/supplychainleakage.png`: Cropped
   - `images/ad_dimensionality.png`: Cropped
   - `images/ebiquity_lumen_2024_figure4.png`: Extracted from PDF and cropped
   - `images/adsalesratios2024.png`: Cropped to remove attribution text
-- **Next session:** Import remaining slides from the full slide deck into admeas202601.qmd
+- **Next session:** Import remaining slides from the full slide deck into admeas.qmd
 
 ### 2026-01-20
-- **Task:** Import next 20 slides from archived deck into admeas202601.qmd
+- **Task:** Import next 20 slides from archived deck into admeas.qmd
 - **Actions performed:**
   1. Identified slides to import from archive/2025mgta451-2-Advertising-Measurement.qmd
   2. Imported and converted 20 slides to new template format (callout boxes, source-url class, 400px image heights):
@@ -328,12 +328,12 @@ All source links use the `.source-url` class for consistent footer positioning:
      - Slide 35: So What Can We Do?
      - Slide 36: How Much Does Causality Matter?
      - Slide 37: Advertising Measurement (section header)
-  3. Rendered HTML and generated 38-page PDF (admeas202601-slides.pdf, 14.3 MB)
+  3. Rendered HTML and generated 38-page PDF (admeas-slides.pdf, 14.3 MB)
 - **Verification:** PDF page count confirmed at 38 pages (37 slides + title)
 - **Files modified:**
-  - `admeas202601.qmd`: Added 20 slides (now 38 total including title)
-  - `admeas202601.html`: Re-rendered
-  - `admeas202601-slides.pdf`: Regenerated (14.3 MB, 38 pages)
+  - `admeas.qmd`: Added 20 slides (now 38 total including title)
+  - `admeas.html`: Re-rendered
+  - `admeas-slides.pdf`: Regenerated (14.3 MB, 38 pages)
 - **Note:** Required 60s virtual-time-budget for PDF generation with 38 slides
 - **Next session:** Continue importing remaining slides from archive (Correlational Advertising Measurement, Causal Advertising Measurement, Industry Practices, MMM, Career sections)
 
@@ -371,9 +371,9 @@ All source links use the `.source-url` class for consistent footer positioning:
 - **Verification:** PDF generated with 60 pages (some slides span multiple pages), 21.7 MB
 - **Note:** Required 120s virtual-time-budget for PDF generation with 58 slides
 - **Files modified:**
-  - `admeas202601.qmd`: Text edits + 20 new slides
-  - `admeas202601.html`: Re-rendered
-  - `admeas202601-slides.pdf`: Regenerated (21.7 MB, 60 pages)
+  - `admeas.qmd`: Text edits + 20 new slides
+  - `admeas.html`: Re-rendered
+  - `admeas-slides.pdf`: Regenerated (21.7 MB, 60 pages)
 - **Next session:** Continue importing remaining slides (Why OK pt 3, Ad measurement trends, Causal measurement, Industry practices, MMM, Career sections)
 
 ### 2026-01-20 (Final Import)
@@ -412,9 +412,9 @@ All source links use the `.source-url` class for consistent footer positioning:
 - **Verification:** PDF generated with 95 pages (34.7 MB), all slides render correctly
 - **Note:** Required 180s virtual-time-budget for PDF generation with 93 slides
 - **Files modified:**
-  - `admeas202601.qmd`: Complete deck (93 slides)
-  - `admeas202601.html`: Re-rendered
-  - `admeas202601-slides.pdf`: Final PDF (34.7 MB, 95 pages)
+  - `admeas.qmd`: Complete deck (93 slides)
+  - `admeas.html`: Re-rendered
+  - `admeas-slides.pdf`: Final PDF (34.7 MB, 95 pages)
 - **Status:** DECK COMPLETE - All slides imported from archive
 
 ### 2026-01-21
@@ -432,8 +432,8 @@ All source links use the `.source-url` class for consistent footer positioning:
   4. Re-rendered HTML successfully
 - **Verification:** HTML renders without errors, both new slides appear correctly after eBay case study
 - **Files modified:**
-  - `admeas202601.qmd`: Added 2 new slides (now 95 slides)
-  - `admeas202601.html`: Re-rendered
+  - `admeas.qmd`: Added 2 new slides (now 95 slides)
+  - `admeas.html`: Re-rendered
   - `images/simonov_nosko_rao_2017_fig8.png`: New cropped figure
 
 ### 2026-01-22
@@ -457,8 +457,8 @@ All source links use the `.source-url` class for consistent footer positioning:
   8. **Added Custom Graphics Style Guide** to CLAUDE.md documenting style choices from grading-own-homework.svg
 - **Verification:** HTML renders correctly after each change
 - **Files modified:**
-  - `admeas202601.qmd`: Multiple slide edits, 2 new slides added
-  - `admeas202601.html`: Re-rendered
+  - `admeas.qmd`: Multiple slide edits, 2 new slides added
+  - `admeas.html`: Re-rendered
   - `CLAUDE.md`: Added Custom Graphics Style Guide section
   - Renamed `images/` → `AMimages/`
 - **Next session:** Continue with slides 37+
