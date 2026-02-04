@@ -1,0 +1,228 @@
+---
+title: "Advertising Measurement"
+subtitle: "Template Test — UCSD MGTA 451"
+author:
+  - name: Kenneth C. Wilbur
+    affiliations: University of California, San Diego
+date: last-modified
+date-format: "[License: CC BY 4.0]"
+format:
+  clean-revealjs:
+    slide-number: c
+    chalkboard:
+      buttons: false
+    css: custom.css
+---
+
+## Agenda
+
+-   Advertising Importance
+-   Causality
+-   Fundamental Problem of Causal Inference
+-   Advertising Measurement
+-   Correlational Advertising Measurement
+-   Causal Advertising Measurement
+-   Industry practices
+-   Marketing Mix Models
+-   Career considerations
+
+::: aside
+Press C to temporarily draw on the slides
+:::
+
+## Advertising sales revenue, 1950-2019
+
+![](images/benedictevans-adrev.png){fig-align="center" width="10.5in"}
+
+::: {.callout-note appearance="minimal"}
+For 70 years, between $0.95-1.50 of every dollar spent in America bought an ad. These figures include payments to publishers (i.e., entities that sell consumer attention) and exclude supply chain fees (e.g., ad agencies).
+:::
+
+::: {.source-url}
+https://www.ben-evans.com/benedictevans/2020/6/14/75-years-of-us-advertising
+:::
+
+::: notes
+Around 1 out of every \$100 spent in the US buys an ad. Appears to tally ad seller revenues, excluding ad supply chain fees.
+:::
+
+##
+
+![](images/margarine.svg){fig-align="center" width="9in"}
+
+## Classic misleading correlations
+
+-   "Lucky socks" and sports wins
+
+    ```
+        - Post hoc fallacy [1] (precedence indicates causality AKA superstition)
+    ```
+
+-   Commuters carrying umbrellas and rain
+
+    ```
+        - Forward-looking behavior
+    ```
+
+-   Kids receiving tutoring and grades
+
+    ```
+        - Reverse causality / selection bias
+    ```
+
+-   Ice cream sales and drowning deaths
+
+    ```
+        - Unobserved confounds
+    ```
+
+-   Correlations are measurable & usually predictive, but hard to interpret causally
+
+    ```
+        - Correlation-based beliefs are hard to disprove and therefore sticky
+        - Correlations that reinforce logical theories are especially sticky
+        - Correlation-based beliefs may or may not reflect causal relationships
+    ```
+
+::: {.source-url}
+https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc
+:::
+
+## "Revenue too high alert"
+
+![](images/BingRevenueTooHighTreatment.png){fig-align="center" height="6in"}
+
+::: {.source-url}
+https://hbr.org/2017/09/the-surprising-power-of-online-experiments
+:::
+
+::: notes
+This AB test triggered a "revenue too high" alert at Microsoft Bing in 2012 The treatment improved horizontal space usage and enlarged a selling argument in search ads Bing had a robust experimentation platform and culture. They run over 10k tests/year The RTH alert indicates a possible code error that might be defrauding advertisers In this case it was just a really big treatment effect, biggest ever. This change increased revenue 12% without significant harm to user experience metrics. Over \$100 million per year We can explain it ex post (HARKing) but nobody expected such a big effect
+:::
+
+## Why care?
+
+-   We want to maximize profits $\Pi = \Sigma_i \pi_i(Y_i(T_i), T_i)$
+
+-   Suppose $Y_i=1$ contributes to revenue; then $\frac{\partial \pi_i}{\partial Y_i} >0$
+
+-   Suppose $T_i=1$ has a known cost, so $\frac{\partial \pi_i}{\partial T_i} <0$
+
+-   Effect of $T_i=1$ on $\pi_i$ is $\frac{d\pi_i}{dT_i}=\frac{\partial \pi_i}{\partial Y_i}\frac{\partial Y_i}{\partial T_i}+\frac{\partial \pi_i}{\partial T_i}$
+
+-   We have to know $\frac{\partial Y_i}{\partial T_i}$ to optimize $T_i$ assignments
+
+    ```
+      - Called the "treatment effect" (TE)
+    ```
+
+-   Profits may decrease if we misallocate $T_i$
+
+## **Fundamental Problem of Causal Inference**
+
+-   We can only observe **either** $Y_i(T_i=1)$ **or** $Y_i(T_i=0)$, but not both, for each person $i$
+
+    ```
+        - The case we don't observe is called the "counterfactual"
+    ```
+
+-   This is a missing-data problem that we cannot resolve. We only have one reality
+
+    ```
+        - A major reason we build models is to compensate for missing data
+    ```
+
+::: {.source-url}
+https://en.wikipedia.org/wiki/Rubin_causal_model
+:::
+
+## 3. Multi-Touch Attribution (MTA)
+
+Get individual-level data on every touchpoint for every purchaser
+
+```
+      - Includes earned media (PR, reviews, organic social), owned media (website, content marketing, email) & paid media (<--ads; also, paid influencer & affiliate)
+      - Often sourced from third parties
+
+```
+
+Choose a rule to attribute purchases to touchpoints
+
+```
+      - Single-touch rules: Last-touch, first-touch
+      - Multi-touch rules: Fractional credit, Shapley
+      Historically, Last-touch was popular
+```
+
+MTA algorithm searches for touchpoint parameters that best-fit the conversion data given the rule
+
+```
+      - Credit then informs future budget allocations
+      - MTA is designed to maximize attributions
+      - MTA assumes advertising is the *sole* driver of conversions
+```
+
+MTA is mostly dead due to privacy and platform reporting changes
+
+```
+      - Governments, platforms, browsers, OS have all restricted MTA input data for privacy
+      - Some advertisers' MTA lives on due to inertia, despite signal loss
+      - Large platforms offer MTA results within the platform
+```
+
+::: {.source-url}
+https://drive.google.com/file/d/1n3Jio5ggXfkzw1qCS2lmKJsm6kyPdQxA/view?usp=drive_link
+:::
+
+## U.S. v Google (2024, search case)
+
+![](images/usvgoogle2024.png){fig-align="center" width="10in"}
+
+::: {.source-url}
+https://files.lbr.cloud/public/2024-08/045110819896.pdf (pgs 76-101)
+:::
+
+::: notes
+-   This was written by a federal judge, an impartial observer who heard mountains of evidence on both sides
+-   Note that he quotes internal google documents extensively
+-   Was it legal that google tried to hide price increases from advertisers? Arguably yes, google is supposed to maximize google profits, though you could argue the practice was unethical or too short-term-focused. The case was about whether google monopolized the search engine market by excluding competitors, not whether google was supposed to be transparent about why auction prices increased. This point was simply a fact in the case that the government used to counter google's claim that it could not control ad auction prices, and therefore did not have monopolist pricing power.
+:::
+
+## Ad Experiments: Common Designs {.scrollable}
+
+1.  Randomly assign ads to customer groups on a platform; measure sales in each group
+
+    ```
+    - Pros: AB testing is easy to understand, rules out alternate explanations
+    - Cons: Can we trust the platform's "black box"? Will we get the data and all available insights?
+    ```
+
+2.  Randomize messages within a campaign. Mine competitor messages in [ad libraries](https://indicator.media/p/a-guide-to-investigating-digital){target="_blank"} for ideas
+
+          - Often a great place to start
+
+3.  Randomize budget across times & places ("Geo tests")
+
+4.  Randomize bids and/or consumer targeting criteria
+
+5.  Randomize budget over platforms, publishers, behavioral targets, contexts
+
+    ```
+      - Experimental design describes how we create data to enable treatment/control comparisons. Experimental data are amenable to any number of models or statistical analyses.
+      - Causal identification is a property of the data, not the model
+    ```
+
+## Muy importante {.scrollable}
+
+Before you kick off your test ...
+
+```
+    - Run A:A test before your first A:B test. Validate the infrastructure before you rely on the result. A:A test can fail for numerous reasons
+
+    - Can we agree on the opportunity cost of the experiment? "Priors"
+
+    - How will we act on the (uncertain) findings? Have to decide before we design. We don't want "science fair projects"
+
+    - Simple example: Suppose we estimate iROAS at 1.5 with c.i. [1.45, 1.55]. Or, suppose we estimate RoAS at 1.5 with c.i. [-1.1, 4.1]. What actions would follow each?
+
+```
