@@ -521,16 +521,26 @@ Incrementality & MMM were trends #1 & #2; the only other trend was e-commerce me
 [AdExchanger (2024)](https://www.adexchanger.com/marketers/the-ad-measurement-trends-that-reshaped-online-advertising-this-year/){target="_blank"}
 :::
 
-## Google Trends: Ad Experiments
+## Ad Experiments in GTrends and Buy-side Surveys
 
-![](AMimages/gtrends_adexp.png){fig-align="center" height="400px"}
+:::: {.columns}
+
+::: {.column width="45%"}
+![](AMimages/gtrends_adexp.png){fig-align="center" height="280px"}
+:::
+
+::: {.column width="55%"}
+![](AMimages/iab admeas survey 2026.png){fig-align="center" height="280px"}
+:::
+
+::::
 
 ::: {.callout-note appearance="minimal"}
 We're a few years into a generational shift. Smaller, independent ad agencies are making the most noise about incrementality. However, corr(ad,sales) is not going away. Union(correlations, experiments) should exceed either alone.
 :::
 
 ::: {.source-url}
-[Google Trends](https://trends.google.com/explore?q=incrementality%2Cadvertising%2520experiment%2Cad%2520experiment%2Cmarketing%2520mix%2520model&date=2016-01-01%202025-12-31&geo=US&gprop=web){target="_blank"}
+[Google Trends](https://trends.google.com/explore?q=incrementality%2Cadvertising%2520experiment%2Cad%2520experiment%2Cmarketing%2520mix%2520model&date=2016-01-01%202025-12-31&geo=US&gprop=web){target="_blank"} | [IAB (2026)](https://drive.google.com/file/d/1nuaUAlV54pDdWyAhd_9I_rFkMi3xeJ2d/view?usp=drive_link){target="_blank"}
 :::
 
 # Fundamental Problem of Causal Inference

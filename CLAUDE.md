@@ -107,6 +107,7 @@ The clean-revealjs template provides these custom classes:
 
 - Use fixed pixel heights (`height="400px"`) for consistent results across slides
 - Percentage-based heights do not work reliably in reveal.js due to CSS inheritance chain issues
+- **Do not change aspect ratios of graphics.** Specify only height (not width) to preserve original proportions. When placing two images side-by-side, check their native dimensions and adjust column widths to accommodate different aspect ratios
 - **Crop white space from images** when applying the new template to old slides (remove labels, source citations, excess margins from image files themselves)
 
 ## Custom Graphics Style Guide

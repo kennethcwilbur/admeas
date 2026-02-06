@@ -165,3 +165,23 @@ Extensive text edits across 24 slides to improve clarity, precision, and accurac
 - `admeas.qmd`: 24 slides edited
 - `admeas.html`: Re-rendered
 - `CLAUDE.md`: Added slide numbering convention
+
+## 2026-02-06
+
+### Session Summary
+Enhanced slide #37 with two-column layout and IAB survey graphic.
+
+### Changes Made
+1. **Slide 37 (Google Trends: Ad Experiments):** Added second source "IAB (2026)" with Google Drive link, separated by pipe character
+2. **Slide 37 layout:** Converted to two-column layout (45%/55%) with:
+   - Left: Google Trends graphic (280px height, 16:9 aspect ratio preserved)
+   - Right: IAB admeas survey 2026.png (280px height, ~2:1 aspect ratio preserved)
+3. **Slide 37 title:** Changed from "Google Trends: Ad Experiments" to "Ad Experiments in GTrends and Buy-side Surveys"
+
+### Verification
+- Screenshot confirms both graphics display side by side with callout and sources below
+
+### Files Modified
+- `admeas.qmd`: Two-column layout for slide 37
+- `admeas.html`: Re-rendered
+- `admeas-slides.pdf`: Regenerated (37.3 MB, 98 pages)
