@@ -177,6 +177,8 @@ Enhanced slide #37 with two-column layout and IAB survey graphic.
    - Left: Google Trends graphic (280px height, 16:9 aspect ratio preserved)
    - Right: IAB admeas survey 2026.png (280px height, ~2:1 aspect ratio preserved)
 3. **Slide 37 title:** Changed from "Google Trends: Ad Experiments" to "Ad Experiments in GTrends and Buy-side Surveys"
+4. **Slide 94:** Added new section header "Wrapping Up" with sub-bullet "Takeaways, Resources for further study, Acknowledgements"
+5. **Slide 96 (formerly "Going Deeper"):** Renamed to "Resources for Further Study"; added bullets for content providers (Adexchanger, Adweek, Digiday, Marketecture) and Project Eidos
 
 ### Verification
 - Screenshot confirms both graphics display side by side with callout and sources below

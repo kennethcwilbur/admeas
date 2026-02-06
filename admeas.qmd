@@ -962,6 +962,22 @@ Platforms usually tune ad delivery algorithms to maximize post-advertising conve
 [Haus (2025)](https://www.haus.io/blog/what-youre-actually-measuring-in-a-platform-a-b-test){target="_blank"} | [Braun & Schwartz (2025)](https://drive.google.com/file/d/11BhiE3wJqaKQ9S73Mjt1hbZJRhkvZvv5/view?usp=drive_link){target="_blank"}
 :::
 
+## Display Ad Experiments can be Tricky {.smaller}
+
+- Noisy environments: Treatments compete with advertisers, rivals, content, algorithms and market conditions, and interactions abound
+    - Similar to how we have limited causal knowledge about nutrition and human welfare
+- Compliance: Ad blocking, ad avoidance, non-visibility and non-delivery can all prevent treatment
+- Identity fragmentation: User may be treated on mobile, then convert on nontreated device or nontreated channel (e.g., retail store)
+- Platforms optimize for total conversions, not incremental conversions
+
+::: {.callout-note appearance="minimal"}
+Johnson's "Inferno" guide reviews these challenges and best practices for experimenters working at the frontier of digital advertising research.
+:::
+
+::: {.source-url}
+[Johnson (2023)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396){target="_blank"}
+:::
+
 ## Productive Experiments... {.smaller}
 
 - Serve customer interests
@@ -1228,6 +1244,10 @@ Companies with deep experimental practices tend to get much better results per a
 Leading a traditional team to adopt incrementality can be a resume headline and interesting challenge, especially if you apply it to solve your hardest challenge. However, it requires leadership support, you usually cannot do it alone. If structural incentives misalign, consider a new role.
 :::
 
+# Wrapping Up
+
+- Takeaways, Resources for further study, Acknowledgements
+
 ## Takeaways
 
 - Fundamental Problem of Causal Inference: We can't observe all data needed to optimize actions. This is a missing-data problem, not a modeling problem.
@@ -1239,11 +1259,13 @@ Leading a traditional team to adopt incrementality can be a resume headline and 
 
 ![](AMimages/recap.png){fig-align="right" height="150px"}
 
-## Going Deeper {.smaller}
+## Resources for Further Study {.smaller}
 
 - [Paparo (2025)](https://www.amazon.com/Yield-Google-Bullied-Advertising-Dominance/dp/B0F67HV2BB){target="_blank"}: Insider's account of programmatic advertising development from 2000-2025
 
-- [Johnson (2023)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396){target="_blank"}: Covers frequent problems in online advertising experiments
+- Content providers to follow: [Adexchanger](https://www.adexchanger.com/){target="_blank"}, [Adweek](https://www.adweek.com/){target="_blank"}, [Digiday](https://digiday.com/){target="_blank"}, [Marketecture](https://www.marketecture.tv/){target="_blank"}
+
+- [Project Eidos](https://www.iab.com/topics/project-eidos/){target="_blank"}: IAB's effort to define admeas principles, standards, and frameworks
 
 - [Gordon et al. (2020)](https://arxiv.org/abs/1912.09012){target="_blank"}: Discusses iROAS estimation challenges and remedies
 
