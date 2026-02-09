@@ -568,7 +568,7 @@ We're a few years into a generational shift. Smaller, independent ad agencies ar
 - Suppose $T_i=1$ has a known cost, so $\frac{\partial \pi_i}{\partial T_i} <0$
 - Effect of $T_i=1$ on $\pi_i$ is $\frac{d\pi_i}{dT_i}=\frac{\partial \pi_i}{\partial Y_i}\frac{\partial Y_i}{\partial T_i}+\frac{\partial \pi_i}{\partial T_i}$
 - We have to know $\frac{\partial Y_i}{\partial T_i}$ to optimize $T_i$ assignments
-    - Called the "treatment effect" (TE); can be approximated by 𝑌𝑖⁡(𝑇𝑖 =1) - 𝑌𝑖⁡(𝑇𝑖 =0)
+    - Called the "treatment effect" (TE); can be approximated by $Y_i(T_i=1) - Y_i(T_i=0)$
 - Profits may decrease if we misallocate $T_i$
     - E.g., buy ads targeting people with inefficiently low response rates
 
