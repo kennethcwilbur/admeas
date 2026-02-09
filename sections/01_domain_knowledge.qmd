@@ -1,0 +1,306 @@
+# Domain Knowledge
+
+- Broad context to motivate and interpret advertising measurement
+
+## Advertising sales revenue, 1950-2019
+
+![](AMimages/benedictevans-adrev.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+For 70 years, between $0.95-1.50 of every $100 spent in America bought an ad. These figures report advertising sales revenue to publishers (i.e., entities that attract and sell consumer attention) and exclude supply chain fees (e.g., ad agencies), which are considerable. What else do you see?
+:::
+
+::: {.source-url}
+[Evans (2020)](https://www.ben-evans.com/benedictevans/2020/6/14/75-years-of-us-advertising){target="_blank"}
+:::
+
+::: notes
+Around 1 out of every \$100 spent in the US buys an ad. Appears to tally ad seller revenues, excluding ad supply chain fees.
+:::
+
+## Online Ad Revenues, 2020-2024
+
+![](AMimages/IARRgrowthbyformat2020-24-cropped.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+These data expand the Internet bar. The Interactive Advertising Bureau collects ad sales revenue by format from online ad sellers and supply chain firms. Total spending grew from $132.3B in 2020 to $246.9B in 2024. What else do you see?
+:::
+
+::: {.source-url}
+[IAB (2025)](https://www.iab.com/wp-content/uploads/2025/04/IAB_PwC-Internet-Ad-Revenue-Report-Full-Year-2024.pdf){target="_blank"}
+:::
+
+::: notes
+Revenue growth remains substantial
+:::
+
+## Large Sellers' Ad Revenues as % of US GDP, 2002-23
+
+![](AMimages/stlfed-big4adrevbyyear-cropped.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Online advertising sales are increasingly dominated by a few large firms. We used to call them "the duopoly," but now we call them "the triopoly."
+:::
+
+::: {.source-url}
+[Marto and Le (2024)](https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications){target="_blank"}
+:::
+
+::: notes
+:::
+
+## Large Ad Sellers' Profit Percentage, 2002-2023
+
+![](AMimages/stlfed-big4profitpct-cropped.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Online advertising sales is a remarkably high-margin line of business, in part due to limited marginal costs, high efficiencies, and supply-side concentration. Note, these percentages are across all lines of business. What might these profit margins indicate to ad buyers?
+:::
+
+::: {.source-url}
+[Marto and Le (2024)](https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications){target="_blank"}
+:::
+
+::: notes
+Selling ads is a high-margin business for some companies, compared to other services
+:::
+
+## Toy economics of advertising {.smaller}
+
+- Suppose we pay \$10 to buy 1,000 digital ad OTS. Suppose 3 people click, 1 person buys.
+- Ad profit > 0 if transaction margin > \$10
+    - But we bought ads for 999 people who didn't buy
+- Or, ad profit > 0 if CLV > \$10
+    - Long-term mentality justifies increased ad budget
+- Or, ad profit > 0 if CLV > \$10 *and* if the customer would not have purchased otherwise
+    - This is "incrementality"
+    - But how would we know if they would have purchased otherwise?
+- Ad effects are subtle--typically, 99.5-99.9% *don't* convert--but ad profit can still be robust
+    - Ad profit depends on ad cost, conversion rate, margin ... and how we formulate our objective function
+    - Exception: Search ads may convert at 1-10+%, but incrementality questions are even bigger
+
+::: notes
+How important is that incrementality point?
+:::
+
+## Right ad, right person, right context, right time? {.smaller}
+
+- Imagine you're selling mortgages. Mortgage lenders offer numerous loans at distinct price points. Yet 78% of consumers say they only apply to a single lender/broker for a quote ([FHFA 2024](https://www.fhfa.gov/sites/default/files/2024-06/v50-Appendix-C.pdf){target="_blank"}), and most borrowers actively seek a loan for only a few days or less
+- To advertise profitably, you may need to find people who
+    - Can qualify for a loan
+    - Actively want to buy a new home
+    - Are thinking about the finance process
+    - Have not signed a loan yet
+- Predicting which consumers to reach is necessary but insufficient. You also have to identify the brief window of time when an ad might shift each borrower's behavior, and reach them in a context where they might act on your message
+
+::: {.callout-note appearance="minimal"}
+Even a perfectly efficient and omniscient advertising industry might struggle to learn how to optimize advertising delivery. What behavioral or contextual signals might indicate mortgage loan receptivity? How much more cost-effective would these targeting signals make the ads?
+:::
+
+## AI Trades Online Ads
+
+![](AMimages/iab-programmatic.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Advertising was the second industry to automate trading, after finance. 'Programmatic' methods are defined by automation and optimization. Over 90% of online advertising revenue flows through Programmatic channels, in which buyers and sellers are both represented by computerized agents. What is being automated and optimized, and for whose benefit?
+:::
+
+::: {.source-url}
+[IAB Glossary of Terms (requires free registration)](https://www.iab.com/insights/glossary-of-terminology/){target="_blank"}
+:::
+
+::: notes
+The automation benefit is pretty obvious, as it speeds things up compared to manual processing. The optimization is less obvious but likely even more consequential, as algorithms can be designed to incorporate automated test-and-learn strategies using conversion data.
+:::
+
+## The Ad Tech Ecosystem
+
+![](AMimages/Display-LUMAscape.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Luma Partners maps ad tech ecosystems. Each logo is a company that intermediates between advertisers and publishers: data/algorithm specialists, representatives, and marketplaces. This map is one among many.
+:::
+
+::: {.source-url}
+[Luma Partners](https://lumapartners.com/lumascapes/){target="_blank"}
+:::
+
+::: notes
+Let's talk through how some of this works.
+:::
+
+## Google Performance Max
+
+![](AMimages/pmax.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Google Pmax is the ultimate expression of programmatic advertising. You give Google your goals, your budget, and things it can say in ads. Google decides where, when and how to spend your money, designs your ad, then tells you how well it did. Launched in 2021; over 1 million advertisers served by 2025. Meta's Advantage+ is similar.
+:::
+
+::: {.source-url}
+[Google](https://support.google.com/google-ads/answer/10724817?hl=en){target="_blank"}
+:::
+
+::: notes
+Don't sweat the details!
+:::
+
+## The "Ad Tech Tax"
+
+![](AMimages/supplychainleakage.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+2025Q2 data show that DSP takes 11%, SSP takes 15%, publisher receives 75%, and about half of that is verifiably viewable by human recipients. What are DSP, SSP, IVT, Measurable, Viewable, [MFA](https://deepsee.io/blog/2-tales-one-site-how-arbitrage-sites-manipulate-metrics){target="_blank"}?
+:::
+
+::: {.source-url}
+[ANA/TAG (2025)](https://drive.google.com/file/d/1nIjjxWAXCRpA6s9WFikBlA-UvMOlqBNA/view?usp=sharing){target="_blank"}
+:::
+
+::: notes
+Let's talk about the major players.
+:::
+
+## Effective Frequency
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](AMimages/effective-frequency.png){fig-align="center" height="506px"}
+:::
+
+::: {.column width="40%"}
+::: {.callout-note appearance="minimal"}
+Have you ever had an ad "follow you around"?
+
+Age-old advertising theory posits a nonlinear effective frequency curve, which is to say, the marginal effect of an ad on conversion probability depends on how many times the consumer sees the ad.
+
+Why is effectiveness convex for exposures 1-3?
+
+Frequency Capping limits ad exposures per individual. Retargeting targets consumers based on past actions (e.g., product detail pageviews, add-to-cart)
+:::
+:::
+
+::::
+
+::: {.source-url}
+[Seznam (2023)](https://blog.seznam.cz/en/2023/01/how-to-find-the-ideal-frequency-in-branded-campaigns/){target="_blank"}
+:::
+
+::: notes
+:::
+
+## Advertising avoidance
+
+![](AMimages/Nielsen-Ad-Avoidance-by-Medium-Dec2023.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Can an ad work if a consumer avoids it? About half of consumers say they usually or always skip ads. Do you use an ad blocker in your favorite browser? Ad load and ad nuisance are the "attentional prices" that subsidize our media: without ads, we would pay more for content.
+:::
+
+::: {.source-url}
+[Nielsen (2023)](https://drive.google.com/file/d/11yit6N_5kxMTQSM6HLNP2nL0sAtXHlNY/view?usp=drive_link){target="_blank"}
+:::
+
+::: notes
+:::
+
+## Consumer Attention by Medium
+
+![](AMimages/ebiquity_lumen_2024_figure4.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Advertising media vary in average attention attracted (i.e. eyes-on-screen) and advertising price. These data reflect attention measurements and prices by medium. What do you see?
+:::
+
+::: {.source-url}
+[Ebiquity & Lumen (2024)](https://drive.google.com/file/d/1Xcr-GYlXV9dV6HLSsgNpnBgIltw4EH3s/view?usp=sharing){target="_blank"}
+:::
+
+## Privacy Perceptions
+
+![](AMimages/iab2025privacyperceptions.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Consumers don't especially love advertising but they mostly understand that advertising subsidizes media access, and most prefer to pay with attention rather than money. Personalized advertising ranks low on most consumers' data privacy concerns. Empirical studies usually show that personalized ads generate more conversions because they are more relevant.
+:::
+
+::: {.source-url}
+[IAB (2025)](https://drive.google.com/file/d/1Xzv2-kTMoJAnYsxXzLeYork_tXHbQWbb/view?usp=drive_link){target="_blank"} | [Browser Fingerprinting (2025)](https://kevinboone.me/fingerprinting.html){target="_blank"} | [Yeo et al. (2025)](https://drive.google.com/file/d/1PAQW_dAuBzny3JG4oBWXHLF_4T0GmerP/view?usp=drive_link){target="_blank"}
+:::
+
+## Retail Media Networks
+
+![](AMimages/retailmedia1.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Retail media networks (e.g., Amazon, Walmart) provide data for ad targeting, sell sponsored product search listings, sell ads on behalf of publishers, and measure advertising conversions. RMNs are growing quickly as they cannibalize older trade promotions budgets.
+:::
+
+::: {.source-url}
+[Gabel et al. (2024)](https://archive.ph/WfdAc){target="_blank"}
+:::
+
+::: notes
+Big examples include Amazon and Walmart among others
+:::
+
+## Brand Safety and Suitability
+
+- **Brand safety:** Protect brands against negative impacts on consumer opinion from ads appearing near specific types of content
+    - E.g., proximate to military conflict, obscenity, drugs, hate speech
+    - Keyword blacklists and whitelists determine contextual ad bids, yet fraudulent ad sales may place brand ads in non-safe contexts
+    - Ad platforms have seen "advertiser boycotts" demanding content moderation improvements; monetization is [expanding recently](https://www.tubefilter.com/2026/01/15/youtube-sensitive-content-ad-monetization-guidelines-update/){target="_blank"}
+
+- **Brand suitability:** Identifies brand-aligned content to improve ad delivery
+
+![](AMimages/brandsafety.png){.absolute bottom="20" right="20" height="180px"}
+
+::: {.source-url}
+[IAB (2020)](https://www.iab.com/wp-content/uploads/2020/12/IAB_Brand_Safety_and_Suitability_Guide_2020-12.pdf){target="_blank"}
+:::
+
+## How much do companies spend on Advertising?
+
+![](AMimages/ad_gross_profit_by_sector.png){fig-align="center" height="420px"}
+
+::: {.callout-note appearance="minimal" style="font-size: 0.75em;"}
+The average US corporation spends about 3.1% of gross margin on advertising deductions. Gross margin ranges from 3-5x net margin, so the modal firm could increase net income by 10.3-18.5% by setting ads to zero (i.e. 100/(100-9.3) to 100/(100-15.5)). Or could it? What would happen to top line revenue and cost efficiencies? [2 missing data points were withheld by source for confidentiality purposes]
+:::
+
+::: {.source-url}
+[Wilbur (2026, p. 18)](https://drive.google.com/file/d/1u_62o5PxHqc7deFQQtLoS-gPrAt-TpGy/view?usp=sharing){target="_blank"} | [Saibooks](https://saibooks.com/advertising-sales-ratios/){target="_blank"}
+:::
+
+::: notes
+-   Also relevant: https://www.rab.com/research/10014.pdf
+-   If you care about profit, you should care about advertising
+:::
+
+## What is Incrementality?
+
+![](AMimages/incrementality.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Incrementality is the difference between post-campaign conversions and the conversions that would have occurred anyway without the campaign.
+
+The word incrementality is only used in marketing.
+:::
+
+## Honey: A Case Study in Attribution Fraud
+
+![](AMimages/honey.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Honey, a PayPal-owned browser extension with 17 million members, was found to replace influencers' affiliate codes with its own, stealing affiliate marketing fees from partners. This is one example of "cookie stuffing" attribution fraud, and helps to illustrate why ad buyers don't always trust ad sellers. Incrementality estimates verify marketing value delivered without relying on seller statements.
+:::
+
+::: {.source-url}
+[MegaLag (2024)](https://www.youtube.com/watch?v=vc4yL3YTwWk){target="_blank"}
+:::
+
+::: notes
+- Note the "17 million members" and the Paypal ownership
+- Honey had two major problems. First, its pitch to consumers is literally false, as it enabled stores to pay fees to manage the coupon codes available to consumers, and thereby avoid margin erosion. Second, it was replacing influencers' affiliate codes with its own, meaning it was literally stealing affiliate marketing fees from its own partners.
+- One reason causality is important is that, if we assume all marketing is incremental, we will maximize our unproductive payouts and thereby decrease our advertising ROAS
+:::

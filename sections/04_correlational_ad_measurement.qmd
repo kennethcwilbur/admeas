@@ -1,0 +1,208 @@
+# Correlational Advertising Measurement
+
+- Frameworks, Problems, Facebook study, Why Correlations Persist
+
+## Correlational Ad Measurement
+
+- Correlational advertising measurement is defined by the absence of a treatment/control logic to isolate causal advertising effects from confounding drivers of sales
+    - Equivalently, by the assumption (usually implicit) that past ads were distributed randomly
+    - Or, by the belief that we should maximize sales attributed to advertising
+
+::: {.callout-note appearance="minimal"}
+Correlational advertising measurement is not defined by an analytical or modeling technique, but we will review 3 common approaches.
+:::
+
+## 1. Lift Statistics
+
+Compare conversion rates between people exposed to ads and people not exposed to ads
+
+$$\frac{Prob.\{Conv.|Ad\}}{Prob.\{Conv.|NoAd\}} \quad \text{or} \quad \text{\% Lift: } \frac{Prob.\{Conv.|Ad\}-Prob.\{Conv.|NoAd\}}{Prob.\{Conv.|NoAd\}}$$
+
+- E.g., if ad-exposed users convert at 0.6% and non-exposed at 0.4%,<br>Lift Ratio = 1.5, % Lift = 50%
+
+::: {.callout-note appearance="minimal"}
+The name 'Lift' implies a causal ad effect, but lift statistics can only be incremental when calculated using experimental data. Otherwise they reflect all differences between ad-exposed and non-ad-exposed consumer groups, including ad targeting, context, timing, recent behaviors and platform usage, as well as ad effects. Lift stats are easy to compute and communicate, but often misunderstood as causal.
+:::
+
+::: {.source-url}
+[Google](https://support.google.com/google-ads/answer/12003020){target="_blank"} | [Meta](https://www.facebookblueprint.com/student/path/253065-conversion-lift-marketing-measurement){target="_blank"}
+:::
+
+## 2. Regression, usually controlling for other observables
+
+Get historical data on $Y_i$ and $T_i$ and run a regression
+
+- *i* could index individuals, places, times, or combinations
+- Many frameworks exist, including least squares, vector autoregressions, Marketing Mix Models (MMM), bayesian frameworks
+    - Google's CausalImpact R package is popular
+    - We will go deeper on MMM later
+
+## 3. Multi-Touch Attribution (MTA) {.smaller}
+
+- Get individual-level data on every touchpoint for every purchaser
+    - Should include earned media, owned media & paid media (ads, paid influencer & affiliate)
+- Choose a rule to attribute purchases to touchpoints
+    - Single-touch rules: Last-touch, first-touch
+    - Multi-touch rules: Fractional credit, Shapley
+- MTA algorithm searches for touchpoint parameters that best-fit the conversion data given the rule
+    - Credit then informs future budget allocations across touchpoints
+    - MTA is designed to maximize attributions; MTA often disregards non-purchasers
+    - MTA assumes touchpoints are the *sole* drivers of conversions
+- Advertiser-side MTA arose from the open web display market, linking tracking cookies to sales. Has challenges integrating walled gardens due to privacy rules and platform reporting limitations. Some advertiser MTAs live on, but some are zombies. Large platform-side MTA will remain viable and efficient, though limited to data within each walled garden; can advertisers trust/verify?
+
+::: {.callout-note appearance="minimal"}
+[Amazon Ads](https://drive.google.com/file/d/1n3Jio5ggXfkzw1qCS2lmKJsm6kyPdQxA/view?usp=drive_link){target="_blank"} MTA combines experiments, machine learning and shopping signals.
+:::
+
+## Steel-manning Corr(ad,sales)
+
+- Corr(ad,sales) should contain signal
+    - If ads cause sales, then corr(ad,sales) > 0 (probably) (we assume)
+- Some products/channels just don't sell without ads
+    - E.g., Direct response TV ads for 1-800 phone numbers
+    - Career professionals say advertised phone #s get 0 calls without TV ads, so we know the counterfactual (what is it?)
+- However, this argument gets pushed too far
+    - For example, when search advertisers disregard organic link clicks when calculating search ad click profits
+    - Notice the converse: corr(ad,sales) > 0 does not imply a causal effect of ads on sales; it could be that the ads got shown to the most loyal customers
+
+## Problem 1 with Corr(ad,sales)
+
+- Advertisers try to optimize ad campaign decisions
+    - E.g. surfboards in coastal cities, not landlocked cities
+- If ad optimization increases ad response, then corr(ad,sales) will confound actual ad effect with ad optimization effort
+    - More ads in San Diego, more surfboard sales in San Diego. But would we have 0 sales in SD without ads?
+    - Corr(ad,sales) usually overestimates the causal effect, encourages overadvertising
+
+::: {.callout-note appearance="minimal"}
+Google's Chief Economist [explains](https://drive.google.com/file/d/1VPCvMKQ5d8IKtr1ff-GxR3z1z62YNcEz/view?usp=drive_link){target="_blank"} in greater detail.
+:::
+
+## Problem 2 with Corr(ad,sales)
+
+- How do most advertisers set ad budgets? Top 2 ways historically:
+    1. Percentage of sales method, e.g. 1%, 3% or 6%
+        - That's why ads:sales ratios are so often measured, for benchmarking
+    2. Competitive parity
+    3. ...others...
+- Do you see the problem here?
+
+::: {.callout-note appearance="minimal"}
+This problem is called simultaneity ([Bass 1969](https://drive.google.com/file/d/1CqbQVmEfQ5Aiu_5rtGzY8Mjezqz5Nbtq/view?usp=drive_link){target="_blank"}).
+:::
+
+![](AMimages/circularity.png){.absolute bottom="20" right="20" height="200px"}
+
+## Problem 3 with Corr(ad,sales)
+
+- Leaves marketers powerless vs ~~big~~ colossal ad platforms
+- Platforms withhold data and obfuscate algorithms
+    - How many ad placements are incremental?
+    - How many ad placements target likely converters?
+    - How can advertisers react to adversarial ad pricing?
+- Have ad platforms ever left ad budget unspent?
+    - Would you, if you were them?
+    - If not, why not? What does that imply about incrementality?
+- The only way to balance platform power is to know your ad profits & vote with your feet
+
+## U.S. v Google (2024, Search Case)
+
+![](AMimages/usvgoogle2024.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+This was written by a federal judge who heard mountains of evidence on both sides. Judge Mehta describes Google's efforts to hide price increases from advertisers, based on internal documents.
+:::
+
+::: {.source-url}
+[U.S. v. Google (2024)](https://drive.google.com/file/d/1QRKYh_dyw1vSkkep3NFQDmEFWPVSHCBd/view?usp=drive_link){target="_blank"}
+:::
+
+## Does Corr(ad,sales) Work?
+
+![](AMimages/closeenough.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Kellogg faculty and Meta data science collaborated to analyze Meta's large trove of advertising experiments. Their main research question: Can we estimate causal advertising effects on sales by applying machine learning models to advertising treatment data alone? I.e., can we recover true causal estimates without non-advertising control condition data?
+:::
+
+::: {.source-url}
+[Gordon, Moakler & Zettelmeyer (2023)](https://arxiv.org/abs/2201.07055){target="_blank"}
+:::
+
+## Gordon, Moakler & Zettelmeyer (2023): Data
+
+![](AMimages/gmz_descstats.png){fig-align="center" height="385px"}
+
+::: {.callout-note appearance="minimal"}
+The setting was auspicious. Machine learning methods work best when applied to thick data with numerous predictors, as is the case in Facebook data. Additionally, Facebook served most ads from content servers to facilitate consistent measurement and reduce ad-blocking.
+:::
+
+::: {.source-url}
+[Gordon, Moakler & Zettelmeyer (2023)](https://arxiv.org/abs/2201.07055){target="_blank"}
+:::
+
+## Gordon, Moakler & Zettelmeyer (2023): Figures
+
+![](AMimages/gmzfig2-4.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+Most of the ad experiments shows causal ad effects on conversions of 0-0.25%, with median lift ratios of 0.05-0.29. Ads had clearer effects on upper-funnel actions (e.g., shopping) than on lower-funnel actions (e.g., purchase); this is common as price or other factors can discourage sales during the shopping process.
+:::
+
+::: {.source-url}
+[Gordon, Moakler & Zettelmeyer (2023)](https://arxiv.org/abs/2201.07055){target="_blank"}
+:::
+
+## Gordon, Moakler & Zettelmeyer (2023): Results
+
+![](AMimages/gmz2023_results.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+Both Machine Learning frameworks tested failed to recover true incremental ad effects. The correlational advertising effects were mostly overestimated, but not always. This offers strong empirical evidence that models alone cannot substitute for causal identification strategies. Causality is a "data problem," not a "modeling problem."
+:::
+
+::: {.source-url}
+[Gordon, Moakler & Zettelmeyer (2023)](https://arxiv.org/abs/2201.07055){target="_blank"}
+:::
+
+## Why Are Some Teams OK with Corr(ad,sales)? {.smaller}
+
+1. Some worry that if ads go to zero → sales go to zero
+    - For small firms or new products, without other marketing channels, this may be good logic
+    - However, premise implies deeper problems, i.e. need to diversify marketing efforts and find cheaper sources of sales
+    - Plus, we can run experiments without setting ads to zero, e.g. test 50% vs. 150%
+
+2. Some firms assume that correlations indicate direction of causal results
+    - The guy in the truck bed is pushing forwards right?
+    - Biased estimates might lead to unbiased decisions (key word: "might")
+    - But direction is only part of the picture; what about effect size?
+
+3. CFO and CMO negotiate ad budget
+    - CFO asks for proof that ads work
+    - CMO asks ad agencies, platforms & marketing team for proof
+    - CMO sends proof to CFO; We all carry on
+    - Should ad measurement team report to CFO or CMO?
+
+![](AMimages/ostrich_line_drawing.png){.absolute bottom="20" right="20" height="180px"}
+
+::: notes
+That is supposed to be an ostrich sticking its head in the sand, suggesting a willful ignorance. FWIW, the ostrich-head-in-sand fable dates back to the roman empire. In truth, ostriches tend to run away from threats. https://www.scienceworld.ca/stories/do-ostriches-really-bury-their-heads-sand/
+:::
+
+## Why Are Some Teams OK with Corr(ad,sales)? {.smaller}
+
+4. Managing analytics well requires skill and discipline
+    - Managers must understand how to integrate experiment results into decisions
+    - Analysts must have causal inference skillsets
+    - Organization must tolerate failure in search of data-driven incremental improvements
+
+5. Platforms often provide correlational ad/sales estimates
+    - Which is larger, correlational or experimental ad effect estimates?
+    - Which one might many client marketers prefer?
+    - Platform estimates are typically "black box" without neutral auditors
+    - ""Nobody ever got fired for buying IBM." [Amazon, Google, Meta]
+
+6. Historically, agencies usually estimated ROAS
+    - Agency compensation usually relies on spending, not incremental sales;<br>principal/agent problems are common
+    - These days, more marketers have in-house agencies, and split work
+
+![](AMimages/big_roas.png){.absolute bottom="0" right="20" height="120px"}

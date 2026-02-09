@@ -1,0 +1,40 @@
+# Wrapping Up
+
+- Takeaways, Resources for further study, Acknowledgements
+
+## Takeaways
+
+- Fundamental Problem of Causal Inference: We can't observe all data needed to optimize actions. This is a missing-data problem, not a modeling problem.
+    - Common remedies: Experiments, Quasi-experiments, Correlations, Triangulate; Ignore
+
+- Experiments are the gold standard, but are costly and challenging to design, implement and act on
+
+- Ad effects are subtle but that does not imply unprofitable. Measurement is challenging but required to optimize profits
+
+![](AMimages/recap.png){fig-align="right" height="150px"}
+
+## Resources for Further Study {.smaller}
+
+- [Paparo (2025)](https://www.amazon.com/Yield-Google-Bullied-Advertising-Dominance/dp/B0F67HV2BB){target="_blank"}: Insider's account of programmatic advertising development from 2000-2025
+
+- Content providers to follow: [Adexchanger](https://www.adexchanger.com/){target="_blank"}, [Adweek](https://www.adweek.com/){target="_blank"}, [Digiday](https://digiday.com/){target="_blank"}, [Marketecture](https://www.marketecture.tv/){target="_blank"}
+
+- [Project Eidos](https://www.iab.com/topics/project-eidos/){target="_blank"}: IAB's effort to define admeas principles, standards, and frameworks
+
+- [Gordon et al. (2020)](https://arxiv.org/abs/1912.09012){target="_blank"}: Discusses iROAS estimation challenges and remedies
+
+- [Dew et al. (2024)](https://arxiv.org/abs/2408.07678){target="_blank"}: Smart discussion of key MMM assumptions
+
+- [Luca & Bazerman (2020)](https://direct.mit.edu/books/book/5468/The-Power-of-ExperimentsDecision-Making-in-a-Data){target="_blank"}: Goes deep on digital test-and-learn considerations
+
+- [Athey & Imbens (2024)](https://www.youtube.com/watch?v=I6GyDWh8kfw){target="_blank"}: on designing complex experiments
+
+- [Barajas et al. (2021)](https://joel-barajas.github.io/kdd2021-incrementality-testing/){target="_blank"}: Online Advertising Incrementality Testing And Experimentation: Industry Practical Lessons
+
+![](AMimages/takingoff.png){fig-align="right" height="120px"}
+
+## Acknowledgements
+
+- Joel Barajas, Rick Bruner, Peter Daboll, Tom Flanagan, and Prabhath Nanisetty for helpful comments
+- Colleagues and students who helped improve earlier versions
+- Benedict Evans for inspiring the assertion-evidence slide format; McDermott & Butts for the quarto theme

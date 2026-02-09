@@ -1,0 +1,134 @@
+# Fundamental Problem of Causal Inference
+
+- Why causal effects are estimable but not directly observable
+
+## Causal Inference Framework {.smaller}
+
+- Suppose we have a binary "treatment" or "policy" variable $T_i$ that we can "assign" to person $i$
+    - Examples: Send an ad, Serve a webpage, Recommend a product
+- Suppose person $i$ could have a binary potential "response" or "outcome" variable $Y_i(T_i)$
+    - Marketing funnel examples: Visit site, open app, search products, enter email, add to cart, purchase
+    - "Treatment" terminology came from medical literature; Y could be patient outcome
+- Important: $Y_i$ may depend fully, partially, or not at all on $T_i$, and the relationship may differ across people
+    - Person 1 may buy due to an ad; person 2 may stop buying due to an ad
+
+::: {.source-url}
+[Rubin Causal Model](https://en.wikipedia.org/wiki/Rubin_causal_model){target="_blank"}
+:::
+
+## Why Care About Causal Effects?
+
+- We want to maximize profits $\Pi = \Sigma_i \pi_i(Y_i(T_i), T_i)$
+- Suppose $Y_i=1$ contributes to revenue; then $\frac{\partial \pi_i}{\partial Y_i} >0$
+- Suppose $T_i=1$ has a known cost, so $\frac{\partial \pi_i}{\partial T_i} <0$
+- Effect of $T_i=1$ on $\pi_i$ is $\frac{d\pi_i}{dT_i}=\frac{\partial \pi_i}{\partial Y_i}\frac{\partial Y_i}{\partial T_i}+\frac{\partial \pi_i}{\partial T_i}$
+- We have to know $\frac{\partial Y_i}{\partial T_i}$ to optimize $T_i$ assignments
+    - Called the "treatment effect" (TE); can be approximated by $Y_i(T_i=1) - Y_i(T_i=0)$
+- Profits may decrease if we misallocate $T_i$
+    - E.g., buy ads targeting people with inefficiently low response rates
+
+## The Fundamental Problem
+
+- We can only observe **either** $Y_i(T_i=1)$ **or** $Y_i(T_i=0)$, but not both, for each person $i$
+    - The case we don't observe is called the "counterfactual"
+    - Causality is a missing-data problem that we cannot fully resolve. We only have one reality
+        - We can build models to help compensate for missing counterfactuals
+
+::: {.callout-note appearance="minimal"}
+The Fundamental Problem of Causal Inference: We cannot directly observe counterfactual outcomes. Therefore, we cannot directly compare $Y_i(T_i=1)$ to $Y_i(T_i=0)$ to measure the treatment effect on person $i$.
+:::
+
+## So What Can We Do? {.smaller}
+
+1. **Experiment.** Randomize $T_i$ and estimate $\frac{\partial Y_i}{\partial T_i}$ as avg $Y_i(T_i=1)-Y_i(T_i=0)$
+    - Called the "Average Treatment Effect"
+    - Creates new data; costs time, money, effort; deceptively difficult to design and then act on
+2. **Use assumptions & data** to estimate a "quasi-experimental" average treatment effect using archival data
+    - Requires expertise, time, effort; difficult to validate; not always possible
+3. **Use correlations:** Assume past treatments were assigned randomly, use past data to estimate $\frac{\partial Y_i}{\partial T_i}$
+    - Easier than 1 or 2
+    - But $T_i$ is only randomly assigned when we run an experiment, so what exactly are we doing here?
+    - Are we paying our DSPs to distribute our ads randomly?
+4. **Fuhgeddaboutit,** do not measure
+    - Some advertisers do this
+    - Measurement is costly; may be a net negative when not possible to do well
+
+## How Much Does Causality Matter?
+
+- Are organizational incentives aligned with profits?
+- Data thickness: How likely can we get a good estimate?
+- Organizational analytics culture: Will we act on what we learn?
+- Individual: promotion, bonus, reputation, career—Will credit be stolen or blame be shared?
+- Accountability: Will ex-post attributions verify findings? Will results threaten or complement rival teams/execs?
+
+::: {.callout-note appearance="minimal"}
+Analytics culture starts at the top. The value of causal measurement depends on whether the organization will act on what it learns.
+:::
+
+# Advertising Measurement
+
+- What we measure, challenges, classic eBay measurement case
+
+## Measurement of What?
+
+![](AMimages/adv-def.png){fig-align="center" height="200px"}
+
+::: {.callout-note appearance="minimal"}
+Many people use 'advertising' to refer to all commercial speech. In marketing, 'advertising' refers to paid media, as distinct from owned media (e.g., organic social, website, emails, direct mail) & earned media (e.g., reviews, news stories). Paid media implies that a 'publisher' generated the advertising opportunity by attracting consumer attention; controls the sale; and may constrain the advertiser's message. Two main ad types:
+
+- Performance advertising: Campaigns designed to stimulate short-run measurable response. Could be any funnel stage, including awareness, consideration, visitation and/or sales.
+- Brand advertising: Campaigns designed to stimulate long-run response or change attitudes. Measurable in multiple ways, but measurement will usually be incomplete.
+:::
+
+## Ad Measurement {.smaller}
+
+- *Advertising measurement* quantifies ad delivery, exposure and outcomes to improve advertising efforts
+    - Our focus here is on outcomes/conversions, as these inform future budget decisions
+    - Delivery and exposure matter most for brand ads. Principles include independence and transparency in measurement; these must be checked, cannot be assumed
+- Advertising measurement is hard because ad effects depend on ad content, context, timing, targeting, current market conditions, past advertising & past outcomes—all of which change
+    - Shooting at a moving target
+- Advertising measurement is expensive: must *directly* inform future choices
+
+::: {.source-url}
+[Bruner (2025)](https://web.archive.org/save/https://www.centralcontrol.com/news-posts/2025/11/12/the-first-principle-of-honest-advertising-measurement-is-independence-from-the-media){target="_blank"}
+:::
+
+![](AMimages/kangaroo_bullseye.gif){.absolute bottom="20" right="20" height="180px"}
+
+## What Do We Measure? {.smaller}
+
+Often, Return on Advertising Spend (ROAS)
+
+$$\frac{\text{Revenue Attributed to Ads}}{\text{Ad Spending}} \text{ or } \frac{\text{Revenue Attributed to Ads}-\text{Ad Spending}}{\text{Ad Spending}}$$
+
+Increasingly, we report incremental ROAS (iROAS) if we have causal identification, i.e. we isolated causal ad effects
+
+- ROAS ≠ iROAS because attribution is usually correlational
+
+We also should measure delivery and funnel-wide KPIs, e.g. brand metrics, visits, add-to-cart, sales, revenue, ...
+
+- We usually get economies of scope in measurement
+
+## Diminishing Returns
+
+![](AMimages/diminishingreturns.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+In theory, we buy the best ad opportunities first, so increasing spend should lower marginal returns ("saturation"). Marginal ROAS (mROAS) is the tangent to the curve. Nonlinearity means ROAS ≠ mROAS. We use ROAS for overall evaluation, and mROAS for budget reallocation. The common adage to "max your ROI" usually leaves money on the table. (Why?)
+:::
+
+::: {.source-url}
+[Meta (2024)](https://facebookexperimental.github.io/Robyn/docs/features/){target="_blank"} | [Google (2024, pgs. 22-25)](https://sellforte.com/blog/calibrating-marketing-mix-models-with-experiments-and-attribution-data){target="_blank"} | [Galiza (2025)](https://www.021newsletter.com/p/measurement-roas-paid-campaigns-performance-marketing){target="_blank"}
+:::
+
+## Albertsons: ROAS Varies with Measurement Choices
+
+![](AMimages/albertsons.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Albertsons media group reported a meta-analysis of campaigns showing that correlational ROAS results strongly depend on intermediate measurement choices.
+:::
+
+::: {.source-url}
+[Albertsons Media Group (2025)](https://drive.google.com/file/d/1uyHTykDk3m309orrv5AKKHMzkTDDTYtM/view?usp=drive_link){target="_blank"}
+:::

@@ -1,0 +1,219 @@
+# Causality
+
+Examples, fallacies and motivations
+
+## Correlation $\ne$ Causation
+
+![](AMimages/margarine.svg){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+This chart shows a near-perfect correlation between margarine consumption and divorce rates—but does margarine cause divorce?
+:::
+
+## How Many False Positives? {.smaller}
+
+- Suppose you observe 10 customer outcomes, 1,000 predictors, N=100,000 obs
+    - Outcomes might include visits, sales, reviews, ...
+    - Predictors might include ads, customer attributes & behaviors, device/session attributes, ...
+    - Suppose you calculate 10k bivariate correlation coefficients
+- Suppose everything is noise, no true relationships
+    - 10k correlation coefficients would be distributed Normal, tightly centered around zero
+    - A 2-sided test of {corr == 0} would reject at 95% if |r|>.0062
+- We should expect 500 false positives - What is a 'false positive' exactly?
+- In general, what can we learn from a significant correlation?
+    - "These two variables likely move together." Anything more requires assumptions. No causal ordering or reason for co-movement can be inferred from a correlation alone.
+
+::: {.source-url}
+[R Script simulating this scenario](https://drive.google.com/file/d/1NuHbXi8QNVkaJQ7QXBWiHqHfvtUaXlCC/view?usp=sharing){target="_blank"}
+:::
+
+## Classic misleading correlations {.smaller}
+
+- "Lucky socks" and sports wins
+    - Post hoc fallacy (precedence indicates causality AKA superstition)
+- Commuters carrying umbrellas and rain
+    - Forward-looking behavior
+- Kids receiving tutoring and grades
+    - Reverse causality / selection bias
+- Ice cream sales and drowning deaths
+    - Unobserved confounds
+- Correlations are measurable & usually predictive, but hard to interpret causally
+    - Correlation-based beliefs are hard to disprove and therefore sticky
+    - Correlations that reinforce logical theories are especially sticky
+    - Correlation-based beliefs may or may not reflect causal relationships
+
+::: {.source-url}
+[Wikipedia](https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc){target="_blank"}
+:::
+
+## "Revenue too high alert"
+
+![](AMimages/BingRevenueTooHighTreatment.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+This AB test triggered a "revenue too high" alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. It increased revenue 12%—over \$100 million per year—without harming user experience metrics.
+:::
+
+::: {.source-url}
+[Kohavi & Thomke (2017)](https://hbr.org/2017/09/the-surprising-power-of-online-experiments){target="_blank"}
+:::
+
+::: notes
+This AB test triggered a "revenue too high" alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. Bing had a robust experimentation platform and culture. They run over 10k tests/year. The RTH alert indicates a possible code error that might be defrauding advertisers. In this case it was just a really big treatment effect, biggest ever.
+:::
+
+## Correlation vs Causation
+
+![](AMimages/CvC.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+The Correlation guy is silly but he's not harmless. He's weighing down the truck. And there is an opportunity cost: he could be helping to push the truck instead.
+:::
+
+::: {.source-url}
+[List (2023)](https://drive.google.com/file/d/19nrTihLVr0AEaWj3k25ZctyB0h6MLUA8/view?usp=drive_link){target="_blank"}
+:::
+
+## Four Types of Analytics
+
+![](AMimages/4typesofanalytics.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Correlations are descriptive analytics ("facts"). Causality matters most for diagnostic and prescriptive analytics. The great power of data analytics is cutting through the noise to isolate the effect of a single variable on outcomes of interest, apart from competing and simultaneous causes. Causality can help build predictive models, but predictive correlations may suffice.
+:::
+
+## eBay Search Ad Experiments
+
+In 2015 economists working at eBay published a series of geo experiments testing how shutting off paid search ads affected search clicks, sales and attributed sales in a random sample of US cities.
+
+![](AMimages/ebay1.png){fig-align="center" height="350px"}
+
+::: {.source-url}
+[Blake, Nosko & Tadelis (2015)](https://drive.google.com/file/d/1SEQ8YCHFw08Z0zmdQlOoAXIJUlq5Q06q/view?usp=drive_link){target="_blank"}
+:::
+
+::: notes
+- At the time, eBay was a top-5 Google client, spending over \$1 billion per year on search ads
+- Clicks on paid branded links went to zero, but the effect was entirely replaced with clicks on organic branded links
+- Interestingly, the eBay's "attributed sales" did not materially change. That led eBay to fire some of its staff
+- There are credible allegations that Google subsequently updated its organic search ranking algorithm to downrank ebay among other commercial sites
+:::
+
+## eBay Results: Click Substitution
+
+![](AMimages/ebay2.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+When eBay turned off paid search ads, clicks on paid branded keywords went to zero—but clicks on organic branded keywords fully replaced them.
+:::
+
+::: {.source-url}
+[Blake, Nosko & Tadelis (2015)](https://drive.google.com/file/d/1SEQ8YCHFw08Z0zmdQlOoAXIJUlq5Q06q/view?usp=drive_link){target="_blank"}
+:::
+
+## eBay Results: Attribution vs Reality
+
+![](AMimages/ebay3.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+Attributed sales fell, but actual sales didn't. (Why?) These results led to changes in eBay ad measurement and Google algorithms. This story became famous for the pitfalls of correlational advertising measurement.
+:::
+
+::: {.source-url}
+[Fisman (HBR 2023): Did eBay Just Prove That Paid Search Ads Don't Work?](https://hbr.org/2013/03/did-ebay-just-prove-that-paid){target="_blank"} | [Central Control (2025)](https://drive.google.com/file/d/1VY3tIBZhXY9OA4hk8bgUDVsp69XtQwKQ/view?usp=drive_link){target="_blank"}
+:::
+
+## Did the eBay result generalize to other companies?
+
+![](AMimages/simonov_nosko_rao_2017_fig8.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+A later paper estimated similar effects in Bing search ads. They found that, when competing brands buy ads on a focal firm's branded keywords, sponsored search advertising defends traffic that would not otherwise get to the organic result link. The effects were pretty big. The eBay result did not generalize to companies whose competitors bought their own-branded keyword ads.
+:::
+
+::: {.source-url}
+[Simonov, Nosko & Rao (2017)](https://drive.google.com/file/d/1K-JyLBizkQuanZPDODVipn3pC9AIzme3/view?usp=drive_link){target="_blank"}
+:::
+
+::: notes
+- Same Bing experiment methodology, different sample: brands that don't bid on their own keywords
+- Key finding: Without defensive advertising, even strong brands lose nearly half their traffic to competitors
+- Contrasts with eBay: eBay faced no competitors, so pausing ads cost little. Most brands face competitors who will intercept traffic if given top position.
+- With focal brand ad present, competitors in positions 2-4 steal only 1-5% of clicks
+- Defensive advertising ROI appears strongly positive when competitors are present
+:::
+
+## Did Other Firms Learn from eBay?
+
+![](AMimages/rs18.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+A second follow-up study estimated how Bing advertisers changed their advertising policies after the eBay study was publicized. It found that advertisers largely either (a) maintained the status quo, or (b) stopped advertising entirely. However, advertisers did not start running more experiments. (Why not?)
+:::
+
+::: {.source-url}
+[Simonov & Rao (2018)](https://drive.google.com/file/d/1vvkBNY4D0QSvl1MfXnY4PV2QSZbMLQA6/view?usp=drive_link){target="_blank"}
+:::
+
+::: notes
+- Authors examined 5 years of bidding data following the eBay study publication
+- 72% of firms had enough variation to estimate causal ad effects, but firms didn't use this information
+- Principal-agent explanation: marketing teams' incentives may not align with shareholder value maximization
+- Suggests organizational barriers to adopting evidence-based advertising measurement
+:::
+
+## eBay Case Study: Key Takeaways
+
+![](AMimages/SERP_usedguitarlespaul.png){fig-align="center" height="350px"}
+
+::: {.callout-note appearance="minimal"}
+eBay taught us that correlational advertising measurement is questionable, and that firms should use experiments to measure causal advertising effects. However, most companies were not ready for that message yet. This 2026 screenshot shows that eBay lost its organic SERP real estate and started advertising again. That's exactly what it should do when ads are profitable.
+:::
+
+::: notes
+- This SERP shows a typical competitive landscape: Guitar Center, eBay, Reverb, Sweetwater, and others all bidding on the same guitar search
+- eBay's situation was unusual—they faced no competitors on their branded terms
+- The lesson isn't "stop advertising" but rather "measure your own causal effects in your own competitive context"
+:::
+
+## "Grading Your Own Homework"
+
+![](AMimages/grading-own-homework.svg){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Why didn't most advertisers get the right message from eBay? A likely culprit: Textbook principal/agent problems. Today, more marketers have internal agencies, better data, and better capacities to run experiments. It may help if advertising measurement team reports to CFO.
+:::
+
+## 2024 Ad Measurement Trends
+
+![](AMimages/2024admeasurementtrends.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Incrementality & MMM were trends #1 & #2; the only other trend was e-commerce metric proliferation.
+:::
+
+::: {.source-url}
+[AdExchanger (2024)](https://www.adexchanger.com/marketers/the-ad-measurement-trends-that-reshaped-online-advertising-this-year/){target="_blank"}
+:::
+
+## Ad Experiments in GTrends and Buy-side Surveys
+
+:::: {.columns}
+
+::: {.column width="45%"}
+![](AMimages/gtrends_adexp.png){fig-align="center" height="280px"}
+:::
+
+::: {.column width="55%"}
+![](AMimages/iab admeas survey 2026.png){fig-align="center" height="280px"}
+:::
+
+::::
+
+::: {.callout-note appearance="minimal"}
+We're a few years into a generational shift. Smaller, independent ad agencies are making the most noise about incrementality. However, corr(ad,sales) is not going away. Union(correlations, experiments) should exceed either alone.
+:::
+
+::: {.source-url}
+[Google Trends](https://trends.google.com/explore?q=incrementality%2Cadvertising%2520experiment%2Cad%2520experiment%2Cmarketing%2520mix%2520model&date=2016-01-01%202025-12-31&geo=US&gprop=web){target="_blank"} | [IAB (2026)](https://drive.google.com/file/d/1nuaUAlV54pDdWyAhd_9I_rFkMi3xeJ2d/view?usp=drive_link){target="_blank"}
+:::

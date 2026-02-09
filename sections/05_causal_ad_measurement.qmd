@@ -1,0 +1,191 @@
+# Causal Advertising Measurement
+
+- Experimental designs, necessary conditions, quasi-experiments
+
+## Causal Ad Measurement
+
+- Causal advertising measurement is defined by the presence of a treatment/control logic to isolate causal advertising effects from confounding drivers of sales
+    - We can run experiments to create random variation in advertising treatments
+    - We can analyze naturally occurring random variation,<br>AKA quasi-experiments
+- *Causal* means we isolate the treatment effect from confounds
+    - Sometimes misinterpreted as evidence consistent with a hypothesis
+
+::: {.callout-note appearance="minimal"}
+A regression may be either causal or correlational depending on the nature of the advertising data variation.
+:::
+
+## Popular ad experiments {.smaller}
+
+1. Randomly assign ads eligibility / holdout to customer groups
+    - Pros: AB testing is easy to understand, rules out alternate explanations
+    - Cons: Can we trust the platform's "black box"? Will we get the data and all available insights?
+
+2. Randomize messages within a campaign. Mine competitor messages in [ad libraries](https://indicator.media/p/a-guide-to-investigating-digital){target="_blank"} for ideas
+    - Often a great place to start as it's nominally free.
+    - Advertising professionals frequently believe that creative messages are first-order drivers of ad effects (e.g., [Circana 2023](https://www.circana.com/post/brand-loyalty-impact-on-sales){target="_blank"}, [Kantar 2024](https://www.kantar.com/north-america/inspiration/advertising-media/what-do-the-most-creative-and-effective-digital-and-tv-ads-do-differently){target="_blank"}, [Magna+Yahoo 2025](https://ipg-wp-media-mgl-glb.s3.us-east-2.amazonaws.com/magna/wp-content/uploads/2023/04/27162350/MAGNA-Yahoo-Creative-the-Performance-Powerhouse.pdf){target="_blank"})
+
+3. Randomize bids and/or consumer targeting criteria
+
+4. Randomize budget across platforms, publishers, times, places, behavioral targets, contexts
+
+::: {.callout-note appearance="minimal"}
+Platforms usually tune ad delivery algorithms to maximize post-advertising conversions, not incremental conversions. That is why changing a campaign attribute usually induces nonrandom variation in advertising treatments.
+:::
+
+## Experimental Necessary Conditions {.smaller}
+
+1. Stable Unit Treatment Value Assumption (SUTVA)
+    - Treatments do not vary across units within a treatment group
+    - One unit's treatment does not change other units' potential outcomes:<br>May be violated when treated units interact on a platform
+    - Violations called "interference"; remedies usually start with cluster randomization
+
+2. Observability
+    - Non-attrition, i.e. unit outcomes remain observable
+
+3. Compliance
+    - Treatments assigned are treatments received
+    - Ad blocking can induce noncompliance, which we usually resolve by estimating Intent-to-Treat effects
+
+4. Statistical Independence
+    - Random assignment of treatments to units. "Balance tests" help to check
+    - When platform algorithms distribute ads nonrandomly, we call it "divergent delivery"
+
+::: {.source-url}
+[List (2024)](https://drive.google.com/file/d/1hgI7gi76W7ki27xFeIQkIvtdtULrC7bb/view?usp=drive_link){target="_blank"}; [Kohavi et al. (2020)](https://experimentguide.com/){target="_blank"}
+:::
+
+## Before You Kick Off Your Test...
+
+- Run A:A test before your first A:B test. Validate the infrastructure before you rely on the result
+    - Shows the effect size a given test duration is powered to detect
+    - Shows whether random assignment is working, as it's sometimes coded incorrectly
+- Can we agree on the opportunity cost of the experiment? "Priors"
+- How will we act on the (uncertain) findings? Have to decide before we design. We don't want "science fair projects"
+    - Simple example: Suppose we estimate iROAS at 1.5 with c.i. [1.45, 1.55]. Or, suppose we estimate iROAS at 1.5 with c.i. [-1.1, 4.1]. What actions would follow each?
+
+## Platform Experiments Advisory
+
+- On Meta, Lift Tests are true experiments, whereas "A/B Tests" confusingly do not control for algorithmic user/ad selection (called "divergent delivery"). In Meta's "A/B Test," consumers are randomized to treatment eligibility, rather than treatment itself, "treating" the algorithm that determines ad delivery, not the consumers themselves. [Burtch et al. (2025)](https://drive.google.com/file/d/1PMahIPaXUzg4Ji1ankuUhZ8Ra-7qW8zp/view?usp=drive_link){target="_blank"} go deeper.
+- Some platforms require advertisers meet minimum spend levels to use on-platform experimentation tools. You can roll your own experiments by randomizing ad budget across time and targeting criteria
+- Prominent exception: [Ghost ads](https://drive.google.com/file/d/1V9_YHaeiwZkIp4zE3bHhvfRfa-4KrOmT/view?usp=drive_link){target="_blank"}, an ingenious system to randomly withhold ads from auctions and maximize experiment efficiency
+
+::: {.source-url}
+[Haus (2025)](https://www.haus.io/blog/what-youre-actually-measuring-in-a-platform-a-b-test){target="_blank"} | [Braun & Schwartz (2025)](https://drive.google.com/file/d/11BhiE3wJqaKQ9S73Mjt1hbZJRhkvZvv5/view?usp=drive_link){target="_blank"}
+:::
+
+## Display Ad Experiments can be Tricky {.smaller}
+
+- Noisy environments: Treatments compete with advertisers, rivals, content, algorithms and market conditions, and interactions abound
+    - Similar to how we have limited causal knowledge about nutrition and human welfare
+- Compliance: Ad blocking, ad avoidance, non-visibility and non-delivery can all prevent treatment
+- Identity fragmentation: User may be treated on mobile, then convert on nontreated device or nontreated channel (e.g., retail store)
+- Platforms optimize for total conversions, not incremental conversions
+
+::: {.callout-note appearance="minimal"}
+Johnson's "Inferno" guide reviews these challenges and best practices for experimenters working at the frontier of digital advertising research.
+:::
+
+::: {.source-url}
+[Johnson (2023)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396){target="_blank"}
+:::
+
+## Productive Experiments... {.smaller}
+
+- Serve customer interests
+    - Working against customers drives customers away
+- Live within theoretical frameworks
+    - We require hypotheses if we want to learn from tests
+- Test quantifiable hypotheses
+    - Choose test size & statistical power based on hypothesis
+- Analyze all relevant customer metrics
+    - Test positive & negative metrics, e.g. conversions & bounce rates
+    - Test short-run & long-run metrics, e.g. trial & repurchase
+- Acknowledge possible interactions between variables
+    - E.g. price advertising effects will always depend on the price
+
+::: {.source-url}
+[Zumsteg (2022), Unchecked AB Testing Destroys Everything It Touches](https://drive.google.com/file/d/1fcY6tdB01Dlr5UXLNFXyjCRJyvHOxXs5/view?usp=sharing){target="_blank"}
+:::
+
+## Quasi-experiments Vocabulary {.smaller}
+
+- Model: Mathematical relationship between variables that simplifies reality, e.g. y = xβ + ε
+- Identification strategy: Set of assumptions that isolate a causal effect $\frac{\partial Y_i}{\partial T_i}$ from other factors that may influence $Y_i$
+    - A strategy to compare apples with apples, not apples with oranges
+- Popular quasi-experimental techniques: Difference-in-differences, regression discontinuity, instrumental variables, synthetic control, matching. Each technique predicts what counterfactual would have occurred without treatment
+- We say we "identify" the causal effect if we have an identification strategy that reliably distinguishes $\frac{\partial Y_i}{\partial T_i}$ from possibly correlated unobserved factors
+- If you estimate a model without an identification strategy, you should interpret the results as correlational
+    - This is widely misunderstood. We can learn from correlational models, but too many people mistakenly infer causality
+
+::: {.callout-note appearance="minimal"}
+[Sant'Anna (2026)](https://psantanna.com/did-resources/){target="_blank"} maintains a free online resource for difference-in-differences theory and estimation code.
+:::
+
+## Diff-in-Diffs Helped Identify Cholera Cause {.smaller}
+
+In the 1850s, an English doctor named John Snow suspected that cholera spread via food and drink, rather than the popular theory of airborne transmission. Snow realized a natural experiment would let him test his theory.
+
+::: {.callout-note appearance="minimal"}
+Some London neighborhoods were served by multiple water companies. One company, Lambeth, moved its intake pipes higher up the Thames to obtain cleaner water, whereas its competitor Southwark and Vauxhall maintained its nearby intake location.
+
+Snow went door to door to count customers who subscribed to each water company. He also matched those households' records against the city's mortality records to calculate cholera death rates by water provider and by time. He calculated that cholera death rates in 1849 were 85 per 100k Lambeth customers and 135 per 100k S&V customers. In 1854, after the water intake change, death rates were 19 per 100k Lambeth customers, and 147 per 100k S&V customers.
+
+If household cholera risk factors were unrelated to drivers of water company selection, then the Southwark and Vauxhall cholera death rate in 1854 estimated the Lambeth counterfactual, showing that cleaner water meaningfully reduced cholera death rates. This discovery came before the germ theory of disease in the 1860s or the modern development of experimental methods. (What are the two diffs?)
+:::
+
+::: {.source-url}
+[Cunningham (2026)](https://web.archive.org/web/20260118042754/https://mixtape.scunning.com/09-difference_in_differences){target="_blank"}
+:::
+
+![](AMimages/snow1855watermap.jpg){.absolute bottom="20" right="20" height="180px"}
+
+::: notes
+The map shows the overlapping territories of the two water companies within London.
+:::
+
+## Ad/Sales: Quasi-experiments
+
+Goal: Find a "natural experiment" in which $T_i$ is "as if" randomly assigned, to identify $\frac{\partial Y_i}{\partial T_i}$
+
+Possibilities:
+
+- Firm started, stopped or pulsed advertising without changing other variables
+- Competitor starts, stops or pulses advertising
+- Discontinuous changes in ad copy
+- Exogenous changes in ad prices, availability or targeting (e.g., elections)
+- Exogenous changes in addressable market, web traffic, other factors
+
+## DFS TV Ad Effects on Google Search
+
+![](AMimages/dfs_search_2015.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+I made this graph showing DraftKings and FanDuel branded keyword search volume from 9:01-9:59pm E.S.T. during the 2015 NFL season opener. TV ads increased search volume by 15-25x, with positive competitive spillovers, and effects that returned to baseline within 5 minutes. Commercial minutes are shaded, showing it was the presence of DFS ads, not just the absence of the game.
+:::
+
+::: {.source-url}
+[Du et al. (2019)](https://drive.google.com/file/d/175yrLDY-W15TgBtumPa11WnwMwCeUmSF/view){target="_blank"}
+:::
+
+## Ad/Sales: Quasi-experiments (2) {.smaller}
+
+![](AMimages/ohiocounties.png){fig-align="center" height="300px"}
+
+::: {.callout-note appearance="minimal"}
+[Shapiro et al. (2021)](https://drive.google.com/file/d/1f3JLTvIsltKej0DDae_vkZyAOmBXI13Y/view?usp=drive_link){target="_blank"} used a county-border approach to identify how local TV advertising affected package goods sales. The idea is that geographic media market boundaries are drawn based on broadcast signal patterns based on differences from city centers, such that consumers living on either side of the boundary are very similar. Therefore, boundary county sales can predict what in-market counterfactual sales would have been in the absence of advertising.
+:::
+
+::: {.source-url}
+See also [Shapiro (2018)](https://drive.google.com/file/d/1iIKeBlhpJhjGDq_UE8AVKAmpQPsalqvq/view?usp=drive_link){target="_blank"}
+:::
+
+## Experiments vs. Quasi-experiments
+
+- Experimentalists and quasi-experimentalists differ in beliefs, cultures & training, not unlike Bayesians vs. frequentists
+- Generally speaking, quasi-experiments:
+    - Always depend on untestable assumptions (as do experiments)
+    - Are bigger, faster & cheaper than experiments when valid
+    - Will lead us astray when not valid
+    - Are easy to apply without validity
+    - Range from challenging to impossible to validate
+- Experiments & quasi-experiments should be "yes-and-when-valid," not "either-or"
