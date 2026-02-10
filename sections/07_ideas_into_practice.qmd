@@ -1,0 +1,108 @@
+# Putting ideas into practice
+
+- Who's doing what and why
+
+## Who Tests the Most?
+
+![](AMimages/2023googletesting.png){fig-align="center" height="400px"}
+
+::: {.source-url}
+[Google](https://www.google.com/intl/en_us/search/howsearchworks/how-search-works/rigorous-testing/){target="_blank"}
+:::
+
+## CEO Quotes on Experimentation {.smaller}
+
+"To invent you have to experiment, and if you know in advance that it's going to work, it's not an experiment."<br>—Bezos, Amazon
+
+"In a culture that prioritizes curiosity over innate brilliance, 'the learn-it-all does better than the know-it-all.'"<br>—Nadella, Microsoft
+
+"We ship imperfect products but we have a very tight feedback loop and we learn and we get better."<br>—Altman, OpenAI
+
+"You do a lot of experimentation, an A/B test to figure out what you want to do."<br>—Chesky, Airbnb
+
+"The only way to get there is through super, super aggressive experimentation."<br>—Khosrowshahi, Uber
+
+"Create an A/B testing infrastructure."<br>—Huffman, on his top priority as Reddit CEO
+
+## Advertising Experiment Frequency
+
+![](AMimages/runge2020HBR.png){fig-align="center" height="400px"}
+
+::: {.source-url}
+[Runge (2020)](https://hbr.org/2020/10/marketers-underuse-ad-experiments-thats-a-big-mistake){target="_blank"} | [Runge et al. (2020)](https://drive.google.com/file/d/1Xetwnrv6dLyhXKlTK0vYaZ5yEnB6K8iY/view?usp=sharing){target="_blank"}
+:::
+
+## Advertising Experiment Effectiveness
+
+![](AMimages/runge2020HBR2.png){fig-align="center" height="400px"}
+
+::: {.callout-note appearance="minimal"}
+Companies with deep experimental practices tend to get much better results per ad dollar spent.<br>Ironically, results are correlational; experimentation is not randomly assigned.
+:::
+
+::: {.source-url}
+[Runge et al. (2020)](https://drive.google.com/file/d/1Xetwnrv6dLyhXKlTK0vYaZ5yEnB6K8iY/view?usp=sharing){target="_blank"}
+:::
+
+##
+
+![](AMimages/kantar2025-0.png){fig-align="center" height="450px"}
+
+::: {.source-url}
+[Kantar (2025)](https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing){target="_blank"}
+:::
+
+## Kantar 2025: Measurement Methods
+
+![](AMimages/kantar2025-1.png){fig-align="center" height="450px"}
+
+::: {.source-url}
+[Kantar (2025)](https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing){target="_blank"}
+:::
+
+## Incrementality Adoption & Barriers
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](AMimages/kantar2025-2.png){fig-align="center" height="380px"}
+:::
+
+::: {.column width="50%"}
+![](AMimages/kantar2025-3.png){fig-align="center" height="380px"}
+:::
+
+::::
+
+::: {.source-url}
+[Kantar (2025)](https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing){target="_blank"}
+:::
+
+## MMM Usage & Priorities
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![](AMimages/kantar2025-4.png){fig-align="center" width="100%"}
+:::
+
+::: {.column width="40%"}
+![](AMimages/kantar2025-5.png){fig-align="center" height="300px"}
+:::
+
+::::
+
+::: {.source-url}
+[Kantar (2025)](https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing){target="_blank"}
+:::
+
+## What would you do? {.smaller}
+
+::: {style="margin: 0; line-height: 1; text-align: center;"}
+![](AMimages/li1.png){height="150px" style="margin-bottom: 0;"}
+![](AMimages/li2.png){height="300px" style="margin-top: 0; margin-bottom: 0;"}
+:::
+
+::: {.callout-note appearance="minimal"}
+Leading a traditional team to adopt incrementality can be a resume headline and interesting challenge, especially if you apply it to solve your hardest challenge. However, it requires leadership support, you usually cannot do it alone. If structural incentives misalign, consider a new role.
+:::

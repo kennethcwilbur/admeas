@@ -1,0 +1,55 @@
+# Marketing Mix Models
+
+- Definition, components, considerations, and open-source tools
+
+## Marketing Mix Models (MMM) {.smaller}
+
+- The "marketing mix" consists of the 4 P's
+    - Product line, length and features; price & promotions; advertising, PR, social media, reviews; retail distribution
+- A "marketing mix model" (MMM) typically uses marketing mix variables to explain sales
+    - Idea goes back to the 1950s
+    - E.g., suppose we increase price & ads at the same time; what happens to sales?
+    - When possible, MMM should include competitor variables also
+- A "media mix model" (mMM) relates sales to ads/marcom channels or publishers
+    - MMM and mMM share many attributes and techniques
+- MMM goal is to evaluate past marketing ROAS by channel and support future budgeting decisions
+
+::: {.source-url}
+Pioneering works: [Magee (1953)](https://pubsonline.informs.org/doi/abs/10.1287/opre.1.2.64){target="_blank"}, [Weinberg (1956)](https://pubsonline.informs.org/doi/10.1287/opre.4.2.152){target="_blank"}, [Vidale & Wolfe (1957)](https://drive.google.com/file/d/1-XUJx5ZdVXL2TW2jT1J56R1_tY9RWk3_/view?usp=drive_link){target="_blank"}, [Little (1972)](https://pubsonline.informs.org/doi/abs/10.1287/opre.23.4.628){target="_blank"}
+:::
+
+## MMM Components {.smaller}
+
+- MMM analyzes aggregate data, usually 3-5 years of weekly or monthly intervals, usually across a panel of geographic markets
+    - Aggregate data are privacy-compliant & often do not require platform participation; helps explain MMM comeback
+- Predictors include ad spending/exposures by ad type; outcomes measure sales, volume or revenue
+- MMM usually controls for (a) trends, (b) seasonality, (c) macroeconomic factors, (d) known category-specific demand shifters, (e) diminishing marginal returns, (f) possibly long-lasting advertising effects ("carryover")
+- Outputs include ad elasticities, ROAS measures, sales predictions based on counterfactual budget reallocations
+- MMM parameters can be interpreted causally if and only if adspend data are generated with a randomization strategy built in
+
+## MMM Considerations {.smaller}
+
+- Data availability, accuracy, granularity and refresh rate are all critical
+- MMM requires sufficient variation in marketing predictors, else it cannot estimate coefficients
+- "Model uncertainty": Results can be strongly sensitive to modeling choices, so we usually evaluate multiple models to gauge sensitivity to alternate assumptions
+- MMM results are correlational without experiments or quasi-experimental identification
+    - Correlations can be unstable; Bayesian estimation can help regularize
+    - MMM results can be causal if you induce exogenous variation in ad spending
+    - MMM results can be calibrated using causal measurements, e.g., by using experiments to calibrate Bayesian prior beliefs, or by rewarding models for conformance to external incrementality estimates
+
+::: {.source-url}
+[MSI White Paper](https://github.com/kennethcwilbur/website/raw/master/MSI-MMM-Blue-Ribbon-Panel-Report-Updated.pdf){target="_blank"} | [Sellforte](https://sellforte.com/blog/calibrating-marketing-mix-models-with-experiments-and-attribution-data){target="_blank"}
+:::
+
+## Open-Source MMM Frameworks
+
+- Meta [Robyn](https://facebookexperimental.github.io/Robyn/){target="_blank"} (2024). Excellent [training course](https://www.facebookblueprint.com/student/path/253121){target="_blank"}
+    - Cool features: Causal estimate calibration, Set your own objective criteria, Smart multicollinearity handling
+
+- Google [Meridian](https://developers.google.com/meridian){target="_blank"} (2025). Excellent [self-starter guide](https://www.thinkwithgoogle.com/_qs/documents/18498/Meridian_Playbook_1s4EUSU.pdf){target="_blank"}
+    - Cool features: Bayesian implementation, Hierarchical geo-level modeling, reach/frequency distinctions
+    - Robyn & Meridian both include budget-reallocation modules
+
+Others: [PyMC-Marketing](https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html){target="_blank"}, [mmm_stan](https://github.com/sibylhe/mmm_stan){target="_blank"}, [BayesianMMM](https://github.com/leopoldavezac/BayesianMMM){target="_blank"}
+
+Also relevant: [MMM data simulator](https://facebookexperimental.github.io/siMMMulator/){target="_blank"}
