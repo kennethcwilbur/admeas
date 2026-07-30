@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Kenneth C. Wilbur">
-  <title>Advertising Measurement</title>
+  <title>Introduction to Advertising Measurement</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -139,8 +139,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title"><strong>Advertising Measurement</strong></h1>
+<section id="title-slide" data-visibility="uncounted" class="quarto-title-block center">
+  <h1 class="title"><strong>Introduction to Advertising Measurement</strong></h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -156,20 +156,51 @@
     </div>
 </div>
 
-  <p class="date">This version: February 2026 | License: CC BY 4.0 | We use javascript to track readership.<br>Our main goal is to help advertisers make better decisions. We welcome reuse with attribution. Please share widely.</p>
+  <p class="date">Revised August 2026 | License: CC BY 4.0 | We use javascript to track readership.<br>Our main goal is to help advertisers make better decisions. We welcome reuse with attribution. Please share widely.</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Contents</h2>
+<ul>
+<li><a href="#/domain-knowledge" id="/toc-domain-knowledge">Domain Knowledge</a></li>
+<li><a href="#/causality" id="/toc-causality">Causality</a></li>
+<li><a href="#/fundamental-problem-of-causal-inference" id="/toc-fundamental-problem-of-causal-inference">Fundamental Problem of Causal Inference</a></li>
+<li><a href="#/advertising-measurement-defined" id="/toc-advertising-measurement-defined">Advertising Measurement, Defined</a></li>
+<li><a href="#/correlational-advertising-measurement" id="/toc-correlational-advertising-measurement">Correlational Advertising Measurement</a></li>
+<li><a href="#/how-much-should-we-rely-on-correlational-ad-measurement" id="/toc-how-much-should-we-rely-on-correlational-ad-measurement">How much should we rely on Correlational Ad Measurement?</a></li>
+<li><a href="#/causal-advertising-measurement" id="/toc-causal-advertising-measurement">Causal Advertising Measurement</a></li>
+<li><a href="#/who-experiments-and-why" id="/toc-who-experiments-and-why">Who experiments and why?</a></li>
+<li><a href="#/integrating-methods" id="/toc-integrating-methods">Integrating Methods</a></li>
+<li><a href="#/wrapping-up" id="/toc-wrapping-up">Wrapping Up</a></li>
+</ul>
+</nav>
+</section>
+<section id="what-you-will-get-from-this-deck" class="slide level2">
+<h2>What you will get from this deck</h2>
+<ul>
+<li>One day soon, someone may ask, or tell, you how well the ads worked</li>
+<li>After reading, you will be able to:
+<ul>
+<li>Identify incentive conflicts in the advertising supply chain</li>
+<li>Describe pros &amp; cons of major advertising measurement methods</li>
+<li>Understand how multiple methods may be productively combined to optimize spending allocations under a budget</li>
+</ul></li>
+<li>This knowledge can help you balance maximizing advertising profits with returning profits to shareholders</li>
+</ul>
+<p><img data-src="AMimages/vanitymetrics.png" class="absolute" style="left: 388px; bottom: 5px; height: 196px; "></p>
+<p><img data-src="AMimages/treasuremap.svg" class="absolute" style="bottom: 15px; right: 15px; height: 110px; "></p>
 </section>
 <section>
 <section id="domain-knowledge" class="title-slide slide level1 center">
 <h1>Domain Knowledge</h1>
 <ul>
-<li>Broad context to motivate and interpret advertising measurement</li>
+<li>Context required to interpret advertising measurement</li>
 </ul>
 </section>
 <section id="advertising-sales-revenue-1950-2019" class="slide level2">
 <h2>Advertising sales revenue, 1950-2019</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/benedictevans-adrev.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/benedictevans-adrev-trimmed.png" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -196,22 +227,22 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="online-ad-revenues-2020-2024" class="slide level2">
-<h2>Online Ad Revenues, 2020-2024</h2>
+<section id="online-ad-revenues-2021-2025" class="slide level2">
+<h2>Online Ad Revenues, 2021-2025</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/IARRgrowthbyformat2020-24-cropped.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/IARRgrowthbyformat2021-25-cropped.png" class="quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>These data expand the Internet bar. The Interactive Advertising Bureau collects ad sales revenue by format from online ad sellers and supply chain firms. Total spending grew from $132.3B in 2020 to $246.9B in 2024. What else do you see?</p>
+<p>These data expand the Internet bar. The Interactive Advertising Bureau collects ad sales revenue by format from online ad sellers and supply chain firms. Total spending grew from $179.4B in 2021 to $282.2B in 2025, 0.92% of GDP. What else do you see?</p>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://www.iab.com/wp-content/uploads/2025/04/IAB_PwC-Internet-Ad-Revenue-Report-Full-Year-2024.pdf" target="_blank">IAB (2025)</a></p>
+<p><a href="https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf" target="_blank">IAB (2026)</a></p>
 </div>
 <aside class="notes">
 <p>Revenue growth remains substantial</p>
@@ -227,22 +258,25 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="large-sellers-ad-revenues-as-of-us-gdp-2002-23" class="slide level2">
-<h2>Large Sellers’ Ad Revenues as % of US GDP, 2002-23</h2>
+<section id="large-ad-seller-revenues-as-of-us-gdp-2011-2025" class="slide level2 callout-sm">
+<h2>Large Ad Seller Revenues as % of US GDP, 2011-2025</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/stlfed-big4adrevbyyear-cropped.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/bigsellers_adshare_2011_2025.png" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Online advertising sales are increasingly dominated by a few large firms. We used to call them “the duopoly,” but now we call them “the triopoly.”</p>
+<p>Online advertising sales are increasingly dominated by a few large firms; the top 3 sold $559.5B in ads globally in 2025. We used to call them “the duopoly,” but now we call them “the triopoly.”</p>
+<div class="fig-note">
+<p>The numerator is advertising revenue only, not total company revenue. Each firm reports it as a separate line in its 10-K revenue note — Alphabet’s “Google advertising” (Search &amp; other, YouTube ads, Google Network), Meta’s “Advertising,” Amazon’s “Advertising services,” and Microsoft’s “Search and news advertising.” In 2025 those lines were 73%, 98%, 10% and 5% of each firm’s total revenue, so the chart is not a ranking of company size. The denominator is US nominal GDP. Amazon’s line starts at its first disclosure (2019); Microsoft is plotted at June fiscal years; its FY2014–15 points are inferred from growth rates disclosed in those years’ 10-Ks, which reported no levels.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications" target="_blank">Marto and Le (2024)</a></p>
+<p>Data: company 10-K filings; BEA NIPA Table 1.1.5. Chart concept: <a href="https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications" target="_blank">Marto and Le (2024)</a></p>
 </div>
 <aside class="notes">
 
@@ -258,22 +292,25 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="large-ad-sellers-profit-percentage-2002-2023" class="slide level2">
-<h2>Large Ad Sellers’ Profit Percentage, 2002-2023</h2>
+<section id="large-ad-seller-profit-percentage-2011-2025" class="slide level2 callout-sm">
+<h2>Large Ad Seller Profit Percentage, 2011-2025</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/stlfed-big4profitpct-cropped.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/bigsellers_profitpct_2011_2025.png" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
 <p>Online advertising sales is a remarkably high-margin line of business, in part due to limited marginal costs, high efficiencies, and supply-side concentration. Note, these percentages are across all lines of business. What might these profit margins indicate to ad buyers?</p>
+<div class="fig-note">
+<p>Profit percentage = (revenue − variable costs) ÷ variable costs, where variable costs are cost of goods sold plus selling, marketing, and general and administrative expense. R&amp;D is excluded. Computed across all lines of business, not advertising alone.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications" target="_blank">Marto and Le (2024)</a></p>
+<p>Data: company 10-K filings. Chart concept: <a href="https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications" target="_blank">Marto and Le (2024)</a></p>
 </div>
 <aside class="notes">
 <p>Selling ads is a high-margin business for some companies, compared to other services</p>
@@ -346,12 +383,13 @@
 </div>
 </div>
 </div>
+<p><img data-src="AMimages/mortgage_ad.svg" class="absolute" style="top: 190px; right: 30px; height: 185px; "></p>
 </section>
 <section id="ai-trades-online-ads" class="slide level2">
 <h2>AI Trades Online Ads</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/iab-programmatic.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/iab-programmatic.png" class="quarto-figure quarto-figure-center" height="405"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -382,18 +420,18 @@
 <h2>The Ad Tech Ecosystem</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/Display-LUMAscape.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/Display-LUMAscape.png" class="quarto-figure quarto-figure-center" height="405"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Luma Partners maps ad tech ecosystems. Each logo is a company that intermediates between advertisers and publishers: data/algorithm specialists, representatives, and marketplaces. This map is one among many.</p>
+<p>Luma Partners maps ad tech ecosystems. Each logo is a company that intermediates between advertisers and publishers: data/algorithm specialists, representatives, and marketplaces. This map is one among many. Contrast this with “walled gardens,” which vertically integrate ad sales, creation, targeting, delivery &amp; measurement.</p>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://lumapartners.com/lumascapes/" target="_blank">Luma Partners</a></p>
+<p><a href="https://lumapartners.com/lumascapes/" target="_blank">Luma Partners</a> | <a href="https://www.linkedin.com/posts/vladhanzlik_many-people-assume-amazon-google-and-meta-activity-7439279754484183041-cN9B/" target="_blank">Non-triopoly was just under half of US ad revenue in 2025</a></p>
 </div>
 <aside class="notes">
 <p>Let’s talk through how some of this works.</p>
@@ -513,18 +551,18 @@
 <h2>Advertising avoidance</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/Nielsen-Ad-Avoidance-by-Medium-Dec2023.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/Nielsen-Ad-Avoidance-by-Medium-Dec2023.png" class="quarto-figure quarto-figure-center" height="375"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Can an ad work if a consumer avoids it? About half of consumers say they usually or always skip ads. Do you use an ad blocker in your favorite browser? Ad load and ad nuisance are the “attentional prices” that subsidize our media: without ads, we would pay more for content.</p>
+<p>Can an ad work if a consumer avoids it? About half of consumers say they usually or always skip ads. Do you use an ad blocker in your favorite browser? <em>Soft</em> ad blockers, like AdBlock and AdBlock Plus, make money by charging publishers for NOT blocking “Acceptable Ads.” <em>Hard</em> ad blockers, like uBlock Origin and AdGuard, block all ads and make money with a freemium strategy or they forego revenue.</p>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://drive.google.com/file/d/11yit6N_5kxMTQSM6HLNP2nL0sAtXHlNY/view?usp=drive_link" target="_blank">Nielsen (2023)</a></p>
+<p><a href="https://drive.google.com/file/d/11yit6N_5kxMTQSM6HLNP2nL0sAtXHlNY/view?usp=drive_link" target="_blank">Nielsen (2023)</a> | <a href="https://www.betterads.org/blog/ad-blocking-growing-what-should-you-do-about-it" target="_blank">Coalition for Better Ads (2024)</a> | <a href="https://www.techradar.com/pro/best-ad-blockers" target="_blank">Best Ad Blockers</a></p>
 </div>
 <aside class="notes">
 
@@ -540,35 +578,44 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="consumer-attention-by-medium" class="slide level2">
+<section id="consumer-attention-by-medium" class="slide level2 tight-media">
 <h2>Consumer Attention by Medium</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/ebiquity_lumen_2024_figure4.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/lumen_apm_vs_cpm.png" class="quarto-figure quarto-figure-center" height="380"></p>
 </figure>
 </div>
+<div class="columns">
+<div class="column" style="width:72%;">
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Advertising media vary in average attention attracted (i.e.&nbsp;eyes-on-screen) and advertising price. These data reflect attention measurements and prices by medium. What do you see?</p>
+<p>Advertising media vary in average attention attracted (i.e.&nbsp;eyes-on-screen) and advertising price.</p>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:28%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="AMimages/subway_attention_billboard.jpg" class="quarto-figure quarto-figure-center" height="120"></p>
+</figure>
+</div>
+</div></div>
 <div class="source-url">
-<p><a href="https://drive.google.com/file/d/1Xcr-GYlXV9dV6HLSsgNpnBgIltw4EH3s/view?usp=sharing" target="_blank">Ebiquity &amp; Lumen (2024)</a></p>
+<p><a href="https://www.mrg.org.uk/presentations/Lumen%202nd%20Feb%20MRG.pdf" target="_blank">Lumen &amp; TVision (2021)</a></p>
 </div>
 </section>
 <section id="privacy-perceptions" class="slide level2">
 <h2>Privacy Perceptions</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/iab2025privacyperceptions.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/iab2025privacyperceptions.png" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Consumers don’t especially love advertising but they mostly understand that advertising subsidizes media access, and most prefer to pay with attention rather than money. Personalized advertising ranks low on most consumers’ data privacy concerns. Empirical studies usually show that personalized ads generate more conversions because they are more relevant.</p>
+<p>Consumers don’t love ad interruptions, but most understand that advertising is the “attentional price” that subsidizes media access, which would otherwise cost more; most consumers prefer to pay with attention rather than money. Personalized advertising ranks low on most consumers’ data privacy concerns. Empirical studies usually show that personalized ads generate more conversions because they are more relevant.</p>
 </div>
 </div>
 </div>
@@ -576,25 +623,60 @@
 <p><a href="https://drive.google.com/file/d/1Xzv2-kTMoJAnYsxXzLeYork_tXHbQWbb/view?usp=drive_link" target="_blank">IAB (2025)</a> | <a href="https://kevinboone.me/fingerprinting.html" target="_blank">Browser Fingerprinting (2025)</a> | <a href="https://drive.google.com/file/d/1PAQW_dAuBzny3JG4oBWXHLF_4T0GmerP/view?usp=drive_link" target="_blank">Yeo et al.&nbsp;(2025)</a></p>
 </div>
 </section>
-<section id="retail-media-networks" class="slide level2">
-<h2>Retail Media Networks</h2>
+<section id="commerce-media" class="slide level2">
+<h2>Commerce Media</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/retailmedia1.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/IARRcommercemedia2022-25-cropped.png" class="quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Retail media networks (e.g., Amazon, Walmart) provide data for ad targeting, sell sponsored product search listings, sell ads on behalf of publishers, and measure advertising conversions. RMNs are growing quickly as they cannibalize older trade promotions budgets.</p>
+<p>Commerce media (e.g., Amazon, Walmart) provide data for ad targeting, sell sponsored product search listings, sell ads on behalf of publishers, and measure advertising conversions. They grew quickly by cannibalizing trade promotions budgets.</p>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://archive.ph/WfdAc" target="_blank">Gabel et al.&nbsp;(2024)</a></p>
+<p><a href="https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf" target="_blank">IAB (2026)</a> | <a href="https://archive.ph/WfdAc" target="_blank">Gabel et al.&nbsp;(2024)</a></p>
 </div>
 <aside class="notes">
 <p>Big examples include Amazon and Walmart among others</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="AMimages/admeas_fraud-cropped.png" class="quarto-figure quarto-figure-center" height="420"></p>
+</figure>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Advertising value delivered is hard to detect, but advertising remains lightly regulated, so fraud is a first-order issue. 3 main types: Fraudulent ads delivered to consumers; fraudulent audiences increasing brand payments to publishers/supply chain (e.g., <a href="https://www.ana.net/content/show/id/pr-2023-09-made-for-advertising" target="_blank">MFA</a>); and supply-chain participants stealing from each other. Verification firms (e.g., Integral Ad Science) try to detect problems but high-profile failures have occurred. Career professionals believe fraud funds organized crime and hostile governments.</p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://www.youtube.com/watch?v=vc4yL3YTwWk" target="_blank">MegaLag (2024)</a> | <a href="https://web.archive.org/web/20251212085545/https://www.lawfaremedia.org/article/reuters-blows-lid-on-meta%27s-fraud-profit-scandal" target="_blank">Lawfare (2026)</a> | <a href="https://web.archive.org/web/20260724031653/https://mediacopilot.ai/bots-passed-human-traffic-online-cloudflare-ceo/" target="_blank">Media Copilot (2026)</a> | <a href="https://web.archive.org/web/20260721084022/https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-advertising/fraudulent-advertising-and-account-integrity_expert-insights-on-best-practice.pdf?v=422303" target="_blank">OfCom (2026)</a> | <a href="https://adalytics.io/blog" target="_blank">Adalytics</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Note the “17 million members” and the Paypal ownership</li>
+<li>Honey had two major problems. First, its pitch to consumers appears misleading, as it enabled stores to pay fees to manage the coupon codes available to consumers, and thereby avoid margin erosion. Second, it was replacing influencers’ affiliate codes with its own, meaning it was allegedly stealing affiliate marketing fees from its own partners.</li>
+<li>One reason causality is important is that, if we assume all marketing is incremental, we will maximize our unproductive payouts and thereby decrease our advertising ROAS</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -613,7 +695,7 @@
 <li><strong>Brand safety:</strong> Protect brands against negative impacts on consumer opinion from ads appearing near specific types of content
 <ul>
 <li>E.g., proximate to military conflict, obscenity, drugs, hate speech</li>
-<li>Keyword blacklists and whitelists determine contextual ad bids, yet fraudulent ad sales may place brand ads in non-safe contexts</li>
+<li>Keyword blacklists and whitelists determine contextual ad bids; blacklists <a href="https://web.archive.org/web/20260516091129/https://www.adexchanger.com/publishers/keyword-blocking-demonetized-more-than-half-of-reuters-brand-safe-stories/" target="_blank">demonetized &gt;50% of Reuters.com news articles</a></li>
 <li>Ad platforms have seen “advertiser boycotts” demanding content moderation improvements; monetization is <a href="https://www.tubefilter.com/2026/01/15/youtube-sensitive-content-ad-monetization-guidelines-update/" target="_blank">expanding recently</a></li>
 </ul></li>
 <li><strong>Brand suitability:</strong> Identifies brand-aligned content to improve ad delivery</li>
@@ -634,7 +716,7 @@
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>The average US corporation spends about 3.1% of gross margin on advertising deductions. Gross margin ranges from 3-5x net margin, so the modal firm could increase net income by 10.3-18.5% by setting ads to zero (i.e.&nbsp;100/(100-9.3) to 100/(100-15.5)). Or could it? What would happen to top line revenue and cost efficiencies? [2 missing data points were withheld by source for confidentiality purposes]</p>
+<p>The average US corporation spends about 3.1% of gross margin on advertising deductions. Gross margin ranges from 3-5x net margin, so the modal firm could increase net margin by 10.3-18.5% by setting ads to zero (i.e.&nbsp;100/(100-9.3) to 100/(100-15.5)). Or could it? What would happen to top line revenue and cost efficiencies? [2 missing data points were withheld by source for confidentiality purposes]</p>
 </div>
 </div>
 </div>
@@ -663,57 +745,32 @@
 <h2>What is Incrementality?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/incrementality.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/incrementality.png" class="quarto-figure quarto-figure-center" height="445"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Incrementality is the difference between post-campaign conversions and the conversions that would have occurred anyway without the campaign.</p>
-<p>The word incrementality is only used in marketing.</p>
+<p>Incrementality is the difference between advertising-generated conversions and the conversions that would have occurred anyway without the campaign.</p>
+<p>The word incrementality is only used in marketing. However, it is increasingly misused.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="honey-a-case-study-in-attribution-fraud" class="slide level2">
-<h2>Honey: A Case Study in Attribution Fraud</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/honey.png" class="quarto-figure quarto-figure-center" height="400"></p>
-</figure>
-</div>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Honey, a PayPal-owned browser extension with 17 million members, was found to replace influencers’ affiliate codes with its own, stealing affiliate marketing fees from partners. This is one example of “cookie stuffing” attribution fraud, and helps to illustrate why ad buyers don’t always trust ad sellers. Incrementality estimates verify marketing value delivered without relying on seller statements.</p>
-</div>
-</div>
-</div>
-<div class="source-url">
-<p><a href="https://www.youtube.com/watch?v=vc4yL3YTwWk" target="_blank">MegaLag (2024)</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Note the “17 million members” and the Paypal ownership</li>
-<li>Honey had two major problems. First, its pitch to consumers is literally false, as it enabled stores to pay fees to manage the coupon codes available to consumers, and thereby avoid margin erosion. Second, it was replacing influencers’ affiliate codes with its own, meaning it was literally stealing affiliate marketing fees from its own partners.</li>
-<li>One reason causality is important is that, if we assume all marketing is incremental, we will maximize our unproductive payouts and thereby decrease our advertising ROAS</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="causality" class="title-slide slide level1 center">
 <h1>Causality</h1>
 <p>Examples, fallacies and motivations</p>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>“Participants drew causal inferences from non-experimental vignettes as often as they did from experimental vignettes, and more frequently for causal statements and directions of association that fit with intuitive notions than for those that did not.”</p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://web.archive.org/web/20250826131440/https://www.bleske-rechek.com/April%20Website%20Files/Bleske-Rechek%20et%20al.%202015%20Correlation%20vs%20Causation.pdf" target="_blank">Bleske-Rechek et al.&nbsp;(2015)</a></p>
+</div>
 </section>
 <section id="correlation-ne-causation" class="slide level2">
 <h2>Correlation <span class="math inline">\(\ne\)</span> Causation</h2>
@@ -730,7 +787,7 @@
 </div>
 </div>
 </section>
-<section id="how-many-false-positives" class="slide level2 smaller">
+<section id="how-many-false-positives" class="slide level2 medium">
 <h2>How Many False Positives?</h2>
 <ul>
 <li>Suppose you observe 10 customer outcomes, 1,000 predictors, N=100,000 obs
@@ -754,29 +811,29 @@
 <p><a href="https://drive.google.com/file/d/1NuHbXi8QNVkaJQ7QXBWiHqHfvtUaXlCC/view?usp=sharing" target="_blank">R Script simulating this scenario</a></p>
 </div>
 </section>
-<section id="classic-misleading-correlations" class="slide level2 smaller">
+<section id="classic-misleading-correlations" class="slide level2 medium">
 <h2>Classic misleading correlations</h2>
 <ul>
 <li>“Lucky socks” and sports wins
 <ul>
 <li>Post hoc fallacy (precedence indicates causality AKA superstition)</li>
 </ul></li>
-<li>Commuters carrying umbrellas and rain
+<li>Commuters carrying umbrellas followed by rain later in the day
 <ul>
 <li>Forward-looking behavior</li>
 </ul></li>
-<li>Kids receiving tutoring and grades
+<li>Kids receiving tutoring often get lower grades
 <ul>
 <li>Reverse causality / selection bias</li>
 </ul></li>
-<li>Ice cream sales and drowning deaths
+<li>Ice cream sales and drowning deaths co-occur
 <ul>
-<li>Unobserved confounds</li>
+<li>Unobserved confounds (hot temperatures drive both)</li>
 </ul></li>
-<li>Correlations are measurable &amp; usually predictive, but hard to interpret causally
+<li>Correlations are measurable &amp; usually predictive, but easy to misinterpret
 <ul>
-<li>Correlation-based beliefs are hard to disprove and therefore sticky</li>
-<li>Correlations that reinforce logical theories are especially sticky</li>
+<li>Correlation-based beliefs are hard to disprove and therefore persist</li>
+<li>Correlations that reinforce logical theories especially persist</li>
 <li>Correlation-based beliefs may or may not reflect causal relationships</li>
 </ul></li>
 </ul>
@@ -794,7 +851,7 @@
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>This AB test triggered a “revenue too high” alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. It increased revenue 12%—over $100 million per year—without harming user experience metrics.</p>
+<p>This A/B test triggered a “revenue too high” alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. It increased revenue 12%—over $100 million per year—without harming user experience metrics.</p>
 </div>
 </div>
 </div>
@@ -802,7 +859,7 @@
 <p><a href="https://hbr.org/2017/09/the-surprising-power-of-online-experiments" target="_blank">Kohavi &amp; Thomke (2017)</a></p>
 </div>
 <aside class="notes">
-<p>This AB test triggered a “revenue too high” alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. Bing had a robust experimentation platform and culture. They run over 10k tests/year. The RTH alert indicates a possible code error that might be defrauding advertisers. In this case it was just a really big treatment effect, biggest ever.</p>
+<p>This A/B test triggered a “revenue too high” alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. Bing had a robust experimentation platform and culture. They run over 10k tests/year. The RTH alert indicates a possible code error that might be defrauding advertisers. In this case it was just a really big treatment effect, biggest ever.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -837,13 +894,13 @@
 <h2>Four Types of Analytics</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/4typesofanalytics.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/4typesofanalytics-trimmed.png" class="quarto-figure quarto-figure-center" height="440"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Correlations are descriptive analytics (“facts”). Causality matters most for diagnostic and prescriptive analytics. The great power of data analytics is cutting through the noise to isolate the effect of a single variable on outcomes of interest, apart from competing and simultaneous causes. Causality can help build predictive models, but predictive correlations may suffice.</p>
+<p>Correlations are descriptive analytics (“facts”). Causality matters most for diagnostic and prescriptive analytics. The great power of data analytics is cutting through the noise to isolate the effect of a single variable on outcomes of interest, apart from competing and simultaneous causes. Causality can help build predictive models, but predictive correlations often suffice.</p>
 </div>
 </div>
 </div>
@@ -861,7 +918,7 @@
 </div>
 <aside class="notes">
 <ul>
-<li>At the time, eBay was a top-5 Google client, spending over $1 billion per year on search ads</li>
+<li>At the time, eBay was a top-5 Google client, spending over $1 billion per year on internet ads</li>
 <li>Clicks on paid branded links went to zero, but the effect was entirely replaced with clicks on organic branded links</li>
 <li>Interestingly, the eBay’s “attributed sales” did not materially change. That led eBay to fire some of its staff</li>
 <li>There are credible allegations that Google subsequently updated its organic search ranking algorithm to downrank ebay among other commercial sites</li>
@@ -911,7 +968,7 @@
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://hbr.org/2013/03/did-ebay-just-prove-that-paid" target="_blank">Fisman (HBR 2023): Did eBay Just Prove That Paid Search Ads Don’t Work?</a> | <a href="https://drive.google.com/file/d/1VY3tIBZhXY9OA4hk8bgUDVsp69XtQwKQ/view?usp=drive_link" target="_blank">Central Control (2025)</a></p>
+<p><a href="https://hbr.org/2013/03/did-ebay-just-prove-that-paid" target="_blank">Fisman (HBR 2013): Did eBay Just Prove That Paid Search Ads Don’t Work?</a> | <a href="https://drive.google.com/file/d/1VY3tIBZhXY9OA4hk8bgUDVsp69XtQwKQ/view?usp=drive_link" target="_blank">Central Control (2025)</a></p>
 </div>
 </section>
 <section id="did-the-ebay-result-generalize-to-other-companies" class="slide level2">
@@ -955,7 +1012,7 @@
 <h2>Did Other Firms Learn from eBay?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/rs18.png" class="quarto-figure quarto-figure-center" height="350"></p>
+<p><img data-src="AMimages/rs18-trimmed.png" class="quarto-figure quarto-figure-center" height="420"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -991,13 +1048,13 @@
 <h2>eBay Case Study: Key Takeaways</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/SERP_usedguitarlespaul.png" class="quarto-figure quarto-figure-center" height="350"></p>
+<p><img data-src="AMimages/SERP_usedguitarlespaul-trimmed.png" class="quarto-figure quarto-figure-center" height="440"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>eBay taught us that correlational advertising measurement is questionable, and that firms should use experiments to measure causal advertising effects. However, most companies were not ready for that message yet. This 2026 screenshot shows that eBay lost its organic SERP real estate and started advertising again. That’s exactly what it should do when ads are profitable.</p>
+<p>eBay taught us that correlational advertising measurement is questionable, and that firms should use experiments to measure causal advertising effects. However, most companies were not ready for that message yet. This 2026 screenshot shows that eBay lost its organic SERP real estate and started buying Google search ads again. That’s exactly what it should do when ads are profitable.</p>
 </div>
 </div>
 </div>
@@ -1023,7 +1080,7 @@
 <h2>“Grading Your Own Homework”</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/grading-own-homework.svg" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/grading-own-homework-tight.svg" class="quarto-figure quarto-figure-center" height="350"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1038,7 +1095,7 @@
 <h2>2024 Ad Measurement Trends</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/2024admeasurementtrends.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/2024admeasurementtrends.png" class="quarto-figure quarto-figure-center" height="480"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1086,7 +1143,7 @@
 <li>Why causal effects are estimable but not directly observable</li>
 </ul>
 </section>
-<section id="causal-inference-framework" class="slide level2 smaller">
+<section id="causal-inference-framework" class="slide level2 medium">
 <h2>Causal Inference Framework</h2>
 <ul>
 <li>Suppose we have a binary “treatment” or “policy” variable <span class="math inline">\(T_i\)</span> that we can “assign” to person <span class="math inline">\(i\)</span>
@@ -1116,7 +1173,7 @@
 <li>Effect of <span class="math inline">\(T_i=1\)</span> on <span class="math inline">\(\pi_i\)</span> is <span class="math inline">\(\frac{d\pi_i}{dT_i}=\frac{\partial \pi_i}{\partial Y_i}\frac{\partial Y_i}{\partial T_i}+\frac{\partial \pi_i}{\partial T_i}\)</span></li>
 <li>We have to know <span class="math inline">\(\frac{\partial Y_i}{\partial T_i}\)</span> to optimize <span class="math inline">\(T_i\)</span> assignments
 <ul>
-<li>Called the “treatment effect” (TE); can be approximated by 𝑌𝑖⁡(𝑇𝑖 =1) - 𝑌𝑖⁡(𝑇𝑖 =0)</li>
+<li>Called the “treatment effect” (TE); can be approximated by <span class="math inline">\(\mbox{\(Y_i(T_i{=}1) - Y_i(T_i{=}0)\)}\)</span></li>
 </ul></li>
 <li>Profits may decrease if we misallocate <span class="math inline">\(T_i\)</span>
 <ul>
@@ -1168,27 +1225,34 @@
 <li>Measurement is costly; may be a net negative when not possible to do well</li>
 </ul></li>
 </ol>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Sophisticated companies usually combine 1, 2 and 3</p>
+</div>
+</div>
+</div>
 </section>
 <section id="how-much-does-causality-matter" class="slide level2">
 <h2>How Much Does Causality Matter?</h2>
 <ul>
 <li>Are organizational incentives aligned with profits?</li>
 <li>Data thickness: How likely can we get a good estimate?</li>
-<li>Organizational analytics culture: Will we act on what we learn?</li>
-<li>Individual: promotion, bonus, reputation, career—Will credit be stolen or blame be shared?</li>
+<li>Organizational analytics culture: Will we act on what we learn? Or are we just trying to get a number to negotiate the budget?</li>
+<li>Individual: Promotion, bonus, reputation, career—Will credit be stolen or blame be shared?</li>
 <li>Accountability: Will ex-post attributions verify findings? Will results threaten or complement rival teams/execs?</li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Analytics culture starts at the top. The value of causal measurement depends on whether the organization will act on what it learns.</p>
+<p>Analytics culture starts at the top. The value of causal measurement, and danger of correlational measurement, depends on whether the organization will act on what it learns.</p>
 </div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="advertising-measurement" class="title-slide slide level1 center">
-<h1>Advertising Measurement</h1>
+<section id="advertising-measurement-defined" class="title-slide slide level1 center">
+<h1>Advertising Measurement, Defined</h1>
 <ul>
 <li>What we measure, challenges, classic eBay measurement case</li>
 </ul>
@@ -1197,22 +1261,39 @@
 <h2>Measurement of What?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/adv-def.png" class="quarto-figure quarto-figure-center" height="200"></p>
+<p><img data-src="AMimages/adv-def.png" class="quarto-figure quarto-figure-center" height="340"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Many people use ‘advertising’ to refer to all commercial speech. In marketing, ‘advertising’ refers to paid media, as distinct from owned media (e.g., organic social, website, emails, direct mail) &amp; earned media (e.g., reviews, news stories). Paid media implies that a ‘publisher’ generated the advertising opportunity by attracting consumer attention; controls the sale; and may constrain the advertiser’s message. Two main ad types:</p>
-<ul>
-<li>Performance advertising: Campaigns designed to stimulate short-run measurable response. Could be any funnel stage, including awareness, consideration, visitation and/or sales.</li>
-<li>Brand advertising: Campaigns designed to stimulate long-run response or change attitudes. Measurable in multiple ways, but measurement will usually be incomplete.</li>
-</ul>
+<p>Many people use ‘advertising’ to refer to any commercial speech. In marketing, ‘advertising’ refers to paid media, as distinct from owned media (e.g., organic social, website, emails, direct mail) &amp; earned media (e.g., reviews, news stories). Paid media implies that a ‘publisher’ generated the advertising opportunity by attracting consumer attention; sells the ad; and may constrain the advertiser’s message, to maintain its own relationship with the consumer.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="ad-measurement" class="slide level2 smaller">
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="text-align: center;">
+<p><img data-src="AMimages/kaepernick_dreamcrazy.jpg" height="400"> <img data-src="AMimages/performance_ads_stack.jpg" style="margin-left: 15px;" height="400"></p>
+</div>
+<div class="callout-sm" style="font-size: 1.05em;">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><strong>Brand advertising:</strong> Campaigns designed to generate awareness, create associations, change attitudes and stimulate long-run response. Believed to increase ‘mental availability’ to increase choice probability in the consumer’s next choice occasion. Testable prior to launch</li>
+<li><strong>Performance advertising:</strong> Campaigns designed to stimulate short-run measurable response, especially visitation and/or sales. Highly amenable to experimentation</li>
+</ul>
+<div style="margin-top: -1.3em;">
+<p>Most large advertisers run both brand and performance campaigns; many believe they work better together. But, brand and performance compete for budget (both internal teams, and external agencies), and sometimes denigrate each other. Some people argue the distinction is artificial, we should test ads on both long-run &amp; short-run metrics.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ad-measurement" class="slide level2 medium">
 <h2>Ad Measurement</h2>
 <ul>
 <li><em>Advertising measurement</em> quantifies ad delivery, exposure and outcomes to improve advertising efforts
@@ -1220,18 +1301,20 @@
 <li>Our focus here is on outcomes/conversions, as these inform future budget decisions</li>
 <li>Delivery and exposure matter most for brand ads. Principles include independence and transparency in measurement; these must be checked, cannot be assumed</li>
 </ul></li>
-<li>Advertising measurement is hard because ad effects depend on ad content, context, timing, targeting, current market conditions, past advertising &amp; past outcomes—all of which change
+<li>Advertising measurement is hard because ad effects depend on ad content, context, timing, targeting, current market conditions, ad prices, past advertising &amp; past outcomes—all of which change
 <ul>
 <li>Shooting at a moving target</li>
 </ul></li>
-<li>Advertising measurement is expensive: must <em>directly</em> inform future choices</li>
+<li>Advertising measurement is expensive:<br>must <em>directly</em> inform future choices</li>
 </ul>
 <div class="source-url">
 <p><a href="https://web.archive.org/save/https://www.centralcontrol.com/news-posts/2025/11/12/the-first-principle-of-honest-advertising-measurement-is-independence-from-the-media" target="_blank">Bruner (2025)</a></p>
 </div>
-<p><img data-src="AMimages/kangaroo_bullseye.gif" class="absolute" style="bottom: 20px; right: 20px; height: 180px; "></p>
+<div style="height: 0; margin: 0; overflow: hidden;">
+<p><img data-src="AMimages/kangaroo_bullseye.gif" class="absolute" style="z-index: -1;bottom: 20px; right: 20px; height: 180px; "></p>
+</div>
 </section>
-<section id="what-do-we-measure" class="slide level2 smaller">
+<section id="what-do-we-measure" class="slide level2 medium">
 <h2>What Do We Measure?</h2>
 <p>Often, Return on Advertising Spend (ROAS)</p>
 <p><span class="math display">\[\frac{\text{Revenue Attributed to Ads}}{\text{Ad Spending}} \text{ or } \frac{\text{Revenue Attributed to Ads}-\text{Ad Spending}}{\text{Ad Spending}}\]</span></p>
@@ -1243,6 +1326,13 @@
 <ul>
 <li>We usually get economies of scope in measurement</li>
 </ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Brand Lift Tests measure ad effects on brand attitude surveys, but these are often underpowered. CLV/CAC is increasingly common within subscription businesses</p>
+</div>
+</div>
+</div>
 </section>
 <section id="diminishing-returns" class="slide level2">
 <h2>Diminishing Returns</h2>
@@ -1254,7 +1344,7 @@
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>In theory, we buy the best ad opportunities first, so increasing spend should lower marginal returns (“saturation”). Marginal ROAS (mROAS) is the tangent to the curve. Nonlinearity means ROAS ≠ mROAS. We use ROAS for overall evaluation, and mROAS for budget reallocation. The common adage to “max your ROI” usually leaves money on the table. (Why?)</p>
+<p>In theory, we buy the best ad opportunities first, so increasing spend should lower marginal returns (“saturation”). Marginal ROAS (mROAS) is the tangent to the curve. Nonlinearity means ROAS ≠ mROAS. We use ROAS for overall evaluation, and mROAS for budget reallocation. The common adage to “max your ROI” usually leaves money on the table. (Why?) An optimal budget allocation equalizes mROAS across channels. (Why?)</p>
 </div>
 </div>
 </div>
@@ -1266,40 +1356,41 @@
 <h2>Albertsons: ROAS Varies with Measurement Choices</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/albertsons.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/albertsons-cropped.png" class="quarto-figure quarto-figure-center" height="380"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Albertsons media group reported a meta-analysis of campaigns showing that correlational ROAS results strongly depend on intermediate measurement choices.</p>
+<p>Albertsons media group reported a meta-analysis of campaigns showing that correlational ROAS results strongly depend on intermediate measurement choices. In a follow-up study, the same authors stress-tested incrementality (iROAS) measurement and found that methodology choices alone produced 6.5x average variation in iROAS within the same campaign, with 83% of campaigns able to flip sign. What does this imply about hiring black-box vendors vs.&nbsp;doing your own measuring?</p>
 </div>
 </div>
 </div>
 <div class="source-url">
-<p><a href="https://drive.google.com/file/d/1uyHTykDk3m309orrv5AKKHMzkTDDTYtM/view?usp=drive_link" target="_blank">Albertsons Media Group (2025)</a></p>
+<p><a href="https://drive.google.com/file/d/1uyHTykDk3m309orrv5AKKHMzkTDDTYtM/view?usp=drive_link" target="_blank">Albertsons Media Group (2025)</a> | <a href="https://s205.q4cdn.com/711494369/files/doc_news/2026/Retail-Media-iROAS-Demystified.pdf" target="_blank">Ovative &amp; Albertsons Media Collective (2026)</a></p>
 </div>
 </section></section>
 <section>
 <section id="correlational-advertising-measurement" class="title-slide slide level1 center">
 <h1>Correlational Advertising Measurement</h1>
 <ul>
-<li>Frameworks, Problems, Facebook study, Why Correlations Persist</li>
+<li>Lift statistics, multi-touch attribution, marketing mix models</li>
 </ul>
 </section>
-<section id="correlational-ad-measurement" class="slide level2">
+<section id="correlational-ad-measurement" class="slide level2 large">
 <h2>Correlational Ad Measurement</h2>
 <ul>
-<li>Correlational advertising measurement is defined by the absence of a treatment/control logic to isolate causal advertising effects from confounding drivers of sales
+<li>Correlational advertising measurement is defined by the absence of an identification strategy to isolate causal advertising effects from confounding drivers of sales
 <ul>
 <li>Equivalently, by the assumption (usually implicit) that past ads were distributed randomly</li>
 <li>Or, by the belief that we should maximize sales attributed to advertising</li>
 </ul></li>
+<li>Most common approach historically, but many marketers have adopted incrementality over the past two decades</li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Correlational advertising measurement is not defined by an analytical or modeling technique, but we will review 3 common approaches.</p>
+<p>Corr(ad,sales) is defined by the data, not by the methods, but we will review some of the most common methods used within this paradigm</p>
 </div>
 </div>
 </div>
@@ -1314,7 +1405,7 @@
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>The name ‘Lift’ implies a causal ad effect, but lift statistics can only be incremental when calculated using experimental data. Otherwise they reflect all differences between ad-exposed and non-ad-exposed consumer groups, including ad targeting, context, timing, recent behaviors and platform usage, as well as ad effects. Lift stats are easy to compute and communicate, but often misunderstood as causal.</p>
+<p>The name ‘Lift’ implies a causal ad effect, but lift statistics can only be incremental when the data contain a treatment/control analogue. Otherwise lift stats encompass all differences between ad-exposed and non-ad-exposed consumer groups, including ad targeting, context, timing, recent behaviors and platform usage, as well as ad effects. Lift stats are easy to compute and communicate, but often misunderstood as causal.</p>
 </div>
 </div>
 </div>
@@ -1322,38 +1413,22 @@
 <p><a href="https://support.google.com/google-ads/answer/12003020" target="_blank">Google</a> | <a href="https://www.facebookblueprint.com/student/path/253065-conversion-lift-marketing-measurement" target="_blank">Meta</a></p>
 </div>
 </section>
-<section id="regression-usually-controlling-for-other-observables" class="slide level2">
-<h2>2. Regression, usually controlling for other observables</h2>
-<p>Get historical data on <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(T_i\)</span> and run a regression</p>
-<ul>
-<li><em>i</em> could index individuals, places, times, or combinations</li>
-<li>Many frameworks exist, including least squares, vector autoregressions, Marketing Mix Models (MMM), bayesian frameworks
-<ul>
-<li>Google’s CausalImpact R package is popular</li>
-<li>We will go deeper on MMM later</li>
-</ul></li>
-</ul>
-</section>
-<section id="multi-touch-attribution-mta" class="slide level2 smaller">
-<h2>3. Multi-Touch Attribution (MTA)</h2>
+<section id="multi-touch-attribution-mta" class="slide level2 medium">
+<h2>2. Multi-Touch Attribution (MTA)</h2>
 <ul>
 <li>Get individual-level data on every touchpoint for every purchaser
 <ul>
 <li>Should include earned media, owned media &amp; paid media (ads, paid influencer &amp; affiliate)</li>
 </ul></li>
-<li>Choose a rule to attribute purchases to touchpoints
-<ul>
-<li>Single-touch rules: Last-touch, first-touch</li>
-<li>Multi-touch rules: Fractional credit, Shapley</li>
-</ul></li>
-<li>MTA algorithm searches for touchpoint parameters that best-fit the conversion data given the rule
+<li>Choose an attribution rule (First-touch, last-touch, fractional, Shapley)</li>
+<li>MTA algorithm searches for touchpoint parameters that best-predict conversions given the rule
 <ul>
 <li>Credit then informs future budget allocations across touchpoints</li>
-<li>MTA is designed to maximize attributions; MTA often disregards non-purchasers</li>
-<li>MTA assumes touchpoints are the <em>sole</em> drivers of conversions</li>
+<li>MTA assumes touchpoints <em>solely</em> drive conversions &amp; disregards nonpurchasers</li>
 </ul></li>
 <li>Advertiser-side MTA arose from the open web display market, linking tracking cookies to sales. Has challenges integrating walled gardens due to privacy rules and platform reporting limitations. Some advertiser MTAs live on, but some are zombies. Large platform-side MTA will remain viable and efficient, though limited to data within each walled garden; can advertisers trust/verify?</li>
 </ul>
+<div class="callout-sm" style="margin-top: -20px;">
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -1361,37 +1436,134 @@
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="steel-manning-corradsales" class="slide level2">
+<section id="marketing-mix-models-mmm" class="slide level2">
+<h2>3. Marketing Mix Models (MMM)</h2>
+<ul>
+<li>The “marketing mix” consists of the 4 P’s. A “marketing mix model” (MMM) typically uses marketing mix variables to explain sales
+<ul>
+<li>Idea goes back to the 1950s; e.g., suppose we increase price &amp; ads at the same time; what happens to sales?</li>
+<li>When possible, MMM should include competitor variables also</li>
+</ul></li>
+<li>A “media mix model” (mMM) relates sales to ads/marcom channels
+<ul>
+<li>MMM and mMM share many attributes and techniques</li>
+</ul></li>
+<li>MMM goal is to evaluate past marketing ROAS by channel and inform future budgeting decisions</li>
+</ul>
+<div class="source-url" style="font-size: 0.65em;">
+<p>Pioneering works: <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.1.2.64" target="_blank">Magee (1953)</a>, <a href="https://pubsonline.informs.org/doi/10.1287/opre.4.2.152" target="_blank">Weinberg (1956)</a>, <a href="https://drive.google.com/file/d/1-XUJx5ZdVXL2TW2jT1J56R1_tY9RWk3_/view?usp=drive_link" target="_blank">Vidale &amp; Wolfe (1957)</a>, <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.23.4.628" target="_blank">Little (1972)</a></p>
+</div>
+</section>
+<section id="mmm-components" class="slide level2 medium">
+<h2>MMM Components</h2>
+<ul>
+<li>We usually estimate MMM with 1-5 years of weekly or monthly data, sometimes across a panel of geographic markets
+<ul>
+<li>Aggregate data are privacy-compliant &amp; do not usually require platform participation</li>
+</ul></li>
+<li>Main predictors are ad spend or exposures in each channel, assuming diminishing marginal returns (“saturation”) and possibly long-lasting ad effects (“carryover”); outcome is usually sales units, volume or revenue</li>
+<li>MMM often controls for (a) time trends, (b) seasonality, (c) macroeconomic factors, (d) observable demand shifters, (e) competitor marketing</li>
+<li>Outputs include ad elasticities, mROAS measures, counterfactual budget reallocations</li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>In theory, MMM could be highly granular, such as hours and census blocks. However, compromises are required to balance data measurement intervals, refresh rates, accuracy and integrability.</p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2701578" target="_blank">Johnson et al.&nbsp;(2017)</a> meta-analyzed 432 display ad experiments, finding carryover could be positive, zero or even negative</p>
+</div>
+</section>
+<section id="using-mroas-to-reallocate-spending" class="slide level2 medium">
+<h2>Using mROAS to Reallocate Spending</h2>
+<ul>
+<li>MMM fits a sales response curve per channel; mROAS is the slope at current spend, i.e., revenue from the next ad dollar</li>
+<li>ROAS maximization requires harmonizing mROAS across channels
+<ul>
+<li>Estimation error makes this an uncertain exercise</li>
+</ul></li>
+</ul>
+<div style="margin: -45px 0 0 0; text-align: center;">
+<p><img data-src="AMimages/equimarginal_reallocation.svg" style="margin: 0;" height="340"></p>
+</div>
+<ul>
+<li>Theory says: Max profits by spending until avg. cont. * mROAS = 1 in all channels, but practice is more complicated than that</li>
+</ul>
+</section>
+<section id="mmm-considerations" class="slide level2 tight-li" style="font-size: 0.85em;">
+<h2>MMM Considerations</h2>
+<ul>
+<li>MMM requires sufficient independent variation in each ad spend predictor, else coefficient estimates will be imprecise due to collinearity
+<ul>
+<li>Deliberate variation in ad spending, e.g., inversely-correlated pulses across channels, time &amp; geos, helps MMM separate each channel’s contribution</li>
+</ul></li>
+<li>“Model uncertainty”: Results can be strongly sensitive to modeling choices, so we usually evaluate multiple models to gauge sensitivity</li>
+<li>MMM results are correlational without experiments or quasi-experimental identification
+<ul>
+<li>Correlations can be unstable; Bayesian estimation can help regularize</li>
+<li>MMM results can be calibrated using causal measurements <span style="font-size: 0.6em;">more later</span></li>
+</ul></li>
+<li>Advertising media can interact, for example when TV ads generate branded search queries due to media multitasking, which then lead to more search ad clicks</li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Google <a href="https://developers.google.com/meridian" target="_blank">Meridian</a> offers Bayesian estimation, hierarchical geo-level modeling, reach &amp; frequency data, experiment-informed ROI priors and a budget-reallocation optimizer. Other open-source frameworks: <a href="https://github.com/leopoldavezac/BayesianMMM" target="_blank">BayesianMMM</a>, <a href="https://github.com/sibylhe/mmm_stan" target="_blank">mmm_stan</a>, <a href="https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html" target="_blank">PyMC-Marketing</a>, Meta <a href="https://facebookexperimental.github.io/Robyn/" target="_blank">Robyn</a>; data generator: <a href="https://facebookexperimental.github.io/siMMMulator/" target="_blank">siMMMulator</a></p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://drive.google.com/file/d/14VryMy_JkB3W-DZQOnSH95-ey1YM9EhD/view?usp=drive_link" target="_blank">Runge &amp; Pauwels (2026)</a> | <a href="https://github.com/kennethcwilbur/website/raw/master/MSI-MMM-Blue-Ribbon-Panel-Report-Updated.pdf" target="_blank">Arora et al.&nbsp;(2023)</a> | <a href="https://drive.google.com/open?id=1kXY7kx7GUNmGvyL07bS5oHpJr8j0OE7r" target="_blank">Joo et al.&nbsp;(2014)</a> | <a href="https://drive.google.com/open?id=175yrLDY-W15TgBtumPa11WnwMwCeUmSF" target="_blank">Du et al.&nbsp;(2019)</a></p>
+</div>
+</section></section>
+<section>
+<section id="how-much-should-we-rely-on-correlational-ad-measurement" class="title-slide slide level1 center">
+<h1>How much should we rely on Correlational Ad Measurement?</h1>
+<ul>
+<li>Pros &amp; Cons, Research, Explaining Persistence</li>
+</ul>
+</section>
+<section id="steel-manning-corradsales" class="slide level2 tight-li" style="font-size: 0.93em;">
 <h2>Steel-manning Corr(ad,sales)</h2>
 <ul>
 <li>Corr(ad,sales) should contain signal
 <ul>
 <li>If ads cause sales, then corr(ad,sales) &gt; 0 (probably) (we assume)</li>
 </ul></li>
-<li>Some products/channels just don’t sell without ads
+<li>Some products/channels just don’t sell without marketing
 <ul>
-<li>E.g., Direct response TV ads for 1-800 phone numbers</li>
-<li>Career professionals say advertised phone #s get 0 calls without TV ads, so we know the counterfactual (what is it?)</li>
+<li>E.g., Direct response TV ads for 1-800 phone numbers get 0 calls without TV ads, so we know the counterfactual (what is it?)</li>
+<li>New Shopify stores offering copycat products usually sell nothing without marketing</li>
 </ul></li>
 <li>However, this argument gets pushed too far
 <ul>
 <li>For example, when search advertisers disregard organic link clicks when calculating search ad click profits</li>
-<li>Notice the converse: corr(ad,sales) &gt; 0 does not imply a causal effect of ads on sales; it could be that the ads got shown to the most loyal customers</li>
+<li>Notice the converse: corr(ad,sales) &gt; 0 does not imply a causal effect of ads on sales; maybe ads got shown to the most loyal customers</li>
 </ul></li>
 </ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Famous books present descriptive evidence about how brands have grown, then extrapolate to prescriptive “laws” about how marketers should act. Parsimonious advice can be appealing and simple, but has been called pseudo-science</p>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-with-corradsales" class="slide level2">
 <h2>Problem 1 with Corr(ad,sales)</h2>
 <ul>
 <li>Advertisers try to optimize ad campaign decisions
 <ul>
-<li>E.g. surfboards in coastal cities, not landlocked cities</li>
+<li>E.g. ads for surfboards in coastal cities, not landlocked cities</li>
 </ul></li>
 <li>If ad optimization increases ad response, then corr(ad,sales) will confound actual ad effect with ad optimization effort
 <ul>
-<li>More ads in San Diego, more surfboard sales in San Diego. But would we have 0 sales in SD without ads?</li>
-<li>Corr(ad,sales) usually overestimates the causal effect, encourages overadvertising</li>
+<li>More ads in San Diego, more surfboard sales in San Diego. But would we have 0 sales in SD without ads? If no, then we need a counterfactual prediction</li>
+<li>Corr(ad,sales) usually overestimates the causal effect, encourages overadvertising at the expense of profits</li>
 </ul></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1405,11 +1577,11 @@
 <section id="problem-2-with-corradsales" class="slide level2">
 <h2>Problem 2 with Corr(ad,sales)</h2>
 <ul>
-<li>How do most advertisers set ad budgets? Top 2 ways historically:
+<li>How do most marketers set ad budgets? Top 2 ways historically:
 <ol type="1">
 <li>Percentage of sales method, e.g.&nbsp;1%, 3% or 6%
 <ul>
-<li>That’s why ads:sales ratios are so often measured, for benchmarking</li>
+<li>Ads:sales ratios are often measured for benchmarking</li>
 </ul></li>
 <li>Competitive parity</li>
 <li>…others…</li>
@@ -1433,14 +1605,14 @@
 <ul>
 <li>How many ad placements are incremental?</li>
 <li>How many ad placements target likely converters?</li>
-<li>How can advertisers react to adversarial ad pricing?</li>
+<li>How can advertisers respond to adversarial ad pricing?</li>
 </ul></li>
 <li>Have ad platforms ever left ad budget unspent?
 <ul>
 <li>Would you, if you were them?</li>
 <li>If not, why not? What does that imply about incrementality?</li>
 </ul></li>
-<li>The only way to balance platform power is to know your ad profits &amp; vote with your feet</li>
+<li>The only way to balance platforms’ pricing power is to know your ad profits &amp; vote with your feet</li>
 </ul>
 </section>
 <section id="u.s.-v-google-2024-search-case" class="slide level2">
@@ -1479,11 +1651,11 @@
 <p><a href="https://arxiv.org/abs/2201.07055" target="_blank">Gordon, Moakler &amp; Zettelmeyer (2023)</a></p>
 </div>
 </section>
-<section id="gordon-moakler-zettelmeyer-2023-data" class="slide level2">
-<h2>Gordon, Moakler &amp; Zettelmeyer (2023): Data</h2>
+<section id="section-2" class="slide level2">
+<h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/gmz_descstats.png" class="quarto-figure quarto-figure-center" height="385"></p>
+<p><img data-src="AMimages/gmz_descstats.png" class="quarto-figure quarto-figure-center" height="480"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1497,17 +1669,17 @@
 <p><a href="https://arxiv.org/abs/2201.07055" target="_blank">Gordon, Moakler &amp; Zettelmeyer (2023)</a></p>
 </div>
 </section>
-<section id="gordon-moakler-zettelmeyer-2023-figures" class="slide level2">
-<h2>Gordon, Moakler &amp; Zettelmeyer (2023): Figures</h2>
+<section id="section-3" class="slide level2">
+<h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/gmzfig2-4.png" class="quarto-figure quarto-figure-center" height="350"></p>
+<p><img data-src="AMimages/gmzfig2-4.png" class="quarto-figure quarto-figure-center" height="470"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Most of the ad experiments shows causal ad effects on conversions of 0-0.25%, with median lift ratios of 0.05-0.29. Ads had clearer effects on upper-funnel actions (e.g., shopping) than on lower-funnel actions (e.g., purchase); this is common as price or other factors can discourage sales during the shopping process.</p>
+<p>Most ad experiments show causal ad effects on conversions of 0-0.25%, with median lift ratios of 0.05-0.29. Ads had clearer effects on upper-funnel actions (e.g., shopping) than on lower-funnel actions (e.g., purchase), as price or other factors can discourage purchases</p>
 </div>
 </div>
 </div>
@@ -1515,11 +1687,11 @@
 <p><a href="https://arxiv.org/abs/2201.07055" target="_blank">Gordon, Moakler &amp; Zettelmeyer (2023)</a></p>
 </div>
 </section>
-<section id="gordon-moakler-zettelmeyer-2023-results" class="slide level2">
-<h2>Gordon, Moakler &amp; Zettelmeyer (2023): Results</h2>
+<section id="section-4" class="slide level2">
+<h2></h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/gmz2023_results.png" class="quarto-figure quarto-figure-center" height="350"></p>
+<p><img data-src="AMimages/gmz2023_results.png" class="quarto-figure quarto-figure-center" height="460"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
@@ -1553,10 +1725,10 @@
 <li>CFO asks for proof that ads work</li>
 <li>CMO asks ad agencies, platforms &amp; marketing team for proof</li>
 <li>CMO sends proof to CFO; We all carry on</li>
-<li>Should ad measurement team report to CFO or CMO?</li>
+<li>Should ad measurement team report to CFO, CMO, or both?</li>
 </ul></li>
 </ol>
-<p><img data-src="AMimages/ostrich_line_drawing.png" class="absolute" style="bottom: 20px; right: 20px; height: 180px; "></p>
+<p><img data-src="AMimages/ostrich_line_drawing-cropped.png" class="absolute" style="bottom: 20px; right: 20px; height: 180px; "></p>
 <aside class="notes">
 <p>That is supposed to be an ostrich sticking its head in the sand, suggesting a willful ignorance. FWIW, the ostrich-head-in-sand fable dates back to the roman empire. In truth, ostriches tend to run away from threats. https://www.scienceworld.ca/stories/do-ostriches-really-bury-their-heads-sand/</p>
 <style type="text/css">
@@ -1576,24 +1748,24 @@
 <ol start="4" type="1">
 <li>Managing analytics well requires skill and discipline
 <ul>
-<li>Managers must understand how to integrate experiment results into decisions</li>
+<li>Managers must integrate correlational and causal analyses when making decisions</li>
 <li>Analysts must have causal inference skillsets</li>
 <li>Organization must tolerate failure in search of data-driven incremental improvements</li>
+<li>How many shops go back and check their ex-ante predictions? What are the internal incentives for accuracy?</li>
 </ul></li>
 <li>Platforms often provide correlational ad/sales estimates
 <ul>
-<li>Which is larger, correlational or experimental ad effect estimates?</li>
+<li>Which are larger, correlational or experimental ad effect estimates?</li>
 <li>Which one might many client marketers prefer?</li>
-<li>Platform estimates are typically “black box” without neutral auditors</li>
-<li>““Nobody ever got fired for buying IBM.” [Amazon, Google, Meta]</li>
+<li>“Nobody ever got fired for buying [___].” [Amazon, Google, Meta]</li>
 </ul></li>
 <li>Historically, agencies usually estimated ROAS
 <ul>
-<li>Agency compensation usually relies on spending, not incremental sales;<br>principal/agent problems are common</li>
+<li>Agency compensation usually relies on ad spending, not incremental sales;<br>principal/agent problems are common</li>
 <li>These days, more marketers have in-house agencies, and split work</li>
 </ul></li>
 </ol>
-<p><img data-src="AMimages/big_roas.png" class="absolute" style="bottom: 0px; right: 20px; height: 120px; "></p>
+<p><img data-src="AMimages/big_roas.png" class="absolute" style="bottom: 0px; right: 20px; height: 156px; "></p>
 </section></section>
 <section>
 <section id="causal-advertising-measurement" class="title-slide slide level1 center">
@@ -1605,30 +1777,27 @@
 <section id="causal-ad-measurement" class="slide level2">
 <h2>Causal Ad Measurement</h2>
 <ul>
-<li>Causal advertising measurement is defined by the presence of a treatment/control logic to isolate causal advertising effects from confounding drivers of sales
+<li>Causal advertising measurement is defined by the presence of an identification strategy to isolate causal advertising effects from confounding drivers of sales
 <ul>
-<li>We can run experiments to create random variation in advertising treatments</li>
-<li>We can analyze naturally occurring random variation,<br>AKA quasi-experiments</li>
-</ul></li>
-<li><em>Causal</em> means we isolate the treatment effect from confounds
-<ul>
-<li>Sometimes misinterpreted as evidence consistent with a hypothesis</li>
+<li>Valid experiments create identification by design</li>
+<li>We can analyze as-if-random variation,<br>AKA quasi-experiments</li>
+<li>We often use models to predict credible counterfactuals, but models vary in the plausibility of their identification strategies</li>
 </ul></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>A regression may be either causal or correlational depending on the nature of the advertising data variation.</p>
+<p>In science, <em>Causal</em> means we isolate the treatment effect from known confounds <em>and</em> from unknown confounds. Often misinterpreted as evidence consistent with a hypothesis, a much lower bar which is prone to motivated reasoning</p>
 </div>
 </div>
 </div>
 </section>
-<section id="popular-ad-experiments" class="slide level2 smaller">
+<section id="popular-ad-experiments" class="slide level2 tight-li" style="font-size: 0.88em;">
 <h2>Popular ad experiments</h2>
 <ol type="1">
 <li><p>Randomly assign ads eligibility / holdout to customer groups</p>
 <ul>
-<li>Pros: AB testing is easy to understand, rules out alternate explanations</li>
+<li>Pros: A/B testing is easy to understand, rules out alternate explanations</li>
 <li>Cons: Can we trust the platform’s “black box”? Will we get the data and all available insights?</li>
 </ul></li>
 <li><p>Randomize messages within a campaign. Mine competitor messages in <a href="https://indicator.media/p/a-guide-to-investigating-digital" target="_blank">ad libraries</a> for ideas</p>
@@ -1636,15 +1805,11 @@
 <li>Often a great place to start as it’s nominally free.</li>
 <li>Advertising professionals frequently believe that creative messages are first-order drivers of ad effects (e.g., <a href="https://www.circana.com/post/brand-loyalty-impact-on-sales" target="_blank">Circana 2023</a>, <a href="https://www.kantar.com/north-america/inspiration/advertising-media/what-do-the-most-creative-and-effective-digital-and-tv-ads-do-differently" target="_blank">Kantar 2024</a>, <a href="https://ipg-wp-media-mgl-glb.s3.us-east-2.amazonaws.com/magna/wp-content/uploads/2023/04/27162350/MAGNA-Yahoo-Creative-the-Performance-Powerhouse.pdf" target="_blank">Magna+Yahoo 2025</a>)</li>
 </ul></li>
-<li><p>Randomize bids and/or consumer targeting criteria</p></li>
+<li><p>Geo-Experiment: Randomize budget across geos/time, including “going-dark” designs, “weight tests”</p></li>
 <li><p>Randomize budget across platforms, publishers, times, places, behavioral targets, contexts</p></li>
 </ol>
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Platforms usually tune ad delivery algorithms to maximize post-advertising conversions, not incremental conversions. That is why changing a campaign attribute usually induces nonrandom variation in advertising treatments.</p>
-</div>
-</div>
+<div class="source-url" style="font-size: 0.765em;">
+<p><a href="https://research.getrecast.com/geolift-sim-study" target="_blank">Recast (2026)</a> uses simulation to evaluate popular geo-experiment packages, including its own</p>
 </div>
 </section>
 <section id="experimental-necessary-conditions" class="slide level2 smaller">
@@ -1658,72 +1823,80 @@
 </ul></li>
 <li>Observability
 <ul>
-<li>Non-attrition, i.e.&nbsp;unit outcomes remain observable</li>
+<li>Non-attrition, i.e.&nbsp;unit outcomes remain observable regardless of outcome</li>
 </ul></li>
 <li>Compliance
 <ul>
 <li>Treatments assigned are treatments received</li>
-<li>Ad blocking can induce noncompliance, which we usually resolve by estimating Intent-to-Treat effects</li>
+<li>Ad blocking can threaten compliance; we usually resolve by estimating Intent-to-Treat effects</li>
 </ul></li>
 <li>Statistical Independence
 <ul>
 <li>Random assignment of treatments to units. “Balance tests” help to check</li>
-<li>When platform algorithms distribute ads nonrandomly, we call it “divergent delivery”</li>
+<li>Ad platforms usually distribute ads nonrandomly, threatening random assignment</li>
 </ul></li>
 </ol>
-<div class="source-url">
+<div class="source-url" style="font-size: 0.765em;">
 <p><a href="https://drive.google.com/file/d/1hgI7gi76W7ki27xFeIQkIvtdtULrC7bb/view?usp=drive_link" target="_blank">List (2024)</a>; <a href="https://experimentguide.com/" target="_blank">Kohavi et al.&nbsp;(2020)</a></p>
 </div>
 </section>
-<section id="before-you-kick-off-your-test" class="slide level2">
+<section id="before-you-kick-off-your-test" class="slide level2 tight-li" style="font-size: 0.85em;">
 <h2>Before You Kick Off Your Test…</h2>
 <ul>
-<li>Run A:A test before your first A:B test. Validate the infrastructure before you rely on the result
+<li>Run A/A test before your first A/B test. Validate the infrastructure before you rely on the result
 <ul>
 <li>Shows the effect size a given test duration is powered to detect</li>
-<li>Shows whether random assignment is working, as it’s sometimes coded incorrectly</li>
+<li>Shows whether random assignment is working, as it’s sometimes coded incorrectly; <a href="https://drive.google.com/file/d/1D-lL_3h4Cue4bO0_O3EYrtzCKwzSsGl9/view?usp=drive_link" target="_blank">Kelly (2025)</a> explains how randomization is easy to mess up, e.g.&nbsp;assignment based on nonrandom factors (user IDs, time) and pseudorandom generator misuse</li>
 </ul></li>
-<li>Can we agree on the opportunity cost of the experiment? “Priors”</li>
+<li>Can we agree on the opportunity cost of the experiment? “Priors”
+<ul>
+<li>Confident execs argue control-condition exposures reduce profits due to foregone advertisements; <a href="https://arxiv.org/abs/1811.00457" target="_blank">Feit and Berman (2019)</a> discuss how to choose sample size to maximize profit, reframing from inferential validity to minimizing statistical regret, and dramatically reducing test size in many cases</li>
+</ul></li>
 <li>How will we act on the (uncertain) findings? Have to decide before we design. We don’t want “science fair projects”
 <ul>
 <li>Simple example: Suppose we estimate iROAS at 1.5 with c.i. [1.45, 1.55]. Or, suppose we estimate iROAS at 1.5 with c.i. [-1.1, 4.1]. What actions would follow each?</li>
 </ul></li>
 </ul>
 </section>
-<section id="platform-experiments-advisory" class="slide level2">
+<section id="platform-experiments-advisory" class="slide level2 medium">
 <h2>Platform Experiments Advisory</h2>
 <ul>
-<li>On Meta, Lift Tests are true experiments, whereas “A/B Tests” confusingly do not control for algorithmic user/ad selection (called “divergent delivery”). In Meta’s “A/B Test,” consumers are randomized to treatment eligibility, rather than treatment itself, “treating” the algorithm that determines ad delivery, not the consumers themselves. <a href="https://drive.google.com/file/d/1PMahIPaXUzg4Ji1ankuUhZ8Ra-7qW8zp/view?usp=drive_link" target="_blank">Burtch et al.&nbsp;(2025)</a> go deeper.</li>
+<li>Meta offers two experimentation frameworks:
+<ul>
+<li>Lift tests randomize users to ad eligibility against a no-ad holdout–a valid intent-to-treat estimate of ads eligibility</li>
+<li>A/B tests randomize users across campaign configurations with no holdout. The issue is that an ad delivery algo sits between configuration and delivery, so the configurations effectively “treat” the delivery algorithm and violate the user compliance assumption–a confound called “divergent delivery”</li>
+</ul></li>
 <li>Some platforms require advertisers meet minimum spend levels to use on-platform experimentation tools. You can roll your own experiments by randomizing ad budget across time and targeting criteria</li>
-<li>Prominent exception: <a href="https://drive.google.com/file/d/1V9_YHaeiwZkIp4zE3bHhvfRfa-4KrOmT/view?usp=drive_link" target="_blank">Ghost ads</a>, an ingenious system to randomly withhold ads from auctions and maximize experiment efficiency</li>
+<li><a href="https://drive.google.com/file/d/1V9_YHaeiwZkIp4zE3bHhvfRfa-4KrOmT/view?usp=drive_link" target="_blank">Ghost ads</a> is an ingenious system to randomly withhold ads from auctions and maximize experiment efficiency</li>
 </ul>
 <div class="source-url">
-<p><a href="https://www.haus.io/blog/what-youre-actually-measuring-in-a-platform-a-b-test" target="_blank">Haus (2025)</a> | <a href="https://drive.google.com/file/d/11BhiE3wJqaKQ9S73Mjt1hbZJRhkvZvv5/view?usp=drive_link" target="_blank">Braun &amp; Schwartz (2025)</a></p>
+<p><a href="https://www.haus.io/blog/what-youre-actually-measuring-in-a-platform-a-b-test" target="_blank">Haus (2025)</a> | <a href="https://drive.google.com/file/d/11BhiE3wJqaKQ9S73Mjt1hbZJRhkvZvv5/view?usp=drive_link" target="_blank">Braun &amp; Schwartz (2025)</a> | <a href="https://drive.google.com/file/d/1PMahIPaXUzg4Ji1ankuUhZ8Ra-7qW8zp/view?usp=drive_link" target="_blank">Burtch et al.&nbsp;(2025)</a></p>
 </div>
 </section>
-<section id="display-ad-experiments-can-be-tricky" class="slide level2 smaller">
+<section id="display-ad-experiments-can-be-tricky" class="slide level2 medium">
 <h2>Display Ad Experiments can be Tricky</h2>
 <ul>
-<li>Noisy environments: Treatments compete with advertisers, rivals, content, algorithms and market conditions, and interactions abound
+<li>Noisy environments: Data feature agentic consumers &amp; publishers, media content, competitor ads, shifting algorithms and marketing conditions; interactions abound
 <ul>
 <li>Similar to how we have limited causal knowledge about nutrition and human welfare</li>
 </ul></li>
 <li>Compliance: Ad blocking, ad avoidance, non-visibility and non-delivery can all prevent treatment</li>
 <li>Identity fragmentation: User may be treated on mobile, then convert on nontreated device or nontreated channel (e.g., retail store)</li>
 <li>Platforms optimize for total conversions, not incremental conversions</li>
+<li>Transportability: Valid in-context experiments may not generalize when context changes</li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Johnson’s “Inferno” guide reviews these challenges and best practices for experimenters working at the frontier of digital advertising research.</p>
+<p>Johnson’s guide reviews best practices for experimenters working at the frontier of digital advertising experiments.</p>
 </div>
 </div>
 </div>
-<div class="source-url">
+<div class="source-url" style="font-size: 0.765em;">
 <p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396" target="_blank">Johnson (2023)</a></p>
 </div>
 </section>
-<section id="productive-experiments" class="slide level2 smaller">
+<section id="productive-experiments" class="slide level2 medium">
 <h2>Productive Experiments…</h2>
 <ul>
 <li>Serve customer interests
@@ -1748,46 +1921,51 @@
 <li>E.g. price advertising effects will always depend on the price</li>
 </ul></li>
 </ul>
-<div class="source-url">
+<div class="source-url" style="font-size: 0.765em;">
 <p><a href="https://drive.google.com/file/d/1fcY6tdB01Dlr5UXLNFXyjCRJyvHOxXs5/view?usp=sharing" target="_blank">Zumsteg (2022), Unchecked AB Testing Destroys Everything It Touches</a></p>
 </div>
 </section>
 <section id="quasi-experiments-vocabulary" class="slide level2 smaller">
 <h2>Quasi-experiments Vocabulary</h2>
 <ul>
-<li>Model: Mathematical relationship between variables that simplifies reality, e.g.&nbsp;y = xβ + ε</li>
+<li>Model: Mathematical relationship between variables that simplifies reality, e.g.&nbsp;y = xβ + ε
+<ul>
+<li>May be estimated using either experimental data, non-experimental data, or combination</li>
+</ul></li>
 <li>Identification strategy: Set of assumptions that isolate a causal effect <span class="math inline">\(\frac{\partial Y_i}{\partial T_i}\)</span> from other factors that may influence <span class="math inline">\(Y_i\)</span>
 <ul>
-<li>A strategy to compare apples with apples, not apples with oranges</li>
+<li>Compare apples with apples, not apples with oranges</li>
+<li>May be baked into a model, or may stand alone, e.g.&nbsp;A/B test comparison of means</li>
 </ul></li>
 <li>Popular quasi-experimental techniques: Difference-in-differences, regression discontinuity, instrumental variables, synthetic control, matching. Each technique predicts what counterfactual would have occurred without treatment</li>
-<li>We say we “identify” the causal effect if we have an identification strategy that reliably distinguishes <span class="math inline">\(\frac{\partial Y_i}{\partial T_i}\)</span> from possibly correlated unobserved factors</li>
-<li>If you estimate a model without an identification strategy, you should interpret the results as correlational
+<li>We “identify” the causal effect when our identification strategy reliably distinguishes <span class="math inline">\(\frac{\partial Y_i}{\partial T_i}\)</span> from possibly correlated unobserved factors</li>
+<li>If you estimate a model without a valid identification strategy, results are correlational AKA descriptive
 <ul>
-<li>This is widely misunderstood. We can learn from correlational models, but too many people mistakenly infer causality</li>
+<li>Common misconception: Identification is a property of a model. Correction: It’s a logic of comparison, whether embedded within a model or not</li>
 </ul></li>
 </ul>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><a href="https://psantanna.com/did-resources/" target="_blank">Sant’Anna (2026)</a> maintains a free online resource for difference-in-differences theory and estimation code.</p>
+<p><a href="https://psantanna.com/did-resources/" target="_blank">Sant’Anna (2026)</a> discusses difference-in-differences theory and code.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="diff-in-diffs-helped-identify-cholera-cause" class="slide level2 smaller">
+<section id="diff-in-diffs-helped-identify-cholera-cause" class="slide level2 smaller callout-tight">
 <h2>Diff-in-Diffs Helped Identify Cholera Cause</h2>
-<p>In the 1850s, an English doctor named John Snow suspected that cholera spread via food and drink, rather than the popular theory of airborne transmission. Snow realized a natural experiment would let him test his theory.</p>
+<p>In the 1850s, an English doctor named John Snow suspected that cholera spread via food and drink, rather than the popular theory of airborne transmission. Snow realized a natural experiment offered identification.</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Some London neighborhoods were served by multiple water companies. One company, Lambeth, moved its intake pipes higher up the Thames to obtain cleaner water, whereas its competitor Southwark and Vauxhall maintained its nearby intake location.</p>
-<p>Snow went door to door to count customers who subscribed to each water company. He also matched those households’ records against the city’s mortality records to calculate cholera death rates by water provider and by time. He calculated that cholera death rates in 1849 were 85 per 100k Lambeth customers and 135 per 100k S&amp;V customers. In 1854, after the water intake change, death rates were 19 per 100k Lambeth customers, and 147 per 100k S&amp;V customers.</p>
-<p>If household cholera risk factors were unrelated to drivers of water company selection, then the Southwark and Vauxhall cholera death rate in 1854 estimated the Lambeth counterfactual, showing that cleaner water meaningfully reduced cholera death rates. This discovery came before the germ theory of disease in the 1860s or the modern development of experimental methods. (What are the two diffs?)</p>
+<p>Some London neighborhoods were served by multiple water companies. One company, Lambeth, moved its intake pipes higher up the Thames to obtain cleaner water, whereas its competitor Southwark and Vauxhall (S&amp;V) kept its downstream intake.</p>
+<p>Snow went door to door to count customers who subscribed to each water company. He also matched those households’ records against the city’s mortality records to calculate cholera death rates by water company over time. In 1849, death rates were 85 per 100k Lambeth customers and 135 per 100k S&amp;V customers. In 1854, after the water intake change, death rates were 19 per 100k Lambeth customers, and 147 per 100k S&amp;V customers.</p>
+<p>Assuming household cholera risk factors were unrelated to water company choice, then the change in S&amp;V death rates estimated the counterfactual change for Lambeth, showing that cleaner water meaningfully reduced cholera deaths. This discovery came before the germ theory of disease (1860s) and modern experimental methods. (What are the two diffs?)</p>
+<p>This exemplifies an identification strategy without a complicated mathematical model</p>
 </div>
 </div>
 </div>
-<div class="source-url">
+<div class="source-url" style="font-size: 0.765em;">
 <p><a href="https://web.archive.org/web/20260118042754/https://mixtape.scunning.com/09-difference_in_differences" target="_blank">Cunningham (2026)</a></p>
 </div>
 <p><img data-src="AMimages/snow1855watermap.jpg" class="absolute" style="bottom: 20px; right: 20px; height: 180px; "></p>
@@ -1810,24 +1988,24 @@
 <p>Goal: Find a “natural experiment” in which <span class="math inline">\(T_i\)</span> is “as if” randomly assigned, to identify <span class="math inline">\(\frac{\partial Y_i}{\partial T_i}\)</span></p>
 <p>Possibilities:</p>
 <ul>
-<li>Firm started, stopped or pulsed advertising without changing other variables</li>
+<li>Firm starts, stops or pulses advertising without changing other variables</li>
 <li>Competitor starts, stops or pulses advertising</li>
 <li>Discontinuous changes in ad copy</li>
-<li>Exogenous changes in ad prices, availability or targeting (e.g., elections)</li>
-<li>Exogenous changes in addressable market, web traffic, other factors</li>
+<li>Exogenous changes in ad prices, availability or targeting (e.g., elections increase ad prices)</li>
+<li>Exogenous changes in addressable market, web traffic or other factors</li>
 </ul>
 </section>
-<section id="dfs-tv-ad-effects-on-google-search" class="slide level2">
-<h2>DFS TV Ad Effects on Google Search</h2>
+<section id="tv-ad-effects-on-google-search" class="slide level2">
+<h2>TV Ad Effects on Google Search</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/dfs_search_2015.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/dfs_search_2015-trimmed.png" class="quarto-figure quarto-figure-center" height="440"></p>
 </figure>
 </div>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>I made this graph showing DraftKings and FanDuel branded keyword search volume from 9:01-9:59pm E.S.T. during the 2015 NFL season opener. TV ads increased search volume by 15-25x, with positive competitive spillovers, and effects that returned to baseline within 5 minutes. Commercial minutes are shaded, showing it was the presence of DFS ads, not just the absence of the game.</p>
+<p>I made this graph showing DraftKings and FanDuel branded keyword search volume from 9:01-9:59pm ET during the 2015 NFL season opener. TV ads increased search volume by 15-25x, with positive competitive spillovers, and effects that returned to baseline within 5 minutes. Commercial minutes are shaded, showing the spikes came from ads, not just commercial breaks.</p>
 </div>
 </div>
 </div>
@@ -1845,117 +2023,44 @@
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><a href="https://drive.google.com/file/d/1f3JLTvIsltKej0DDae_vkZyAOmBXI13Y/view?usp=drive_link" target="_blank">Shapiro et al.&nbsp;(2021)</a> used a county-border approach to identify how local TV advertising affected package goods sales. The idea is that geographic media market boundaries are drawn based on broadcast signal patterns based on differences from city centers, such that consumers living on either side of the boundary are very similar. Therefore, boundary county sales can predict what in-market counterfactual sales would have been in the absence of advertising.</p>
+<p><a href="https://drive.google.com/file/d/1f3JLTvIsltKej0DDae_vkZyAOmBXI13Y/view?usp=drive_link" target="_blank">Shapiro et al.&nbsp;(2021)</a> used a county-border approach to identify how local TV advertising affected packaged goods sales. Media market boundaries reflect broadcast signal footprints, not consumer markets, so consumers on either side of a geographic market boundary are very similar. Therefore, border-county sales predict what in-market sales would have been without advertising.</p>
 </div>
 </div>
 </div>
-<div class="source-url">
+<div class="source-url" style="font-size: 0.765em;">
 <p>See also <a href="https://drive.google.com/file/d/1iIKeBlhpJhjGDq_UE8AVKAmpQPsalqvq/view?usp=drive_link" target="_blank">Shapiro (2018)</a></p>
 </div>
 </section>
 <section id="experiments-vs.-quasi-experiments" class="slide level2">
-<h2>Experiments vs.&nbsp;Quasi-experiments</h2>
+<h2>Experiments vs.&nbsp;Quasi-Experiments</h2>
 <ul>
-<li>Experimentalists and quasi-experimentalists differ in beliefs, cultures &amp; training, not unlike Bayesians vs.&nbsp;frequentists</li>
+<li>Experimentalists and quasi-experimentalists differ in beliefs, cultures &amp; training, not unlike Bayesians vs.&nbsp;Frequentists
+<ul>
+<li>Like B&amp;F, E &amp; Q-E are more similar than different, which is why the debates can get fierce</li>
+</ul></li>
 <li>Generally speaking, quasi-experiments:
 <ul>
 <li>Always depend on untestable assumptions (as do experiments)</li>
 <li>Are bigger, faster &amp; cheaper than experiments when valid</li>
 <li>Will lead us astray when not valid</li>
-<li>Are easy to apply without validity</li>
-<li>Range from challenging to impossible to validate</li>
+<li>Are easy to apply even when invalid</li>
+<li>Range from challenging-to-validate to impossible-to-validate</li>
 </ul></li>
 <li>Experiments &amp; quasi-experiments should be “yes-and-when-valid,” not “either-or”</li>
 </ul>
 </section></section>
 <section>
-<section id="marketing-mix-models" class="title-slide slide level1 center">
-<h1>Marketing Mix Models</h1>
+<section id="who-experiments-and-why" class="title-slide slide level1 center">
+<h1>Who experiments and why?</h1>
 <ul>
-<li>Definition, components, considerations, and open-source tools</li>
-</ul>
-</section>
-<section id="marketing-mix-models-mmm" class="slide level2 smaller">
-<h2>Marketing Mix Models (MMM)</h2>
-<ul>
-<li>The “marketing mix” consists of the 4 P’s
-<ul>
-<li>Product line, length and features; price &amp; promotions; advertising, PR, social media, reviews; retail distribution</li>
-</ul></li>
-<li>A “marketing mix model” (MMM) typically uses marketing mix variables to explain sales
-<ul>
-<li>Idea goes back to the 1950s</li>
-<li>E.g., suppose we increase price &amp; ads at the same time; what happens to sales?</li>
-<li>When possible, MMM should include competitor variables also</li>
-</ul></li>
-<li>A “media mix model” (mMM) relates sales to ads/marcom channels or publishers
-<ul>
-<li>MMM and mMM share many attributes and techniques</li>
-</ul></li>
-<li>MMM goal is to evaluate past marketing ROAS by channel and support future budgeting decisions</li>
-</ul>
-<div class="source-url">
-<p>Pioneering works: <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.1.2.64" target="_blank">Magee (1953)</a>, <a href="https://pubsonline.informs.org/doi/10.1287/opre.4.2.152" target="_blank">Weinberg (1956)</a>, <a href="https://drive.google.com/file/d/1-XUJx5ZdVXL2TW2jT1J56R1_tY9RWk3_/view?usp=drive_link" target="_blank">Vidale &amp; Wolfe (1957)</a>, <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.23.4.628" target="_blank">Little (1972)</a></p>
-</div>
-</section>
-<section id="mmm-components" class="slide level2 smaller">
-<h2>MMM Components</h2>
-<ul>
-<li>MMM analyzes aggregate data, usually 3-5 years of weekly or monthly intervals, usually across a panel of geographic markets
-<ul>
-<li>Aggregate data are privacy-compliant &amp; often do not require platform participation; helps explain MMM comeback</li>
-</ul></li>
-<li>Predictors include ad spending/exposures by ad type; outcomes measure sales, volume or revenue</li>
-<li>MMM usually controls for (a) trends, (b) seasonality, (c) macroeconomic factors, (d) known category-specific demand shifters, (e) diminishing marginal returns, (f) possibly long-lasting advertising effects (“carryover”)</li>
-<li>Outputs include ad elasticities, ROAS measures, sales predictions based on counterfactual budget reallocations</li>
-<li>MMM parameters can be interpreted causally if and only if adspend data are generated with a randomization strategy built in</li>
-</ul>
-</section>
-<section id="mmm-considerations" class="slide level2 smaller">
-<h2>MMM Considerations</h2>
-<ul>
-<li>Data availability, accuracy, granularity and refresh rate are all critical</li>
-<li>MMM requires sufficient variation in marketing predictors, else it cannot estimate coefficients</li>
-<li>“Model uncertainty”: Results can be strongly sensitive to modeling choices, so we usually evaluate multiple models to gauge sensitivity to alternate assumptions</li>
-<li>MMM results are correlational without experiments or quasi-experimental identification
-<ul>
-<li>Correlations can be unstable; Bayesian estimation can help regularize</li>
-<li>MMM results can be causal if you induce exogenous variation in ad spending</li>
-<li>MMM results can be calibrated using causal measurements, e.g., by using experiments to calibrate Bayesian prior beliefs, or by rewarding models for conformance to external incrementality estimates</li>
-</ul></li>
-</ul>
-<div class="source-url">
-<p><a href="https://github.com/kennethcwilbur/website/raw/master/MSI-MMM-Blue-Ribbon-Panel-Report-Updated.pdf" target="_blank">MSI White Paper</a> | <a href="https://sellforte.com/blog/calibrating-marketing-mix-models-with-experiments-and-attribution-data" target="_blank">Sellforte</a></p>
-</div>
-</section>
-<section id="open-source-mmm-frameworks" class="slide level2">
-<h2>Open-Source MMM Frameworks</h2>
-<ul>
-<li>Meta <a href="https://facebookexperimental.github.io/Robyn/" target="_blank">Robyn</a> (2024). Excellent <a href="https://www.facebookblueprint.com/student/path/253121" target="_blank">training course</a>
-<ul>
-<li>Cool features: Causal estimate calibration, Set your own objective criteria, Smart multicollinearity handling</li>
-</ul></li>
-<li>Google <a href="https://developers.google.com/meridian" target="_blank">Meridian</a> (2025). Excellent <a href="https://www.thinkwithgoogle.com/_qs/documents/18498/Meridian_Playbook_1s4EUSU.pdf" target="_blank">self-starter guide</a>
-<ul>
-<li>Cool features: Bayesian implementation, Hierarchical geo-level modeling, reach/frequency distinctions</li>
-<li>Robyn &amp; Meridian both include budget-reallocation modules</li>
-</ul></li>
-</ul>
-<p>Others: <a href="https://www.pymc-marketing.io/en/stable/guide/mmm/mmm_intro.html" target="_blank">PyMC-Marketing</a>, <a href="https://github.com/sibylhe/mmm_stan" target="_blank">mmm_stan</a>, <a href="https://github.com/leopoldavezac/BayesianMMM" target="_blank">BayesianMMM</a></p>
-<p>Also relevant: <a href="https://facebookexperimental.github.io/siMMMulator/" target="_blank">MMM data simulator</a></p>
-</section></section>
-<section>
-<section id="putting-ideas-into-practice" class="title-slide slide level1 center">
-<h1>Putting ideas into practice</h1>
-<ul>
-<li>Who’s doing what and why</li>
+<li>Which companies bother with causality? Does it impact results?</li>
 </ul>
 </section>
 <section id="who-tests-the-most" class="slide level2">
 <h2>Who Tests the Most?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/2023googletesting.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/2023googletesting.png" class="quarto-figure quarto-figure-center" height="440"></p>
 </figure>
 </div>
 <div class="source-url">
@@ -1975,8 +2080,15 @@
 <h2>Advertising Experiment Frequency</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/runge2020HBR.png" class="quarto-figure quarto-figure-center" height="400"></p>
+<p><img data-src="AMimages/runge2020HBR.png" class="quarto-figure quarto-figure-center" height="480"></p>
 </figure>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>These four obstacles are all management challenges.</p>
+</div>
+</div>
 </div>
 <div class="source-url">
 <p><a href="https://hbr.org/2020/10/marketers-underuse-ad-experiments-thats-a-big-mistake" target="_blank">Runge (2020)</a> | <a href="https://drive.google.com/file/d/1Xetwnrv6dLyhXKlTK0vYaZ5yEnB6K8iY/view?usp=sharing" target="_blank">Runge et al.&nbsp;(2020)</a></p>
@@ -1999,67 +2111,140 @@
 <div class="source-url">
 <p><a href="https://drive.google.com/file/d/1Xetwnrv6dLyhXKlTK0vYaZ5yEnB6K8iY/view?usp=sharing" target="_blank">Runge et al.&nbsp;(2020)</a></p>
 </div>
+</section></section>
+<section>
+<section id="integrating-methods" class="title-slide slide level1 center">
+<h1>Integrating Methods</h1>
+<ul>
+<li>Ways to best combine correlational and causal ad measurement</li>
+</ul>
 </section>
-<section id="section" class="slide level2">
+<section id="section-5" class="slide level2 tight-media">
 <h2></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/kantar2025-0.png" class="quarto-figure quarto-figure-center" height="450"></p>
-</figure>
+<div style="display: flex; justify-content: center; align-items: center; gap: 16px;">
+<p><img data-src="AMimages/kantar2025-1-cropped.png" height="270"></p>
+<p><img data-src="AMimages/kantar2025-2-cropped.png" height="288"></p>
 </div>
-<div class="source-url">
-<p><a href="https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing" target="_blank">Kantar (2025)</a></p>
+<div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 8px; margin-left: 120px;">
+<p><img data-src="AMimages/kantar2025-3-cropped.png" height="268"></p>
+<p><img data-src="AMimages/kantar2025-4-cropped.png" height="265"></p>
 </div>
-</section>
-<section id="kantar-2025-measurement-methods" class="slide level2">
-<h2>Kantar 2025: Measurement Methods</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/kantar2025-1.png" class="quarto-figure quarto-figure-center" height="450"></p>
-</figure>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><a href="https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing" target="_blank">Kantar (2025)</a> surveyed 1,935 decision makers across regions, industries and company sizes investing over $1MM in digital advertising</p>
 </div>
-<div class="source-url">
-<p><a href="https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing" target="_blank">Kantar (2025)</a></p>
+</div>
 </div>
 </section>
-<section id="incrementality-adoption-barriers" class="slide level2">
-<h2>Incrementality Adoption &amp; Barriers</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="integrating-mmm-with-causal-measurement" class="slide level2">
+<h2>Integrating MMM with Causal Measurement</h2>
+<ul>
+<li>Correlational methods are cheap &amp; always-on; Experiments are credible but scarce &amp; costly; Both are noisy; Measures will disagree</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="AMimages/kantar2025-2.png" class="quarto-figure quarto-figure-center" height="380"></p>
+<p><img data-src="AMimages/emktr-trustandexperience-cropped.png" class="quarto-figure quarto-figure-center" height="375"></p>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/kantar2025-3.png" class="quarto-figure quarto-figure-center" height="380"></p>
-</figure>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Management challenge: What do we do when Attribution says ROAS was 5.9, MMM says ROAS was 2.3 +/- 1.2 and Experiment says ROAS was 0.6 +/- 2.1?</p>
 </div>
-</div></div>
-<div class="source-url">
-<p><a href="https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing" target="_blank">Kantar (2025)</a></p>
+</div>
 </div>
 </section>
-<section id="mmm-usage-priorities" class="slide level2">
-<h2>MMM Usage &amp; Priorities</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/kantar2025-4.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="AMimages/kantar2025-5.png" class="quarto-figure quarto-figure-center" height="300"></p>
-</figure>
-</div>
-</div></div>
+<section id="using-experiments-to-validate-mmm-reallocations" class="slide level2">
+<h2>Using Experiments to Validate MMM Reallocations</h2>
+<ul>
+<li>A natural first step is to validate correlational ad measurement with experiments</li>
+<li>Dropbox did this with small experiments in Canada, then a month-long full-US blackout on mobile and search, which showed that search attribution was 117% too high</li>
+<li>Mobile-trial starts fell 5%, but earnings guidance increased, citing performance marketing efficiency as a key driver</li>
+<li>More generally, when MMM recommends a change, run a test alongside implementing the change, and compare the resulting test result to the MMM prediction c.i.
+<ul>
+<li>This tests MMM output’s predictive validity</li>
+</ul></li>
+</ul>
+<p><img data-src="AMimages/dropbox-icon.svg" class="absolute" style="bottom: 25px; right: 30px; height: 55px; "></p>
 <div class="source-url">
-<p><a href="https://drive.google.com/file/d/1AsafqvDMIJe1BvQ7hBXB1iQiFa4uNJ5N/view?usp=sharing" target="_blank">Kantar (2025)</a></p>
+<p><a href="https://drive.google.com/file/d/1oQdt1R7gVPUuKKdgz3eDDpujjvGPLf1S/view" target="_blank">Chivukula et al.&nbsp;(2026)</a></p>
+</div>
+</section>
+<section id="using-experiments-to-calibrate-mmm" class="slide level2 medium">
+<h2>Using Experiments to Calibrate MMM</h2>
+<ul>
+<li>Use causal ad measurements to constrain &amp; improve MMM
+<ul>
+<li>Priors: experiment results set Bayesian channel-ROI priors (<a href="https://developers.google.com/meridian/docs/advanced-modeling/roi-priors-and-calibration" target="_blank">Meridian docs</a>; <a href="https://research.google/pubs/media-mix-model-calibration-with-bayesian-priors/" target="_blank">Google Research 2024</a>). <a href="https://getrecast.com/how-to-use-lift-tests-to-calibrate-an-mmm/" target="_blank">Kaminsky (2025)</a> advises to apply experiment’s full confidence interval, but only to MMM observations in which the experiment ran</li>
+<li>Model Selection: <a href="https://facebookexperimental.github.io/Robyn/docs/features/" target="_blank">Robyn</a> scores candidate models on ability to reproduce incrementality estimates, alongside business and statistical criteria (<a href="https://arxiv.org/abs/2403.14674" target="_blank">Runge et al.&nbsp;2024</a>)</li>
+<li>Experiments can enter the likelihood as observations, grounding each channel’s response curve using the experimental result (<a href="https://www.pymc-marketing.io/en/latest/notebooks/mmm/mmm_lift_test.html" target="_blank">PyMC-Marketing</a>)</li>
+</ul></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Prior-based and likelihood-based calibration deliver similar accuracy improvements (<a href="https://www.pymc-labs.com/blog-posts/mmm_roas_lift" target="_blank">Orduz 2024</a>)</p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://docs.getrecast.com/docs/experiments" target="_blank">See also Recast</a></p>
+</div>
+</section>
+<section id="unified-marketing-measurement" class="slide level2 medium">
+<h2>Unified Marketing Measurement</h2>
+<ul>
+<li>Management considers MMM, Experiments, Attributions, and Brand Lift Tests holistically, seeking to understand the relationships between them, and pros and cons of each, rather than giving primacy to any single measure in all situations (<a href="https://ipa.co.uk/knowledge/ipa-blog/making-measurement-triangulation-work" target="_blank">Andrew 2024</a>, <a href="https://lifesight.io/blog/unified-marketing-measurement-guide/" target="_blank">Maheswaran 2026</a>)</li>
+<li>When measures overlap, we can compare them directly, to estimate the bias of the less-credible measure. E.g., if an experiment result is half as large as a comparable attribution, then similar attributions might be deflated by 50%. The stability of intermeasure comparisons then becomes important</li>
+<li><a href="https://arxiv.org/abs/2304.06828" target="_blank">Gordon, Moakler &amp; Zettelmeyer (2026)</a> propose Predicted Incrementality by Experimentation (PIE) in which past campaigns with experiments are used to create a mapping from campaign features to ad effect estimates, then untested campaigns are scored based on the mapping. The model performs well out of sample, suggesting that mappings between experiments and other measurements can be stable</li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Challenges remain when mappings prove unstable or when insufficient past experiments exist</p>
+</div>
+</div>
+</div>
+</section>
+<section id="iteration" class="slide level2 medium">
+<h2>Iteration</h2>
+<ul>
+<li>Use MMM estimates to identify high-value experiments to invest in; which experiments would maximally inform our next MMM?</li>
+<li>Induce some randomness in ad spend by Channel/Time/Geo so that MMM can estimate causal parameters
+<ul>
+<li>Switchback design could be used to iterate between heavy and light spending levels</li>
+<li>A fixed proportion of MMM observations could be reserved for random deviations from optimal spending</li>
+<li>Approaches like these may require platform APIs to set campaign budgets at granular levels. Sophisticated buying requires expertise</li>
+</ul></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>All three integration approaches can be used simultaneously</p>
+</div>
+</div>
+</div>
+</section>
+<section id="incrementality-ne-optimality" class="slide level2">
+<h2>Incrementality <span class="math inline">\(\ne\)</span> Optimality</h2>
+<ul>
+<li>Incrementality asks whether the ads truly worked; optimality asks whether the ads maximized profit
+<ul>
+<li>A profitable channel may be overfunded or underfunded</li>
+</ul></li>
+<li>Experiments can inform profit maximization by measuring the profitability of acquired customers, not just their number
+<ul>
+<li>We can correlate customer margin, development, retention/churn, and CLV with changes in ad budgets by channel</li>
+<li>We can compare customer margin, development, retention/churn and CLV between experimental treatment and control cells</li>
+</ul></li>
+</ul>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>There has been limited public discussion about optimality to date. It should be the next frontier after incrementality is better established and managed</p>
+</div>
+</div>
 </div>
 </section>
 <section id="what-would-you-do" class="slide level2 smaller">
@@ -2089,14 +2274,11 @@
 <ul>
 <li>Common remedies: Experiments, Quasi-experiments, Correlations, Triangulate; Ignore</li>
 </ul></li>
+<li><p>Incrementality-based advertising measurement is a generational shift improving marketing profits, but we still have a long way to go</p></li>
 <li><p>Experiments are the gold standard, but are costly and challenging to design, implement and act on</p></li>
 <li><p>Ad effects are subtle but that does not imply unprofitable. Measurement is challenging but required to optimize profits</p></li>
 </ul>
-<div class="quarto-figure quarto-figure-right">
-<figure>
-<p><img data-src="AMimages/recap.png" class="quarto-figure quarto-figure-right" height="150"></p>
-</figure>
-</div>
+<p><img data-src="AMimages/recap-cropped.png" class="absolute" style="bottom: 8px; right: 20px; height: 42px; "></p>
 </section>
 <section id="resources-for-further-study" class="slide level2 smaller">
 <h2>Resources for Further Study</h2>
@@ -2107,7 +2289,6 @@
 <li><p><a href="https://arxiv.org/abs/1912.09012" target="_blank">Gordon et al.&nbsp;(2020)</a>: Discusses iROAS estimation challenges and remedies</p></li>
 <li><p><a href="https://arxiv.org/abs/2408.07678" target="_blank">Dew et al.&nbsp;(2024)</a>: Smart discussion of key MMM assumptions</p></li>
 <li><p><a href="https://direct.mit.edu/books/book/5468/The-Power-of-ExperimentsDecision-Making-in-a-Data" target="_blank">Luca &amp; Bazerman (2020)</a>: Goes deep on digital test-and-learn considerations</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=I6GyDWh8kfw" target="_blank">Athey &amp; Imbens (2024)</a>: on designing complex experiments</p></li>
 <li><p><a href="https://joel-barajas.github.io/kdd2021-incrementality-testing/" target="_blank">Barajas et al.&nbsp;(2021)</a>: Online Advertising Incrementality Testing And Experimentation: Industry Practical Lessons</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-right">
@@ -2116,10 +2297,28 @@
 </figure>
 </div>
 </section>
+<section id="admeas-the-game" class="slide level2">
+<h2>AdMeas, the Game</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="AMimages/admeasthegame.png" class="quarto-figure quarto-figure-center" height="340"></p>
+</figure>
+</div>
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Apply your understanding in AdMeas the Game. You’re Zippity’s first CMO, tasked with advertising budgets and measurement, to maximize company profit. Allocate money to two ad types in six channels, informed by attribution, experiments and MMM. Gameplay requires a code–students get it on <a href="https://rady.instructure.com/" target="_blank">Canvas</a>, anyone else can get one by messaging <a href="https://www.linkedin.com/in/kennethcwilbur" target="_blank">Ken on LinkedIn</a>.</p>
+</div>
+</div>
+</div>
+<div class="source-url">
+<p><a href="https://admeas-game.kennethcwilbur.workers.dev" target="_blank">https://admeas-game.kennethcwilbur.workers.dev</a></p>
+</div>
+</section>
 <section id="acknowledgements" class="slide level2">
 <h2>Acknowledgements</h2>
 <ul>
-<li>Joel Barajas, Rick Bruner, Peter Daboll, Tom Flanagan, and Prabhath Nanisetty for helpful comments</li>
+<li>Joel Barajas, Rick Bruner, Peter Daboll, Tom Flanagan, Carl Mela, Prabhath Nanisetty, and Koen Pauwels for helpful comments</li>
 <li>Colleagues and students who helped improve earlier versions</li>
 <li>Benedict Evans for inspiring the assertion-evidence slide format; McDermott &amp; Butts for the quarto theme</li>
 </ul>

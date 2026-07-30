@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Generic treasure map icon in the same minimal black line-art style as takingoff.png -->
+  <g fill="none" stroke="#000000" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- tri-fold map sheet -->
+    <path fill="#ffffff" d="M60 100 L190 125 L320 100 L450 125 L450 415 L320 390 L190 415 L60 390 Z"/>
+    <!-- fold lines -->
+    <line x1="190" y1="125" x2="190" y2="415"/>
+    <line x1="320" y1="100" x2="320" y2="390"/>
+    <!-- dashed route from start point to the X -->
+    <path stroke-dasharray="26 22" d="M105 345 C150 300 185 330 225 300 S280 235 330 240 S358 212 372 198"/>
+    <!-- start point -->
+    <circle cx="105" cy="345" r="13" fill="#ffffff"/>
+    <!-- X marks the spot -->
+    <g stroke-width="18">
+      <line x1="357" y1="162" x2="418" y2="223"/>
+      <line x1="418" y1="162" x2="357" y2="223"/>
+    </g>
+  </g>
+</svg>

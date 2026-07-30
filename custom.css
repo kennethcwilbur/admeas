@@ -43,6 +43,32 @@
   font-size: 0.9em;
 }
 
+/* Opt-in enlargement for sparse slides (counterpart to .smaller/.medium). Callouts inside
+   scale up proportionally via their em-relative sizes. Scoped: only slides carrying .large
+   in their header are affected. */
+.reveal .large {
+  font-size: 1.1em;
+}
+
+/* Companion to .medium: tighter list-item margins so dense bullet slides at 0.9em keep
+   their source-url link on the slide. Measured on "How Many False Positives?": default
+   li margins are 11.52px top + 5.76px bottom, pushing the source link 26px past the
+   slide edge; 0.2em (5.76px) each side reclaims ~58px. Line-height already computes
+   to 1.3 and is not the lever. Scoped: only slides carrying .medium in their header
+   are affected. !important for the usual theme-specificity reason. */
+.reveal .medium li {
+  margin-top: 0.2em !important;
+  margin-bottom: 0.2em !important;
+}
+
+/* Standalone version of .medium's li tightening, composable with an inline font-size on
+   the slide header (e.g. {.tight-li style="font-size: 0.93em;"}) for sizes between the
+   fixed .smaller/.medium/.large steps. Scoped: only slides carrying .tight-li. */
+.reveal .tight-li li {
+  margin-top: 0.2em !important;
+  margin-bottom: 0.2em !important;
+}
+
 /* Source URL styling - in flexbox flow, pushed to bottom */
 .reveal .source-url {
   margin-top: auto;
@@ -97,4 +123,77 @@
 .reveal .quarto-title-author-name a {
   color: #107895 !important;
   text-decoration: underline !important;
+}
+
+/* Slide with stacked images (Consumer Attention by Medium): collapse the vertical gaps
+   between the two images and between the lower image and the callout. Scoped to .tight-media
+   so no other slide is touched. display:block removes the inline descender space under each
+   image; margin:0 on the wrapping paragraphs removes the figure gaps. */
+.reveal .tight-media p {
+  margin: 0;
+}
+.reveal .tight-media p img {
+  display: block;
+  margin: 0 auto;
+}
+.reveal .tight-media .callout.callout-note {
+  margin-top: 0.3em;
+}
+
+/* Callouts on .smaller slides shrink twice: once from .smaller on the section, again from
+   the callout's own rule. They render at 15.68px against 22.4px everywhere else. This
+   cancels the .smaller multiplier for the callout only, so these slides' callouts match the
+   rest of the deck. !important is required because a higher-specificity theme rule sets the
+   callout size and otherwise wins over custom.css. Affects 8 slides. */
+.reveal .smaller .callout.callout-note {
+  font-size: 1em !important;
+}
+
+/* Escape hatch for a slide whose callout is too long to take the full size. Add
+   .callout-tight to the slide header alongside .smaller. Must stay after the rule above,
+   since both have the same specificity and the later one wins. */
+.reveal .callout-tight .callout.callout-note {
+  font-size: 0.7em !important;
+}
+
+/* Smaller opt-in callout for slides whose graphics need the vertical space (the two
+   Large Ad Seller chart slides). Add .callout-sm to the slide header. The nested
+   .fig-note scales down proportionally via its em-relative size. !important for the
+   same theme-specificity reason as above. */
+.reveal .callout-sm .callout.callout-note {
+  font-size: 0.55em !important;
+}
+
+/* Figure notes nested inside a callout box: below the callout text, smaller and lighter,
+   separated by a hairline rule. The color rules need !important to beat the callout-note
+   color rule above, which targets .callout-content p with !important. */
+.reveal .callout.callout-note .fig-note {
+  font-size: 0.78em;
+  line-height: 1.3;
+  margin-top: 0.45em;
+  padding-top: 0.35em;
+  border-top: 1px solid #d8d8d8;
+}
+
+.reveal .callout.callout-note .fig-note,
+.reveal .callout.callout-note .fig-note p {
+  color: #555555 !important;
+}
+
+.reveal .callout.callout-note .fig-note p {
+  margin: 0;
+}
+
+/* No slide number on the title slide; numbering starts at 1 on the slide after it.
+   The qmd YAML marks the title slide data-visibility="uncounted", which drops it from
+   Reveal's count. These rules hide the residual number it would still print.
+   First selector is the on-screen deck, second is the print-pdf export, where Reveal
+   copies .slide-number into each .pdf-page instead. The first selector must use the
+   child combinator: in print-pdf mode every slide carries .present, so a descendant
+   selector would match the whole deck and hide all 99 per-page number copies (which
+   live inside .pdf-page, not as direct children of .reveal). Print pages number
+   sequentially from the title page, so printed numbers run one above on-screen. */
+.reveal:has(#title-slide.present) > .slide-number,
+.pdf-page:has(#title-slide) .slide-number {
+  visibility: hidden;
 }
