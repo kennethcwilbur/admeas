@@ -21,9 +21,10 @@ format:
     include-in-header: gtag.html
 ---
 
-## What you will get from this deck
+## This Deck's Value Proposition {.medium}
 
 - One day soon, someone may ask, or tell, you how well the ads worked
+  - Advertising measurement is a hard, important, interesting problem without any general solution
 - After reading, you will be able to:
   - Identify incentive conflicts in the advertising supply chain
   - Describe pros & cons of major advertising measurement methods
@@ -692,8 +693,8 @@ Most large advertisers run both brand and performance campaigns; many believe th
 ## Ad Measurement {.medium}
 
 - *Advertising measurement* quantifies ad delivery, exposure and outcomes to improve advertising efforts
-    - Our focus here is on outcomes/conversions, as these inform future budget decisions
-    - Delivery and exposure matter most for brand ads. Principles include independence and transparency in measurement; these must be checked, cannot be assumed
+    - We focus on sales/conversions, as they matter most
+    - Brand campaign measurement usually focuses on cost and intermediate metrics such as attention and brand attitudes. General principles include independence and transparency in measurement; these must be checked, as they cannot be assumed
 - Advertising measurement is hard because ad effects depend on ad content, context, timing, targeting, current market conditions, ad prices, past advertising & past outcomes—all of which change
     - Shooting at a moving target
 - Advertising measurement is expensive:<br/>must *directly* inform future choices
@@ -814,7 +815,7 @@ Pioneering works: [Magee (1953)](https://pubsonline.informs.org/doi/abs/10.1287/
     - Aggregate data are privacy-compliant & do not usually require platform participation
 - Main predictors are ad spend or exposures in each channel, assuming diminishing marginal returns ("saturation") and possibly long-lasting ad effects ("carryover"); outcome is usually sales units, volume or revenue
 - MMM often controls for (a) time trends, (b) seasonality, (c) macroeconomic factors, (d) observable demand shifters, (e) competitor marketing
-- Outputs include ad elasticities, mROAS measures, counterfactual budget reallocations
+- Outputs include ad elasticities, correlational mROAS estimates, counterfactual budget reallocations
 
 ::: {.callout-note appearance="minimal"}
 In theory, MMM could be highly granular, such as hours and census blocks. However, compromises are required to balance data measurement intervals, refresh rates, accuracy and integrability.
@@ -1015,7 +1016,7 @@ That is supposed to be an ostrich sticking its head in the sand, suggesting a wi
 
 ![](AMimages/big_roas.png){.absolute bottom="0" right="20" height="156px"}
 
-# Causal Advertising Measurement
+# Causal Advertising Measurement {background-image="AMimages/xkcd_stats.png" background-size="386px 156px" background-position="right 45px bottom 10px"}
 
 - Experimental designs, necessary conditions, quasi-experiments
 
@@ -1030,22 +1031,38 @@ That is supposed to be an ostrich sticking its head in the sand, suggesting a wi
 In science, *Causal* means we isolate the treatment effect from known confounds *and* from unknown confounds. Often misinterpreted as evidence consistent with a hypothesis, a much lower bar which is prone to motivated reasoning
 :::
 
-## Popular ad experiments {.tight-li style="font-size: 0.88em;"}
+## Popular ad experiments {.medium}
 
-1. Randomly assign ads eligibility / holdout to customer groups
-    - Pros: A/B testing is easy to understand, rules out alternate explanations
-    - Cons: Can we trust the platform's "black box"? Will we get the data and all available insights?
+1. Going-dark design. Randomly withhold ads. Estimates iROAS
 
-2. Randomize messages within a campaign. Mine competitor messages in [ad libraries](https://indicator.media/p/a-guide-to-investigating-digital){target="_blank"} for ideas
-    - Often a great place to start as it's nominally free.
-    - Advertising professionals frequently believe that creative messages are first-order drivers of ad effects (e.g., [Circana 2023](https://www.circana.com/post/brand-loyalty-impact-on-sales){target="_blank"}, [Kantar 2024](https://www.kantar.com/north-america/inspiration/advertising-media/what-do-the-most-creative-and-effective-digital-and-tv-ads-do-differently){target="_blank"}, [Magna+Yahoo 2025](https://ipg-wp-media-mgl-glb.s3.us-east-2.amazonaws.com/magna/wp-content/uploads/2023/04/27162350/MAGNA-Yahoo-Creative-the-Performance-Powerhouse.pdf){target="_blank"})
+2. Weight test: Randomize spending between high-spend and low-spend treatments. Estimates incremental mROAS
 
-3. Geo-Experiment: Randomize budget across geos/time, including "going-dark" designs, "weight tests"
+3. Randomize messages within a campaign
+    - Nominally free; Mine competitor messages in [ad libraries](https://indicator.media/p/a-guide-to-investigating-digital){target="_blank"} for ideas
+    - Advertising pros often believe that creative messages are first-order drivers of ad effects (e.g., [Circana 2023](https://www.circana.com/post/brand-loyalty-impact-on-sales){target="_blank"}, [Kantar 2024](https://www.kantar.com/north-america/inspiration/advertising-media/what-do-the-most-creative-and-effective-digital-and-tv-ads-do-differently){target="_blank"}, [Magna+Yahoo 2025](https://ipg-wp-media-mgl-glb.s3.us-east-2.amazonaws.com/magna/wp-content/uploads/2023/04/27162350/MAGNA-Yahoo-Creative-the-Performance-Powerhouse.pdf){target="_blank"})
 
-4. Randomize budget across platforms, publishers, times, places, behavioral targets, contexts
+4. Randomize budget across platforms, publishers, behavioral targets, contexts
+
+::: {.callout-note appearance="minimal"}
+Geo-experiments randomize treatments across places (e.g., cities) and time periods. Consumer-level experiments usually randomize treatments across devices, accounts or cookies. Geo-Experiments have been around forever, but often return inconclusive results. Consumer-level randomization became widespread with the internet, but it too may yield inconclusive results. [Lewis and Rao (2015)](https://drive.google.com/file/d/12TZb4l40abpHoD0kU_tbDm-j1qFjmOD7/view?usp=sharing){target="_blank"} taught us that the challenge in both cases involves low response rates and noisy environments
+:::
 
 ::: {.source-url style="font-size: 0.765em;"}
 [Recast (2026)](https://research.getrecast.com/geolift-sim-study){target="_blank"} uses simulation to evaluate popular geo-experiment packages, including its own
+:::
+
+## Different Designs Estimate Different Things
+
+::: {style="margin: -12px 0 0 0; text-align: center;"}
+![](AMimages/estimand_goingdark.png){height="320px" style="margin: 0 2px;"} ![](AMimages/estimand_weighttest.png){height="320px" style="margin: 0 2px;"} ![](AMimages/estimand_multicell.png){height="320px" style="margin: 0 2px;"}
+:::
+
+::: {.callout-note appearance="minimal" style="margin-top: -2px; font-size: 0.68em;"}
+Going-dark design estimates iROAS: the causal effect of all observed advertising vs. zero advertising. It quantifies campaign performance overall, but cannot say whether spending level was optimal<br>Weight-test design estimates (approximate) incremental mROAS: can inform spending decisions, but does not focus on overall profitability<br>Multi-cell weight tests can estimate both iROAS and incremental mROAS, but spread sample across more treatments<br>The challenge is to estimate both the height and the curvature of the response curve<br>Recall that MMM can estimate correlational mROAS; incremental mROAS is the causal counterpart
+:::
+
+::: {.source-url style="font-size: 0.50em;"}
+[Waisman and Gordon (2025)](https://arxiv.org/pdf/2302.13857){target="_blank"}
 :::
 
 ## Experimental Necessary Conditions {.smaller}
@@ -1120,6 +1137,7 @@ In science, *Causal* means we isolate the treatment effect from known confounds 
 3. No true control
     - If an experiment changes ads, and ads change demand, then demand may change optimal recommendations, prices, reviews, inventory, competitor actions or other market signals, which then affect both treatment and control cells ([Sahni 2016](https://journals.sagepub.com/doi/10.1509/jmr.14.0274){target="_blank"}, [Blake & Coey 2014](https://dominiccoey.github.io/assets/papers/marketplace_experiments.pdf){target="_blank"}, [Du et al. 2019](https://drive.google.com/file/d/1V9TYcKEw3RSxytTkk8W7RIM7p2uL-WD9/view?usp=drive_link){target="_blank"})
     - [Identity fragmentation](https://www.mile.tech/blog/identity-matching-adtech){target="_blank"} means a user may be in both cells on different devices ([Lin & Misra 2022](https://arxiv.org/abs/2008.12849){target="_blank"})
+    - In going-dark designs, carryover effects from pre-experimental campaigns can bias control-cell sales upwards
 
 ::: {.callout-note appearance="minimal"}
 [Johnson (2023)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396){target="_blank"} reviews best practices for digital advertising experiments.
@@ -1127,7 +1145,7 @@ In science, *Causal* means we isolate the treatment effect from known confounds 
 
 ## Problems with Ad Experiments {.medium}
 
-4. Silent failure of other necessary conditions
+4. Silent failure of other conditions
     - Ad fraud, ad blocking, non-visibility & non-attention: All cause noncompliance & distort analyses ([Johnson 2023](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3581396){target="_blank"})
     - Divergent delivery ([Braun & Schwartz 2025](https://drive.google.com/file/d/11BhiE3wJqaKQ9S73Mjt1hbZJRhkvZvv5/view?usp=drive_link){target="_blank"})
 5. Costs & biases: Large experiments are too costly to run continuously
@@ -1222,7 +1240,11 @@ See also [Shapiro (2018)](https://drive.google.com/file/d/1iIKeBlhpJhjGDq_UE8AVK
     - Will lead us astray when not valid
     - Are easy to apply even when invalid
     - Range from challenging-to-validate to impossible-to-validate
-- Experiments & quasi-experiments should be "yes-and-when-valid," not "either-or"
+- E & Q-E should be "yes-and-when-valid," not "either-or"
+
+::: {.source-url}
+[Imbens and Xu (2025)](https://pubs.aeaweb.org/doi/pdf/10.1257/jep.20251440){target="_blank"} cover vitally important Q-E credibility checks
+:::
 
 # Who experiments and why?
 
@@ -1339,10 +1361,10 @@ Prior-based and likelihood-based calibration deliver similar accuracy improvemen
 
 - Management considers MMM, Experiments, Attributions, and Brand Lift Tests holistically, seeking to understand the relationships between them, and pros and cons of each, rather than giving primacy to any single measure in all situations ([Andrew 2024](https://ipa.co.uk/knowledge/ipa-blog/making-measurement-triangulation-work){target="_blank"}, [Nair 2026](https://lifesight.io/wp-content/uploads/the-rise-of-unified-marketing-measurement.pdf){target="_blank"})
 - When measures overlap, we can compare them directly, to estimate the bias of the less-credible measure. E.g., if an experiment result is half as large as a comparable attribution, then similar attributions might be deflated by 50%. The stability of intermeasure comparisons then becomes important
-- [Gordon, Moakler & Zettelmeyer (2026)](https://arxiv.org/abs/2304.06828){target="_blank"} propose Predicted Incrementality by Experimentation (PIE) in which past campaigns with experiments are used to create a mapping from campaign features to ad effect estimates, then untested campaigns are scored based on the mapping. The model performs well out of sample, suggesting that mappings between experiments and other measurements can be stable
+- [Gordon, Moakler & Zettelmeyer (2026)](https://arxiv.org/abs/2304.06828){target="_blank"} propose Predicted Incrementality by Experimentation (PIE) in which (1) past campaigns with experiments are used to estimate how campaign features predict incremental ad effects, then (2) estimates are used to predict untested campaigns' incrementality. The model generalized well to nontraining campaigns. [PyMC-Marketing](https://pypi.org/project/pymc-marketing/){target="_blank"} includes an open-source implementation
 
 ::: {.callout-note appearance="minimal"}
-Challenges remain when mappings prove unstable or when insufficient past experiments exist
+PIE stability should be tested in each instance, not assumed
 :::
 
 ## Iteration {.medium}
