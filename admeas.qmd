@@ -1376,23 +1376,42 @@ PIE stability should be tested in each instance, not assumed
     - Approaches like these may require platform APIs to set campaign budgets at granular levels. Sophisticated buying requires expertise
 
 ::: {.callout-note appearance="minimal"}
-All three integration approaches can be used simultaneously
+All integration approaches can be used simultaneously
 :::
 
 ## Frontier Topics {.medium}
 
-- Incrementality $\ne$ Optimality
-    - Incrementality asks whether the ads truly worked; optimality asks whether the ads maximized profit
-    - How do we learn profit-maximizing combinations of Message, Target, Media, Context, Ad Price, Ad Frequency?
-- Optimal Brand Advertising Measurement
-    - How to maximize loyalty, minimize price response
-- Incrementality in Time
-    - Can we distinguish purely incremental purchases from time-accelerated purchases that would have occurred later?
+- Optimal Brand Advertising Measurement: How to maximize loyalty, minimize price response
+- Incrementality in Time: Can we distinguish purely incremental purchases from time-accelerated purchases that would have occurred later?
     - Requires counterfactual predictions of *future* events ([Lambrecht, Tucker & Zhang 2024](https://lbsresearch.london.edu/id/eprint/2886/7/lambrecht-et-al-2023-tv-advertising-and-online-sales-a-case-study-of-intertemporal-substitution-effects-for-an-online.pdf){target="_blank"})
+- Incrementality $\ne$ Optimality: Incrementality asks whether the ads truly worked; optimality asks whether the ads maximized profit
+    - How do we learn profit-maximizing combinations of Message, Target, Media, Context, Ad Price, Ad Frequency?
 - How best to integrate quasi-experimental analyses
+- How to choose experiments to maximize learning value ([Epanomeritakis & Viviano 2026](https://arxiv.org/pdf/2510.23434){target="_blank"})
 
 ::: {.callout-note appearance="minimal"}
-There has been limited public discussion about optimality to date. It should be the next frontier after incrementality is better established and integrated
+Optimality should be the next frontier after incrementality is better established and integrated
+:::
+
+## Frontier: Causal Brand Ad Measurement {.smaller}
+
+- Brand ads are designed to work over a long time horizon, but maintaining a long-term control condition is very expensive and often impossible
+    - May violate experimental necessary conditions, e.g., SUTVA
+    - Most marketers test brand ads before they run, rely on correlational brand ad measurement, and/or don't causally measure brand ads
+- Most promising imho: Test how brand ad spend changes causal performance ad effects
+    - Performance ads can be hard to scale due to increasing CAC, and 'fishing out the pond'
+    - Using upper-funnel ads to 'warm up' the target predicts a brand $\times$ performance interaction
+    - Brand ads tend to be beautiful and clear; performance ads often look cheap or tacky; performance ads alone might be a local maximum
+    - Some sophisticated companies started as performance-only & later became huge brand advertisers; how do you think they justify it internally?
+
+![](AMimages/brand-opens-door-2panel-vertical.svg){.absolute bottom="10" right="10" height="190px"}
+
+::: {.callout-note appearance="minimal" style="width: 78%;"}
+Ad measurement debates often confuse absence of evidence with evidence of absence. As a performance marketer, it can be uncomfortable to acknowledge that we cannot reasonably estimate causal brand ad effects. But does that mean the effects are zero? Can we know that?
+:::
+
+::: {.source-url}
+[Laads (2015)](https://www.laadsmarketing.com/the-man-in-the-chairyesterday-and-today/){target="_blank"}
 :::
 
 ## What would you do? {.smaller}

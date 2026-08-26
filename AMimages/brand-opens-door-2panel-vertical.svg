@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 720" width="620" height="720">
+  <defs>
+    <linearGradient id="doorGradV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffef8"/>
+      <stop offset="100%" stop-color="#f5f0e0"/>
+    </linearGradient>
+    <filter id="softShadowV" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="620" height="720" fill="#ffffff"/>
+
+  <!-- ============ PANEL 1 (top): performance alone, door closed ============ -->
+  <line x1="30" y1="315" x2="590" y2="315" stroke="#888888" stroke-width="2"/>
+
+  <!-- Closed door -->
+  <g filter="url(#softShadowV)">
+    <rect x="430" y="70" width="130" height="245" fill="url(#doorGradV)" stroke="#888888" stroke-width="2" rx="4"/>
+  </g>
+  <rect x="445" y="90" width="100" height="95" fill="none" stroke="#d8d0b8" stroke-width="2" rx="3"/>
+  <rect x="445" y="200" width="100" height="95" fill="none" stroke="#d8d0b8" stroke-width="2" rx="3"/>
+  <circle cx="448" cy="193" r="6" fill="#888888"/>
+  <circle cx="495" cy="130" r="5" fill="#888888"/>
+
+  <!-- Performance salesperson alone (muted teal suit), flat mouth -->
+  <g>
+    <circle cx="250" cy="155" r="28" fill="#fffef8" stroke="#2d4a3e" stroke-width="3"/>
+    <circle cx="242" cy="149" r="3" fill="#333333"/>
+    <circle cx="258" cy="149" r="3" fill="#333333"/>
+    <line x1="240" y1="167" x2="260" y2="167" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+    <!-- suit: jacket body, shirt V, tie, lapels -->
+    <rect x="215" y="188" width="70" height="122" rx="17" fill="#2d4a3e"/>
+    <polygon points="234,189 266,189 250,220" fill="#fffef8"/>
+    <polygon points="247,191 253,191 251,215 249,215" fill="#1d3329"/>
+    <line x1="234" y1="189" x2="248" y2="208" stroke="#1d3329" stroke-width="3"/>
+    <line x1="266" y1="189" x2="252" y2="208" stroke="#1d3329" stroke-width="3"/>
+    <line x1="283" y1="215" x2="330" y2="235" stroke="#2d4a3e" stroke-width="10" stroke-linecap="round"/>
+    <g filter="url(#softShadowV)" transform="rotate(4 345 255)">
+      <rect x="320" y="225" width="52" height="64" rx="3" fill="#fffef8" stroke="#888888" stroke-width="2"/>
+      <line x1="328" y1="240" x2="364" y2="240" stroke="#aaaaaa" stroke-width="2"/>
+      <line x1="328" y1="253" x2="364" y2="253" stroke="#aaaaaa" stroke-width="2"/>
+      <line x1="328" y1="266" x2="364" y2="266" stroke="#aaaaaa" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Bubble -->
+  <g filter="url(#softShadowV)">
+    <rect x="70" y="28" width="250" height="72" rx="12" fill="#ffffff" stroke="#2d4a3e" stroke-width="2.5"/>
+    <polygon points="215,100 240,100 230,126" fill="#ffffff" stroke="#2d4a3e" stroke-width="2.5"/>
+    <rect x="218" y="96" width="19" height="6" fill="#ffffff"/>
+  </g>
+  <text x="195" y="76" font-family="Comic Sans MS, cursive" font-size="40" fill="#333333" text-anchor="middle">10% off?</text>
+
+  <!-- Panel divider -->
+  <line x1="20" y1="360" x2="600" y2="360" stroke="#cccccc" stroke-width="2" stroke-dasharray="9 7"/>
+
+  <!-- ============ PANEL 2 (bottom): brand left, performance right, door open ============ -->
+  <line x1="30" y1="685" x2="590" y2="685" stroke="#888888" stroke-width="2"/>
+
+  <!-- Open door frame with customer -->
+  <g filter="url(#softShadowV)">
+    <rect x="430" y="455" width="130" height="230" fill="url(#doorGradV)" stroke="#888888" stroke-width="2" rx="4"/>
+  </g>
+  <polygon points="560,455 585,470 585,700 560,685" fill="#f5f0e0" stroke="#888888" stroke-width="2"/>
+  <circle cx="567" cy="575" r="5" fill="#888888"/>
+
+  <!-- Customer (female, muted brown dress), smiling in doorway -->
+  <g>
+    <!-- hair: cap behind head plus side locks -->
+    <ellipse cx="495" cy="520" rx="31" ry="30" fill="#5c3d3d"/>
+    <rect x="462" y="515" width="13" height="40" rx="6" fill="#5c3d3d"/>
+    <rect x="513" y="515" width="13" height="40" rx="6" fill="#5c3d3d"/>
+    <circle cx="495" cy="525" r="25" fill="#fffef8" stroke="#5c3d3d" stroke-width="3"/>
+    <circle cx="487" cy="519" r="3" fill="#333333"/>
+    <circle cx="503" cy="519" r="3" fill="#333333"/>
+    <path d="M 483 532 Q 495 544 507 532" fill="none" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+    <!-- A-line dress -->
+    <path d="M 478 552 Q 495 547 512 552 L 533 671 Q 495 679 457 671 Z" fill="#5c3d3d"/>
+  </g>
+
+  <!-- Brand salesperson (muted indigo suit), LEFT, waving toward the door -->
+  <g>
+    <circle cx="105" cy="515" r="28" fill="#fffef8" stroke="#3d3a5c" stroke-width="3"/>
+    <circle cx="97" cy="509" r="3" fill="#333333"/>
+    <circle cx="113" cy="509" r="3" fill="#333333"/>
+    <path d="M 94 524 Q 105 535 116 524" fill="none" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+    <!-- suit -->
+    <rect x="70" y="548" width="70" height="130" rx="17" fill="#3d3a5c"/>
+    <polygon points="89,549 121,549 105,580" fill="#fffef8"/>
+    <polygon points="102,551 108,551 106,575 104,575" fill="#2a2740"/>
+    <line x1="89" y1="549" x2="103" y2="568" stroke="#2a2740" stroke-width="3"/>
+    <line x1="121" y1="549" x2="107" y2="568" stroke="#2a2740" stroke-width="3"/>
+    <line x1="138" y1="570" x2="185" y2="535" stroke="#3d3a5c" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <!-- Performance salesperson (muted teal suit), RIGHT of brand, smiling, order form out -->
+  <g>
+    <circle cx="270" cy="525" r="28" fill="#fffef8" stroke="#2d4a3e" stroke-width="3"/>
+    <circle cx="262" cy="519" r="3" fill="#333333"/>
+    <circle cx="278" cy="519" r="3" fill="#333333"/>
+    <path d="M 259 533 Q 270 544 281 533" fill="none" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+    <!-- suit -->
+    <rect x="235" y="558" width="70" height="120" rx="17" fill="#2d4a3e"/>
+    <polygon points="254,559 286,559 270,590" fill="#fffef8"/>
+    <polygon points="267,561 273,561 271,585 269,585" fill="#1d3329"/>
+    <line x1="254" y1="559" x2="268" y2="578" stroke="#1d3329" stroke-width="3"/>
+    <line x1="286" y1="559" x2="272" y2="578" stroke="#1d3329" stroke-width="3"/>
+    <line x1="303" y1="585" x2="348" y2="602" stroke="#2d4a3e" stroke-width="10" stroke-linecap="round"/>
+    <g filter="url(#softShadowV)" transform="rotate(4 362 625)">
+      <rect x="336" y="595" width="52" height="64" rx="3" fill="#fffef8" stroke="#888888" stroke-width="2"/>
+      <line x1="344" y1="610" x2="380" y2="610" stroke="#aaaaaa" stroke-width="2"/>
+      <line x1="344" y1="623" x2="380" y2="623" stroke="#aaaaaa" stroke-width="2"/>
+      <line x1="344" y1="636" x2="380" y2="636" stroke="#aaaaaa" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Brand bubble -->
+  <g filter="url(#softShadowV)">
+    <rect x="22" y="382" width="290" height="70" rx="12" fill="#ffffff" stroke="#3d3a5c" stroke-width="2.5"/>
+    <polygon points="95,452 120,452 108,482" fill="#ffffff" stroke="#3d3a5c" stroke-width="2.5"/>
+    <rect x="98" y="448" width="19" height="6" fill="#ffffff"/>
+  </g>
+  <text x="167" y="430" font-family="Comic Sans MS, cursive" font-size="38" fill="#333333" text-anchor="middle">You know us!</text>
+
+  <!-- Performance bubble, same quote as panel 1 -->
+  <g filter="url(#softShadowV)">
+    <rect x="330" y="392" width="230" height="70" rx="12" fill="#ffffff" stroke="#2d4a3e" stroke-width="2.5"/>
+    <polygon points="355,462 380,462 305,497" fill="#ffffff" stroke="#2d4a3e" stroke-width="2.5"/>
+    <rect x="358" y="458" width="19" height="6" fill="#ffffff"/>
+  </g>
+  <text x="445" y="440" font-family="Comic Sans MS, cursive" font-size="40" fill="#333333" text-anchor="middle">10% off?</text>
+</svg>
