@@ -55,36 +55,46 @@ For 70 years, between $0.95-1.50 of every $100 spent in America bought an ad. Th
 Around 1 out of every \$100 spent in the US buys an ad. Appears to tally ad seller revenues, excluding ad supply chain fees.
 :::
 
-## Online Ad Revenues, 2021-2025
+## More Recent Online Ad Revenues
 
-![](AMimages/IARRgrowthbyformat2021-25-cropped.png){fig-align="center" height="400px"}
+:::: {.columns}
+
+::: {.column width="54%"}
+![](AMimages/IARRgrowthbyformat2021-25-cropped.png){fig-align="center" height="370px"}
+:::
+
+::: {.column width="46%"}
+![](AMimages/emarketer_us_ad_spend_by_company_2019_2025.jpg){fig-align="center" height="370px"}
+:::
+
+::::
 
 ::: {.callout-note appearance="minimal"}
 These data expand the Internet bar. The Interactive Advertising Bureau (IAB) collects ad sales revenue by format from online ad sellers and supply chain firms. Total spending grew from $179.4B in 2021 to $282.2B in 2025, 0.92% of gross domestic product (GDP). What else do you see?
 :::
 
 ::: {.source-url}
-[IAB (2026)](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf){target="_blank"}
+Left: [IAB (2026)](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf){target="_blank"}. Right: [EMARKETER (Dec 2025), via Hanzlik (2026)](https://www.linkedin.com/posts/vladhanzlik_many-people-assume-amazon-google-and-meta-activity-7439279754484183041-cN9B){target="_blank"}
 :::
 
 ::: notes
 Revenue growth remains substantial
 :::
 
-## Large Ad Seller Revenues as % of US GDP, 2011-2025 {.callout-sm}
+## Ad Sales Revenue as % of Global GDP, 2011-2025 {.callout-sm}
 
-![](AMimages/bigsellers_adshare_2011_2025.png){fig-align="center" height="350px"}
+![](AMimages/bigsellers_adshare_world_2011_2025.png){fig-align="center" height="350px"}
 
 :::: {.callout-note appearance="minimal"}
 Online advertising sales are increasingly dominated by a few large firms; the top 3 sold $559.5B in ads globally in 2025. We used to call them "the duopoly," but now we call them "the triopoly."
 
 ::: {.fig-note}
-The numerator is advertising revenue only, not total company revenue. Each firm reports it as a separate line in its 10-K revenue note — Alphabet's "Google advertising" (Search & other, YouTube ads, Google Network), Meta's "Advertising," Amazon's "Advertising services," and Microsoft's "Search and news advertising." In 2025 those lines were 73%, 98%, 10% and 5% of each firm's total revenue, so the chart is not a ranking of company size. The denominator is US nominal GDP. Amazon's line starts at its first disclosure (2019); Microsoft is plotted at June fiscal years; its FY2014–15 points are inferred from growth rates disclosed in those years' 10-Ks, which reported no levels.
+The numerator is advertising revenue only, not total company revenue. Each firm reports it as a separate line in its 10-K revenue note — Alphabet's "Google advertising" (Search & other, YouTube ads, Google Network), Meta's "Advertising," Amazon's "Advertising services," and Microsoft's "Search and news advertising." In 2025 those lines were 73%, 98%, 10% and 5% of each firm's total revenue, so the chart is not a ranking of company size. The denominator is global nominal GDP. Amazon's line starts at its first disclosure (2019); Microsoft is plotted at June fiscal years; its FY2014–15 points are inferred from growth rates disclosed in those years' 10-Ks, which reported no levels.
 :::
 ::::
 
 ::: {.source-url}
-Data: company 10-K filings; BEA NIPA Table 1.1.5. Chart concept: [Marto and Le (2024)](https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications){target="_blank"}
+Data: company 10-K filings; [World Bank WDI](https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=1W){target="_blank"}. Chart concept: [Marto and Le (2024)](https://www.stlouisfed.org/on-the-economy/2024/oct/rise-digital-advertising-economic-implications){target="_blank"}
 :::
 
 ::: notes
@@ -307,7 +317,7 @@ Big examples include Amazon and Walmart among others
 ![](AMimages/admeas_fraud-cropped.png){fig-align="center" height="420px"}
 
 ::: {.callout-note appearance="minimal"}
-Advertising value delivered is hard to detect, but advertising remains lightly regulated, so fraud is a first-order issue. 3 main types: Fraudulent ads delivered to consumers; fraudulent audiences increasing brand payments to publishers/supply chain (e.g., made-for-advertising, or [MFA](https://www.ana.net/content/show/id/pr-2023-09-made-for-advertising){target="_blank"}, sites); and supply-chain participants stealing from each other. Verification firms (e.g., Integral Ad Science) try to detect problems but high-profile failures have occurred. Career professionals believe fraud funds organized crime and hostile governments.
+Advertising value delivered is hard to detect, but advertising remains lightly regulated, so fraud is a first-order issue. 3 main types: Fraudulent ads delivered to consumers; fraudulent audiences increasing brand payments to publishers/supply chain (e.g., [MFA](https://www.ana.net/content/show/id/pr-2023-09-made-for-advertising){target="_blank"}, made-for-advertising, AKA made-for-arbitrage, sites); and supply-chain participants stealing from each other. Verification firms (e.g., Integral Ad Science) try to detect problems but high-profile failures have occurred. Career professionals believe fraud funds organized crime and hostile governments.
 :::
 
 ::: {.source-url}
@@ -340,7 +350,7 @@ Advertising value delivered is hard to detect, but advertising remains lightly r
 ![](AMimages/ad_gross_profit_by_sector.png){fig-align="center" height="420px"}
 
 ::: {.callout-note appearance="minimal" style="font-size: 0.75em;"}
-The average US corporation spends about 3.1% of gross margin on advertising deductions. Gross margin ranges from 3-5x net margin, so the modal firm could increase net margin by 10.3-18.5% by setting ads to zero (i.e. 100/(100-9.3) to 100/(100-15.5)). Or could it? What would happen to top line revenue and cost efficiencies? [2 missing data points were withheld by source for confidentiality purposes]
+The average US corporation spends about 3.1% of gross profit on advertising deductions. Gross profit usually ranges from 3-5x net profit, so the modal firm could increase net profit by 10.3-18.5% by setting ads to zero (i.e. 100/(100-9.3) to 100/(100-15.5)). Or could it? What would happen to top line revenue and cost efficiencies? [2 missing data points were withheld by source for confidentiality purposes]
 :::
 
 ::: {.source-url}
@@ -423,7 +433,7 @@ This chart shows a near-perfect correlation between margarine consumption and di
 ![](AMimages/BingRevenueTooHighTreatment.png){fig-align="center" height="400px"}
 
 ::: {.callout-note appearance="minimal"}
-This A/B test triggered a "revenue too high" alert at Microsoft Bing in 2012. The treatment improved horizontal space usage and enlarged a selling argument in search ads. It increased revenue 12%—over \$100 million per year—without harming user experience metrics.
+This A/B test triggered a "revenue too high" alert at Microsoft Bing in 2012. The treatment improved horizontal space usage, enlarged a selling argument, and expanded the clickable surface in search ads. It increased revenue 12%—over \$100 million per year—without harming user experience metrics.
 :::
 
 ::: {.source-url}
